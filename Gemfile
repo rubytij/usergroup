@@ -16,6 +16,13 @@ end
 gem 'rspec-rails', :group => [ :test, :development ]
 gem 'jquery-rails'
 
+group :test do
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'mocha'
+end
+
 group :development do
   gem 'sqlite3'
 end
