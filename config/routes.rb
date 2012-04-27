@@ -1,4 +1,14 @@
 UserGroup::Application.routes.draw do
+  get "post/index"
+
+  get "post/edit"
+
+  get "post/show"
+
+  get "post/new"
+
+  get "post/delete"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
