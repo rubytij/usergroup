@@ -4,6 +4,7 @@ gem 'rails', '3.2.3'
 gem 'json'
 gem 'capistrano'
 gem 'haml-rails'
+gem 'redcarpet'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
