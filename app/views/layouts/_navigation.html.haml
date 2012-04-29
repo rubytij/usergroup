@@ -5,7 +5,7 @@
       %ul.nav.pull-right
         %li.divider-vertical
         - unless current_user
-          %li= link_to t('user.sessions.sign_in_with_github'), '/auth/github'
+          %li= link_to t('user.sessions.sign_in'), '/auth/github'
         - else
           %li.dropdown
             %a.dropdown-toggle{ :'data-toggle' => :dropdown, :href => '#' }

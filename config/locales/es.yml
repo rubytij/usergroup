@@ -4,5 +4,5 @@ es:
     registrations:
       show: 'Perfil'
     sessions:
-      sign_in_with_github: 'Iniciar sesión con GitHub'
+      sign_in: 'Iniciar sesión con GitHub'
       destroy: 'Cerrar sesión'
