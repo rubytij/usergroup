@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-  validates :github_uid, :username, :email, :uniqueness => true, :presence => true
+  validates :github_uid, :username, :uniqueness => true, :presence => true
+  validates :email, :format => { :with => /\A[^@]+@[^@]+\z/ }, :uniqueness => true, :allow_blank => true
 
   attr_accessible :avatar_url, :email, :name, :site_url, :username, :github_uid
 

@@ -4,8 +4,18 @@ describe User do
   before { @user = Factory.create :user }
 
   describe 'email' do
-    it 'must be present' do
+    it 'can be blank' do
+      user = Factory.build :user, :email => ''
+      user.should be_valid
+    end
+
+    it 'can be nil' do
       user = Factory.build :user, :email => nil
+      user.should be_valid
+    end
+
+    it 'must be properly formatted' do
+      user = Factory.build :user, :email => 'asdas'
       user.should be_invalid
     end
 
