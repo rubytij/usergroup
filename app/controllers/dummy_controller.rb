@@ -1,0 +1,3 @@
+class DummyController < ApplicationController
+
+end

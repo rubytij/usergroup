@@ -5,12 +5,16 @@ gem 'json'
 gem 'capistrano'
 gem 'haml-rails'
 gem 'acl9'
+gem 'system_timer'
+gem 'omniauth', :git => 'git://github.com/intridea/omniauth.git'
+gem 'omniauth-github'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'therubyracer', :platform => :ruby
   gem 'uglifier', '>= 1.0.3'
+  gem 'compass-rails'
   gem 'bootstrap-sass'
 end
 
