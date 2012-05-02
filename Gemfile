@@ -4,7 +4,7 @@ gem 'rails', '3.2.3'
 gem 'json'
 gem 'capistrano'
 gem 'haml-rails'
-gem 'system_timer', :platforms => [:ruby_18]
+gem 'system_timer', :platform => :ruby_18
 gem 'omniauth', :git => 'git://github.com/intridea/omniauth.git'
 gem 'omniauth-github'
 
