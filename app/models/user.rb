@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  acts_as_authorization_subject :association_name => :roles, :join_table_name => :roles_users
   validates :github_uid, :username, :uniqueness => true, :presence => true
   validates :email, :format => { :with => /\A[^@]+@[^@]+\z/ }, :uniqueness => true, :allow_blank => true
 

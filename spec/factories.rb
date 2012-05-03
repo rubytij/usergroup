@@ -15,11 +15,20 @@ FactoryGirl.define do
     "11#{n}"
   end
 
+  sequence :role_name do |n|
+    "role_#{n}"
+  end
+
   factory :user do
     email       { Factory.next :email }
     username    { Factory.next :username }
     github_uid  { Factory.next :uid }
     name        'Super developer'
+    roles       { |r| [Factory.build :role] }
+  end
+
+  factory :role do
+    name { Factory.next :role_name }
   end
 
   factory :post do

@@ -91,4 +91,11 @@ describe User do
       @user.posts.should == [ newer_post, older_post ]
     end
   end
+
+  describe ".roles" do
+    it "includes roles assigned" do
+      user = Factory.create( :user, :roles => 3.times.map{ Factory.create( :role ) } )
+      user.roles.count.should eq(3)
+    end
+  end
 end

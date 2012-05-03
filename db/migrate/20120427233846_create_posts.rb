@@ -6,6 +6,7 @@ class CreatePosts < ActiveRecord::Migration
       t.integer :user_id, :null   => false
       t.timestamps
     end
+
+    add_index :posts, [ :user_id, :title ]
   end
-  add_index :posts, [ :user_id, :title ]
 end
