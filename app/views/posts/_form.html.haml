@@ -1,5 +1,4 @@
-= simple_form_for @post do |f|
-  =f.input :name
-  =f.input :title
-  =f.input :content
-  =f.submit
+= simple_form_for [ current_user, post ] do |f|
+  = f.input :title
+  = f.input :content
+  = f.submit
