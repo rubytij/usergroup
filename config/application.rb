@@ -59,3 +59,5 @@ module UserGroup
     config.assets.precompile += %w/application.css Markdown.Editor.css/
   end
 end
+
+require File.join( Rails.root, 'lib', 'extensions', 'exceptions' )
