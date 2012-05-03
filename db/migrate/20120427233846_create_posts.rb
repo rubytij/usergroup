@@ -1,10 +1,11 @@
 class CreatePosts < ActiveRecord::Migration
   def change
     create_table :posts do |t|
-      t.string :name
-      t.string :title
-      t.text :content
+      t.string  :title,   :unique => true
+      t.text    :content, :null   => false
+      t.integer :user_id, :null   => false
       t.timestamps
     end
   end
+  add_index :posts, [ :user_id, :title ]
 end

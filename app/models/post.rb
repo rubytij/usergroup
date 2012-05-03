@@ -1,6 +1,9 @@
 class Post < ActiveRecord::Base
-  attr_accessible :name, :title, :content
-  validates :name, :presence => true
-  validates :title, :presence => true
-  validates :content, :presence => true
+  attr_accessible :title, :content
+  belongs_to :user
+
+  validates :title, :content, :user_id, :presence => true
+  validates :title, :uniqueness => true
+
+  default_scope :order => "created_at DESC"
 end

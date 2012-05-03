@@ -3,6 +3,10 @@ FactoryGirl.define do
     "user#{n}"
   end
 
+  sequence :title do |n|
+    "theme #{n}"
+  end
+
   sequence :email do |n|
     "user#{n}@email.com"
   end
@@ -16,5 +20,11 @@ FactoryGirl.define do
     username    { Factory.next :username }
     github_uid  { Factory.next :uid }
     name        'Super developer'
+  end
+
+  factory :post do
+    title       { Factory.next :title }
+    content     "Lorem ipsum"
+    user
   end
 end
