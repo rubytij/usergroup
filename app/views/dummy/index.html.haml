@@ -1,15 +1,1 @@
-.wmd-panel
-  #wmd-button-bar
-  %textarea#wmd-input.wmd-input
-    This is the *first* editor.
-    ------------------------------
 
-    Just plain **Markdown**, except that the input is sanitized:
-#wmd-preview.wmd-panel.wmd-preview
-
-:javascript
-  (function () {
-    var converter  = Markdown.getSanitizingConverter();
-    var editor     = new Markdown.Editor( converter );
-    editor.run();
-  })();

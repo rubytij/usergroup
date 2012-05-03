@@ -1,4 +1,6 @@
 = simple_form_for [ current_user, post ] do |f|
   = f.input :title
-  = f.input :content
+  .wmd-panel
+    #wmd-button-bar
+    = f.input :content, :label => false, :input_html => { :id => 'wmd-input', :class => 'wmd-input' }
   = f.submit
