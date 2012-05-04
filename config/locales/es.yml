@@ -9,3 +9,25 @@ es:
   posts:
     messages:
       create_success: 'El post se creo correctamente'
+
+  attributes:
+    name: Nombre
+    email: Correo electrónico
+    title: Titulo
+    content: Contenido
+
+  actions:
+    new: Nuevo %{item}
+
+  activerecord:
+    models:
+      user: Usuario
+      post: Articulo
+    attributes:
+      user:
+        github_uid: UID
+        username: Nombre de Usuario
+        site_url: Blog
+        banned_at: Expulsado en
+      post:
+        user: Creador

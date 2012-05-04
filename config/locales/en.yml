@@ -6,3 +6,13 @@ en:
     sessions:
       sign_in: 'Sign in with GitHub'
       destroy: 'Sign out'
+
+  actions:
+    new: New %{item}
+
+  activerecord:
+    models:
+    attributes:
+      user:
+        github_uid: UID
+        site_url: Blog

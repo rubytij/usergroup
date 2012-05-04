@@ -7,6 +7,8 @@
         - unless current_user
           %li= link_to t('user.sessions.sign_in'), '/auth/github'
         - else
+          %ul.nav
+            %li= link_to t('actions.new', :item => t('activerecord.models.post') ), new_post_path
           %li.dropdown
             %a.dropdown-toggle{ :'data-toggle' => :dropdown, :href => '#' }
               = t 'user.account'
