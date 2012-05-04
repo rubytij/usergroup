@@ -1,0 +1,42 @@
+<%
+  if _bare_host = @host.match( /^(?:www)\.(.*)/ )
+    _bare_host = _bare_host[1]
+  end
+
+  def _vhost
+    <<__EOI
+  root #{ @public };
+  passenger_enabled on;
+
+  rack_env #{ Rails.env };
+  passenger_friendly_error_pages #{ Rails.env.production? ? "off" : "on" };
+
+  access_log #{ @log }/nginx_access.log;
+  error_log #{ @log }/nginx_error.log warn;
+
+  error_page 401 403 404  /404.html;
+
+  error_page   500 502 503 504  /50x.html;
+  location = /50x.html {
+     root   html;
+  }
+__EOI
+  end
+
+  if _bare_host.present? %>
+
+server {
+  listen 80;
+  server_name <%= _bare_host %>;
+  rewrite ^(.*) http://<%= @host %>$1 permanent;
+}
+<% end %>
+
+server {
+  listen       80;
+  server_name  <%= @host %><%= " *.#{_bare_host}" if Rails.env.development? %>;
+
+<%= _vhost %>
+}
+# vim: set filetype=nginx
+
