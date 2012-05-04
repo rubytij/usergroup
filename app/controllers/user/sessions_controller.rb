@@ -4,7 +4,7 @@ class User::SessionsController < ApplicationController
     user = User.find_by_github_uid( omniauth['uid'] ) || User.create_from_github( omniauth )
     session[:user_id] = user.id
 
-    redirect_to root_path
+    redirect_to :back
   end
 
   def destroy

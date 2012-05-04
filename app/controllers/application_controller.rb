@@ -14,6 +14,6 @@ class ApplicationController < ActionController::Base
   end
 
   def unauthenticated_access
-    render :file => 'public/404', :format => :html
+    render :file => 'public/404', :format => :html, :status => :not_found
   end
 end

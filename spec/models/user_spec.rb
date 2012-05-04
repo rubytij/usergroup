@@ -92,7 +92,7 @@ describe User do
     end
   end
 
-  describe ".roles" do
+  describe "roles association" do
     it "includes roles assigned" do
       user = Factory.create( :user, :roles => 3.times.map{ Factory.create( :role ) } )
       user.roles.count.should eq(3)
