@@ -6,6 +6,8 @@ describe PostsController do
   end
 
   describe "new" do
+    before { PostsController.any_instance.stubs( :current_user ).returns @user }
+
     it "should response successfully" do
       get :new
       response.status.should be( 200 )
