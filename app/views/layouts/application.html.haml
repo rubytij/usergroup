@@ -7,6 +7,7 @@
 
     = stylesheet_link_tag    "application", 'Markdown.Editor', :media => "all"
     = javascript_include_tag "application"
+    = yield :head
     = csrf_meta_tags
 
     %meta{ :name => :viewport, :content => 'width=device-width, initial-scale=1.0' }
