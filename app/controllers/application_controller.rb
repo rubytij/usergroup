@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   helper_method :current_user
-
-  rescue_from UserGroup::UserNotAuthenticated, :with => :unathenticated_access
+  rescue_from UserGroup::UserNotAuthenticated, :with => :unauthenticated_access
 
   protect_from_forgery
 
