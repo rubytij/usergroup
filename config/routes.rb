@@ -5,7 +5,7 @@ UserGroup::Application.routes.draw do
     resource :session, :only => [ :create, :destroy ]
   end
 
-  resources :section
+  resources :sections
 
   root :to => 'dummy#index'
 end
