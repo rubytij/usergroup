@@ -19,16 +19,12 @@ FactoryGirl.define do
     "section_#{n}"
   end
 
-  sequence :url_friendly_name do |n|
-    "friendly_name#{n}"
-  end
-
   factory :user do
     email       { Factory.next :email }
     username    { Factory.next :username }
     github_uid  { Factory.next :uid }
     name        'Super developer'
-    roles       { |r| [Factory.build :role] }
+    #roles       { |r| [Factory.build :role] }
   end
 
   factory :role do
@@ -37,7 +33,6 @@ FactoryGirl.define do
 
   factory :section do
     name              { Factory.next :section_name }
-    url_friendly_name { Factory.next :url_friendly_name }
     description       "Section Description"
   end
 end

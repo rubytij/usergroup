@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120503045313) do
+ActiveRecord::Schema.define(:version => 20120505024841) do
+
+  create_table "posts", :force => true do |t|
+    t.string   "name"
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "roles", :force => true do |t|
     t.string   "name",              :limit => 40
@@ -27,14 +35,12 @@ ActiveRecord::Schema.define(:version => 20120503045313) do
   end
 
   create_table "sections", :force => true do |t|
-    t.string "name",              :null => false
-    t.string "url_friendly_name", :null => false
+    t.string "name",        :null => false
     t.string "description"
     t.string "status"
   end
 
   add_index "sections", ["name"], :name => "index_sections_on_name", :unique => true
-  add_index "sections", ["url_friendly_name"], :name => "index_sections_on_url_friendly_name", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "github_uid",     :null => false

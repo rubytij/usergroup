@@ -6,7 +6,7 @@ describe Section do
   describe 'name' do
     it "must be present" do
       section = Factory.build :section, :name => ''
-      section.should be_valid
+      section.should be_invalid
     end
 
     it "can't be nil" do
@@ -16,23 +16,6 @@ describe Section do
 
     it "must be unique" do
       section = Factory.build :section, :name => @section.name
-      section.should be_invalid
-    end
-  end
-
-  describe "url_friendly_name" do
-    it "must be present" do
-      section = Factory.build :section, :url_friendly_name => ''
-      section.should be_invalid
-    end
-
-    it "can't be nil" do
-      section = Factory.build :section, :url_friendly_name => nil
-      section.should be_invalid
-    end
-
-    it "must be unique" do
-      section = Factory.build :section, :url_friendly_name => @section.url_friendly_name
       section.should be_invalid
     end
   end
