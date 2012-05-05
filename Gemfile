@@ -24,6 +24,7 @@ group :assets do
 end
 
 gem 'rspec-rails', :group => [ :test, :development ]
+gem 'single_test', :group => [ :test, :development ]
 gem 'jquery-rails'
 
 group :test do

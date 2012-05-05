@@ -54,12 +54,37 @@ describe PostsController do
   end
 
   describe 'not filtered by users' do
-    before { 15.times { Factory.create :post, :user => @user } }
+    before { 5.times { |n| Factory.create :post, :user => @user, :tag_list => "tag#{n}" } }
 
     it 'should render all posts paginated' do
       get :index
       posts = assigns( :posts )
-      posts.count.should eql( 10 )
+      posts.count.should eql( 5 )
+    end
+
+    it 'should filter by tag' do
+      get :index, :tag => 'tag1'
+      posts = assigns( :posts )
+      posts.count.should eql( 1 )
+    end
+  end
+
+  describe 'filtered by user' do
+    before  { 2.times { |n| Factory.create :post, :user => @user, :tag_list => "tag#{n}" } }
+
+    it 'should suceed' do
+      get :index, :user_id => @user
+      posts = assigns( :posts )
+      posts.count.should eql( 2 )
+      response.status.should eql( 200 )
+      response.should render_template( 'index' )
+    end
+
+    it 'should filter by tag' do
+      get :index, :user_id => @user, :tag => 'tag1'
+      posts = assigns( :posts )
+      posts.count.should eql( 1 )
+      response.status.should eql( 200 )
     end
   end
 end

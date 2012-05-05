@@ -9,4 +9,11 @@ class Post < ActiveRecord::Base
   attr_accessible :title, :content, :tag_list
 
   acts_as_taggable
+
+  def self.user_filtered user, tag=nil
+    posts = user ? user.posts : self
+    return posts unless tag.present?
+
+    posts.tagged_with tag
+  end
 end
