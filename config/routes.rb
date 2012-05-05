@@ -9,7 +9,7 @@ UserGroup::Application.routes.draw do
     resources :posts, :only => :show
   end
 
-  resources :posts, :only => [ :new, :create, :edit, :update ]
+  resources :posts, :only => [ :new, :create, :edit, :update, :index ]
 
-  root :to => 'dummy#index'
+  root :to => 'posts#index'
 end
