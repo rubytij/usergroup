@@ -2,10 +2,14 @@ UserGroup::Application.routes.draw do
   match "auth/:provider/callback" => "user/sessions#create"
 
   namespace :user do
-    resource :session, :only => [ :create, :destroy ]
+    resource :session, :only => [ :create, :destroy ] do
+      collection do
+        get :login, :as => :new
+      end
+    end
   end
 
-  resources :users, :only => [ :show ] do
+  resources :users, :only => [ ] do
     resources :posts, :only => :show
   end
 

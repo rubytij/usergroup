@@ -5,7 +5,7 @@
       %ul.nav.pull-right
         %li.divider-vertical
         - unless current_user
-          %li= link_to t('user.sessions.sign_in'), '/auth/github'
+          %li= link_to t('user.sessions.sign_in'), new_user_session_path( :return_to => current_path )
         - else
           %ul.nav
             %li= link_to t('actions.new', :item => t('activerecord.models.post') ), new_post_path
