@@ -52,4 +52,14 @@ describe PostsController do
       end
     end
   end
+
+  describe 'not filtered by users' do
+    before { 15.times { Factory.create :post, :user => @user } }
+
+    it 'should render all posts paginated' do
+      get :index
+      posts = assigns( :posts )
+      posts.count.should eql( 10 )
+    end
+  end
 end

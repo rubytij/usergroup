@@ -10,8 +10,17 @@ es:
     messages:
       create_success: 'El post se creo correctamente'
 
+  navigation:
+    posts: Articulos
+    talks: Reuniones
+
   hints:
     tags: Separa las etiquetas por comas.
+
+  will_paginate:
+    next_label: siguiente →
+    page_gap: ! '&hellip;'
+    previous_label: ← atrás
 
   attributes:
     name: Nombre

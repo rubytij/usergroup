@@ -10,10 +10,10 @@ UserGroup::Application.routes.draw do
   end
 
   resources :users, :only => [ ] do
-    resources :posts, :only => :show
+    resources :posts, :only => [ :index, :show ]
   end
 
-  resources :posts, :only => [ :new, :create, :edit, :update ]
+  resources :posts, :only => [ :index, :new, :create, :edit, :update ]
 
   root :to => 'dummy#index'
 end

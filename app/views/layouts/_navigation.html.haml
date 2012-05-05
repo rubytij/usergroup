@@ -7,6 +7,9 @@
       = link_to 'RubyTij', root_path, :class => :brand
 
       .nav-collapse
+        %ul.nav.pull-left
+          %li= link_to t('navigation.posts'), posts_path
+
         %ul.nav.pull-right
           - unless current_user
             %li.divider-vertical

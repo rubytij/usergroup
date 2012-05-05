@@ -1,9 +1,16 @@
 class PostsController < ApplicationController
-  before_filter :authenticate_user!, :only => [ :new, :create ]
+  before_filter :authenticate_user!,    :only => [ :new, :create ]
+  before_filter :find_user_with_params, :only => [ :show, :index ]
+
+  def index
+    @user ||= current_user
+    posts   = @user.posts
+    posts   = posts.tagged_with params[:tag] if params[:tag].present?
+    @posts  = posts.paginate :page => params[:page], :per_page => 10
+  end
 
   def show
-    user  = User.find params[:user_id]
-    @post = user.posts.find params[:id]
+    @post = @user.posts.find params[:id]
   end
 
   def new
@@ -19,5 +26,10 @@ class PostsController < ApplicationController
     else
       render :new
     end
+  end
+
+  private
+  def find_user_with_params
+    @user = User.find( params[:user_id] ) if params[:user_id].present?
   end
 end

@@ -1,2 +1,9 @@
+.tag_cloud {
+  a.frozen { font-size: 1.0em; }
+  a.cold { font-size: 1.2em; }
+  a.warm { font-size: 1.4em; }
+  a.hot-tamale { font-size: 1.6em; }
+}
+
 @import 'bootstrap';
 @import 'bootstrap-responsive';

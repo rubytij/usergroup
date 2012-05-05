@@ -43,6 +43,8 @@ GEM
     arel (3.0.2)
     blankslate (2.1.2.4)
     bootstrap-sass (2.0.2)
+    bootstrap-will_paginate (0.0.7)
+      will_paginate
     builder (3.0.0)
     capistrano (2.12.0)
       highline
@@ -232,6 +234,7 @@ DEPENDENCIES
   acl9
   acts-as-taggable-on (~> 2.2.2)
   bootstrap-sass
+  bootstrap-will_paginate
   capistrano
   capybara
   coffee-rails (~> 3.2.1)
@@ -256,4 +259,3 @@ DEPENDENCIES
   system_timer
   therubyracer
   uglifier (>= 1.0.3)
-  will_paginate
