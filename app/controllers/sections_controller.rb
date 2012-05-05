@@ -10,17 +10,17 @@ class SectionsController < ApplicationController
   end
 
   def create
-    @section = Section.new(params[:post])
+    @section = Section.new(params[:section])
 
     if @section.save
       flash[:success] = t 'sections.messages.create_success'
-      redirect_to section_path, @section
+      redirect_to @section
     else
       render :new
     end
   end
 
   def show
-    section = Section.find params[:id]
+    @section = Section.find params[:id]
   end
 end

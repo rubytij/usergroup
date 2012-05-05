@@ -1,4 +1,6 @@
 %h1= @section.name
 
 = content_tag_for :div, @section do
-  = @section.content
+  %div= @section.name
+  %div= @section.url_friendly_name
+  %div= @section.description
