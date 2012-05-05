@@ -9,6 +9,8 @@ gem 'acl9'
 gem 'omniauth', :git => 'git://github.com/intridea/omniauth.git'
 gem 'omniauth-github'
 gem 'simple_form'
+gem 'redcarpet'
+gem 'pygments.rb'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

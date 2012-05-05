@@ -16,7 +16,7 @@ module UserGroup
     # -- all .rb files in that directory are automatically loaded.
 
     # Custom directories with classes and modules you want to be autoloadable.
-    # config.autoload_paths += %W(#{config.root}/extras)
+    config.autoload_paths += %W(#{config.root}/lib/extensions)
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
@@ -56,7 +56,21 @@ module UserGroup
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
-    config.assets.precompile += %w/application.css Markdown.Editor.css/
+    config.assets.precompile += %w/application.css Markdown.Editor.css desert.css/
+
+    $markdown_extensions = {
+        :autolink             => true,
+        :no_intra_emphasis    => true,
+        :fenced_code_blocks   => true,
+        :space_after_headers  => true,
+        :superscript          => true,
+      }
+
+    $render_options = {
+      :filter_html    => true,
+      :hard_wrap      => true,
+      :with_toc_data  => true,
+    }
   end
 end
 

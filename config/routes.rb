@@ -5,7 +5,7 @@ UserGroup::Application.routes.draw do
     resource :session, :only => [ :create, :destroy ]
   end
 
-  resources :users, :only => [] do
+  resources :users, :only => [ :show ] do
     resources :posts, :only => :show
   end
 
