@@ -25,6 +25,14 @@ describe PostsController do
         response.should render_template( :new )
       end
     end
+
+    describe 'index' do
+      it 'should response succesfully' do
+        get :index
+        response.status.should eql( 200 )
+        response.should render_template('index')
+      end
+    end
   end
 
   describe 'not logged in' do
@@ -49,6 +57,14 @@ describe PostsController do
         get :show, :user_id => @user, :id => Factory.create( :post, :user => @user )
         response.status.should eql( 200 )
         response.should render_template( 'show' )
+      end
+    end
+
+    describe 'index' do
+      it 'should response succesfully' do
+        get :index
+        response.status.should eql( 200 )
+        response.should render_template('index')
       end
     end
   end
