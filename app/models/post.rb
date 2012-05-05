@@ -6,5 +6,7 @@ class Post < ActiveRecord::Base
 
   default_scope :order => "created_at DESC"
 
-  attr_accessible :title, :content
+  attr_accessible :title, :content, :tag_list
+
+  acts_as_taggable
 end

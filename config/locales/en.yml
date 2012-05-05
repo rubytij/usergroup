@@ -10,6 +10,9 @@ en:
   actions:
     new: New %{item}
 
+  hints:
+    tags: Separate tags by commas.
+
   activerecord:
     models:
     attributes:

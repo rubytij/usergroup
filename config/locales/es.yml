@@ -10,6 +10,9 @@ es:
     messages:
       create_success: 'El post se creo correctamente'
 
+  hints:
+    tags: Separa las etiquetas por comas.
+
   attributes:
     name: Nombre
     email: Correo electrónico
@@ -31,3 +34,4 @@ es:
         banned_at: Expulsado en
       post:
         user: Creador
+        tag_list: Etiquetas

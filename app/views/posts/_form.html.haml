@@ -3,4 +3,6 @@
   .wmd-panel
     #wmd-button-bar
     = f.input :content, :label => false, :input_html => { :id => 'wmd-input', :class => 'wmd-input' }
+
+  = f.input :tag_list, :hint =>  t('hints.tags')
   = f.button :submit

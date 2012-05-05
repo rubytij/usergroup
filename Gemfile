@@ -11,6 +11,8 @@ gem 'omniauth-github'
 gem 'simple_form'
 gem 'redcarpet'
 gem 'pygments.rb'
+gem 'will_paginate'
+gem 'acts-as-taggable-on', '~> 2.2.2'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -33,6 +35,7 @@ end
 
 group :development do
   gem 'sqlite3'
+  gem 'pry-rails'
 end
 
 group :production do
