@@ -7,4 +7,8 @@ class Post < ActiveRecord::Base
   default_scope :order => "created_at DESC"
 
   attr_accessible :title, :content
+
+  def self.latest( limit = 10 )
+    find(:all, :limit => limit).reverse
+  end
 end

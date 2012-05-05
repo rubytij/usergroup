@@ -1,0 +1,8 @@
+%h1 Posts
+%hr
+
+- @posts.each do |p|
+  %h2
+    =p.title
+  %div.post-content
+    =p.content

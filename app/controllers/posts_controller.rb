@@ -1,6 +1,14 @@
 class PostsController < ApplicationController
   before_filter :authenticate_user!, :only => [ :new, :create ]
 
+  def index
+    if current_user
+      @posts = current_user.posts
+    else
+      @posts = Post.latest
+    end
+  end
+
   def show
     user  = User.find params[:user_id]
     @post = user.posts.find params[:id]
