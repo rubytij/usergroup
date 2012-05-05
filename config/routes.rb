@@ -5,5 +5,11 @@ UserGroup::Application.routes.draw do
     resource :session, :only => [ :create, :destroy ]
   end
 
-  root :to => 'dummy#index'
+  resources :users, :only => [] do
+    resources :posts, :only => :show
+  end
+
+  resources :posts, :only => [ :new, :create, :edit, :update, :index ]
+
+  root :to => 'posts#index'
 end

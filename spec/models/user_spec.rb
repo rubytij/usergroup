@@ -68,7 +68,31 @@ describe User do
     end
   end
 
-  describe ".roles" do
+  describe 'posts associations' do
+    it "should be an array" do
+      @user.posts.is_a?(Array).should be_true
+    end
+
+    it "can have posts" do
+      post = Factory.create( :post, :user => @user )
+      @user.posts.include?( post ).should be_true
+      @user.posts.count.should be(1)
+    end
+
+    it "can create posts" do
+      @user.posts.should be_empty
+      @user.posts.create( :title => "foo", :content => 'Lorem ipsum' )
+      @user.posts.should_not be_empty
+    end
+
+    it "should have post in the right order" do
+      older_post = Factory.create( :post, :user => @user, :created_at => 1.day.ago )
+      newer_post = Factory.create( :post, :user => @user, :created_at => 1.hour.ago )
+      @user.posts.should == [ newer_post, older_post ]
+    end
+  end
+
+  describe "roles association" do
     it "includes roles assigned" do
       user = Factory.create( :user, :roles => 3.times.map{ Factory.create( :role ) } )
       user.roles.count.should eq(3)

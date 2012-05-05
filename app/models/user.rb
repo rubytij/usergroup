@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
 
   attr_accessible :avatar_url, :email, :name, :site_url, :username, :github_uid
 
+  has_many :posts
+
   def self.create_from_github( omniauth )
     user_info = omniauth['info']
     extras    = omniauth['extra']['raw_info']
