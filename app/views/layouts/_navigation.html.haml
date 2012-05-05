@@ -1,18 +1,24 @@
-.navbar.navbar-fixed-top
+.navbar
   .navbar-inner
     .container
+      %a.btn.btn-navbar{ 'data-toggle' => :collapse, 'data-target' => '.nav-collapse' }
+        - 3.times do
+          %span.icon-bar
       = link_to 'RubyTij', root_path, :class => :brand
-      %ul.nav.pull-right
-        %li.divider-vertical
-        - unless current_user
-          %li= link_to t('user.sessions.sign_in'), new_user_session_path( :return_to => current_path )
-        - else
-          %ul.nav
-            %li= link_to t('actions.new', :item => t('activerecord.models.post') ), new_post_path
-          %li.dropdown
-            %a.dropdown-toggle{ :'data-toggle' => :dropdown, :href => '#' }
-              = t 'user.account'
-              %b.caret
-            %ul.dropdown-menu
-              %li= link_to t('user.registrations.show'), '#'
-              %li= link_to t('user.sessions.destroy'), user_session_path, :method => :delete
+
+      .nav-collapse
+        %ul.nav.pull-right
+          - unless current_user
+            %li.divider-vertical
+            %li= link_to t('user.sessions.sign_in'), new_user_session_path( :return_to => current_path )
+          - else
+            %ul.nav
+              %li= link_to t('actions.new', :item => t('activerecord.models.post') ), new_post_path
+              %li.divider-vertical
+            %li.dropdown
+              %a.dropdown-toggle{ :'data-toggle' => :dropdown, :href => '#' }
+                = t 'user.account'
+                %b.caret
+              %ul.dropdown-menu
+                %li= link_to t('user.registrations.show'), '#'
+                %li= link_to t('user.sessions.destroy'), user_session_path, :method => :delete
