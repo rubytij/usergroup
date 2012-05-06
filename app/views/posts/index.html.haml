@@ -1,6 +1,6 @@
 .row-fluid
-  .span2
-    .tag_cloud= render 'shared/posts/tag_cloud'
   .span10
     = render @posts
     = will_paginate @posts
+  .span2
+    .tag_cloud= render 'shared/posts/tag_cloud'

@@ -36,6 +36,7 @@ en:
 
   activerecord:
     models:
+      post: Post
     attributes:
       user:
         github_uid: UID

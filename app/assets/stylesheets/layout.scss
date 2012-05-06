@@ -1,8 +1,34 @@
+@import 'compass';
+
+$tag_cloud: #bbb;
+
 .tag_cloud {
-  a.frozen { font-size: 1.0em; }
-  a.cold { font-size: 1.2em; }
-  a.warm { font-size: 1.4em; }
-  a.hot-tamale { font-size: 1.6em; }
+  a.frozen {
+    font-size: 1.0em;
+    color: $tag_cloud;
+  }
+
+  a.cold {
+    font-size: 1.2em;
+    color: darken( $tag_cloud, 25% );
+  }
+
+  a.warm {
+    font-size: 1.4em;
+    color: darken( $tag_cloud, 50% );
+  }
+
+  a.hot-tamale {
+    font-size: 1.6em;
+    color: darken( $tag_cloud, 75% );
+  }
+}
+
+img.profile {
+  @include border-radius( 50% );
+  @include box-shadow( 1px 2px 5px #888 );
+  background-color: #333;
+  display: block;
 }
 
 @import 'bootstrap';
