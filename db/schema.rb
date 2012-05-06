@@ -11,15 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120505024841) do
+ActiveRecord::Schema.define(:version => 20120505223935) do
 
-  create_table "posts", :force => true do |t|
-    t.string   "name"
+  create_table "pages", :force => true do |t|
+    t.string   "name",           :null => false
+    t.integer  "section_id",     :null => false
     t.string   "title"
+    t.string   "tags"
     t.text     "content"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_on"
+    t.integer  "created_by"
+    t.datetime "last_update"
+    t.integer  "last_update_by"
   end
+
+  add_index "pages", ["name"], :name => "index_pages_on_name", :unique => true
 
   create_table "roles", :force => true do |t|
     t.string   "name",              :limit => 40

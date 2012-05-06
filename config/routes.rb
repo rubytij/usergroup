@@ -6,6 +6,7 @@ UserGroup::Application.routes.draw do
   end
 
   resources :sections
+  resources :pages
 
   root :to => 'dummy#index'
 end
