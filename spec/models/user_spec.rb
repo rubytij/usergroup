@@ -98,4 +98,16 @@ describe User do
       user.roles.count.should eq(3)
     end
   end
+
+  describe 'gravatar_url' do
+    before { @user.update_attributes! :gravatar_token => '30f39a09e233e8369dddf6feb4be0308' }
+
+    it 'should return gravatar url' do
+      @user.gravatar_url.should =~ /30f39a09e233e8369dddf6feb4be0308/
+    end
+
+    it 'should return with desired size' do
+      @user.gravatar_url(64).should =~ /s=64/
+    end
+  end
 end

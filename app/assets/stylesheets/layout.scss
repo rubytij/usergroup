@@ -24,7 +24,7 @@ $tag_cloud: #bbb;
   }
 }
 
-img.profile {
+img.avatar {
   @include border-radius( 50% );
   @include box-shadow( 1px 2px 5px #888 );
   background-color: #333;

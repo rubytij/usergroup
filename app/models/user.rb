@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   validates :github_uid, :username, :uniqueness => true, :presence => true
   validates :email, :format => { :with => /\A[^@]+@[^@]+\z/ }, :uniqueness => true, :allow_blank => true
 
-  attr_accessible :avatar_token, :email, :name, :site_url, :username, :github_uid
+  attr_accessible :gravatar_token, :email, :name, :site_url, :username, :github_uid
 
   has_many :posts
 

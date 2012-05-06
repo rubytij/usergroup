@@ -1,5 +1,5 @@
 .span1
-  = image_tag post.user.gravatar_url( 80 ), :class => :profile, :alt => post.user.username
+  = image_tag post.user.gravatar_url( 80 ), :class => :avatar, :alt => post.user.username
 .span8
   = content_tag_for :div, post do
     %h1= post.title
