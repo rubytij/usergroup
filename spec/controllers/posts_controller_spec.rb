@@ -25,6 +25,23 @@ describe PostsController do
         response.should render_template( :new )
       end
     end
+
+    describe 'update an existing posts' do
+      before { @post = Factory.create :post, :user => @user }
+
+      it 'should render edit' do
+        get :edit, :id => @post
+        response.status.should eql( 200 )
+        response.should render_template( :edit )
+      end
+
+      it 'should update and redirect' do
+        @post.tags.should be_empty
+        put :update, :id => @post, :post => { :tag_list => 'updated' }
+        response.should redirect_to( user_post_path @user, @post )
+        @post.reload.tags.count.should eql( 1 )
+      end
+    end
   end
 
   describe 'not logged in' do
