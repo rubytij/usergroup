@@ -20,7 +20,6 @@ FactoryGirl.define do
     username    { Factory.next :username }
     github_uid  { Factory.next :uid }
     name        'Super developer'
-    roles       { |r| [Factory.build :role] }
   end
 
   factory :role do
