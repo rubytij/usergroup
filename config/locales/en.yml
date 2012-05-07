@@ -12,11 +12,15 @@ en:
 
   actions:
     new: New %{item}
+    delete: Delete %{item}
     read_more: Read More
 
   navigation:
     Posts: Articles
     talks: Talks
+
+  messages:
+    confirmation: Are you sure?
 
   hints:
     tags: Separate tags by commas.

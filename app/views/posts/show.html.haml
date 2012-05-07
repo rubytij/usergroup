@@ -1,4 +1,14 @@
-%h1= @post.title
+.row-fluid
+  .span2
+    .author_info
+      = image_tag @post.author_gravatar_url( 80 ), :class => :avatar, :alt => @post.author_username
 
-= content_tag_for :div, @post do
-  = markdown( @post.content )
+      - if is_author? @post
+        = link_to post_path( @post ), :class => 'btn btn-danger', :method => :delete, :confirm => t('messages.confirmation') do
+          %i.icon-remove.icon-white
+          = t 'actions.delete', :item => t('activerecord.models.post')
+
+  .span10
+    %h1= @post.title
+    = content_tag_for :div, @post do
+      = markdown @post.content

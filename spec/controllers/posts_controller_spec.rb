@@ -26,7 +26,7 @@ describe PostsController do
       end
     end
 
-    describe 'update an existing posts' do
+    describe 'with existing post' do
       before { @post = Factory.create :post, :user => @user }
 
       it 'should render edit' do
@@ -40,6 +40,12 @@ describe PostsController do
         put :update, :id => @post, :post => { :tag_list => 'updated' }
         response.should redirect_to( user_post_path @user, @post )
         @post.reload.tags.count.should eql( 1 )
+      end
+
+      it 'should destroy existing post' do
+        delete :destroy, :id => @post
+        response.should redirect_to( posts_path )
+        Post.count.should eql( 0 )
       end
     end
   end

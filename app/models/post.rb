@@ -7,7 +7,7 @@ class Post < ActiveRecord::Base
   validates :title, :uniqueness => true
 
   delegate :username,     :to => :user, :prefix => :author
-  delegate :gravatar_url, :to => :user, :prefix => true
+  delegate :gravatar_url, :to => :user, :prefix => :author
 
   scope :latest, order( 'created_at DESC' )
 

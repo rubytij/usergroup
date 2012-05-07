@@ -13,6 +13,9 @@ es:
     posts: Articulos
     talks: Reuniones
 
+  messages:
+    confirmation: ¿Estás seguro?
+
   hints:
     tags: Separa las etiquetas por comas.
 
@@ -29,6 +32,7 @@ es:
 
   actions:
     new: Nuevo %{item}
+    delete: Eliminar %{item}
     read_more: Leer más
 
   activerecord:
