@@ -31,5 +31,9 @@ img.avatar {
   display: block;
 }
 
+.post {
+  min-height: 120px;
+}
+
 @import 'bootstrap';
 @import 'bootstrap-responsive';

@@ -84,12 +84,6 @@ describe User do
       @user.posts.create( :title => "foo", :content => 'Lorem ipsum' )
       @user.posts.should_not be_empty
     end
-
-    it "should have post in the right order" do
-      older_post = Factory.create( :post, :user => @user, :created_at => 1.day.ago )
-      newer_post = Factory.create( :post, :user => @user, :created_at => 1.hour.ago )
-      @user.posts.should == [ newer_post, older_post ]
-    end
   end
 
   describe "roles association" do

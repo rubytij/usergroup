@@ -13,7 +13,7 @@ UserGroup::Application.routes.draw do
     resources :posts, :only => [ :index, :show ]
   end
 
-  resources :posts, :only => [ :index, :new, :create, :edit, :update ]
+  resources :posts, :except => [ :show ]
 
   root :to => 'dummy#index'
 end

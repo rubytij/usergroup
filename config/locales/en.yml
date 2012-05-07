@@ -7,6 +7,9 @@ en:
       sign_in: 'Sign in with GitHub'
       destroy: 'Sign out'
 
+  posts:
+    authored_by: Authored by %{author} about %{time}
+
   actions:
     new: New %{item}
 

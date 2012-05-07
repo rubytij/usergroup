@@ -7,8 +7,7 @@ es:
       sign_in: 'Iniciar sesión con GitHub'
       destroy: 'Cerrar sesión'
   posts:
-    messages:
-      create_success: 'El post se creo correctamente'
+    authored_by: Escrito por %{author} hace %{time}
 
   navigation:
     posts: Articulos

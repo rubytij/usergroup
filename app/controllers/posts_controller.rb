@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_filter :authenticate_user!,    :only => [ :new, :create ]
   before_filter :find_user_with_params, :only => [ :show, :index ]
+  before_filter :find_post,             :only => [ :edit, :update, :destroy ]
 
   def index
     @posts = Post.user_filtered( @user, params[:tag] ).paginate :page => params[:page], :per_page => 10
@@ -25,7 +26,19 @@ class PostsController < ApplicationController
     end
   end
 
+  def update
+    if @post.update_attributes params[:post]
+      redirect_to user_post_path current_user, @post
+    else
+      render :edit
+    end
+  end
+
   private
+  def find_post
+    @post = current_user.posts.find params[:id]
+  end
+
   def find_user_with_params
     @user = User.find( params[:user_id] ) if params[:user_id].present?
   end

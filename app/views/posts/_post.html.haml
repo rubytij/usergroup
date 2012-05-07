@@ -1,6 +1,7 @@
 .span1
-  = image_tag post.user.gravatar_url( 80 ), :class => :avatar, :alt => post.user.username
+  = image_tag post.user_gravatar_url( 80 ), :class => :avatar, :alt => post.author_username
 .span8
   = content_tag_for :div, post do
     %h1= post.title
-    = markdown post.content
+    %p= authored_by post.author_username, post.created_at
+    = markdown post.excerpt
