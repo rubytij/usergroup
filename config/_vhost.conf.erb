@@ -5,7 +5,7 @@
 
   def use_gzip_static
     if Rails.env.production?
-      <<-eos
+      <<-EOS
 location ~ ^/assets/ {
   gzip_static on;
   gzip_disable "MSIE [1-6]\.";
@@ -13,7 +13,7 @@ location ~ ^/assets/ {
   add_header Cache-Control public;
   add_header ETag "";
 }
-    eos
+    EOS
     end
   end
 
