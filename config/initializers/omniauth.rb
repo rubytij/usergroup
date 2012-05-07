@@ -1,3 +1,6 @@
+require 'yaml'
+config = YAML::load_file( Rails.root.join 'config', 'application.yml' )[Rails.env]
+
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :github, ENV["GITHUB_ID"], ENV["GITHUB_SECRET"]
+  provider :github, config["GITHUB_ID"], config["GITHUB_SECRET"]
 end
