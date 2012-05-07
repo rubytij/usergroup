@@ -12,6 +12,7 @@ en:
 
   actions:
     new: New %{item}
+    read_more: Read More
 
   navigation:
     Posts: Articles

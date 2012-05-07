@@ -29,6 +29,7 @@ es:
 
   actions:
     new: Nuevo %{item}
+    read_more: Leer más
 
   activerecord:
     models:
@@ -43,3 +44,4 @@ es:
       post:
         user: Creador
         tag_list: Etiquetas
+        excerpt: Resumen

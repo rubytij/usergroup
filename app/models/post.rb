@@ -11,7 +11,8 @@ class Post < ActiveRecord::Base
 
   scope :latest, order( 'created_at DESC' )
 
-  attr_accessible :title, :content, :tag_list
+  attr_accessible :title, :content, :excerpt, :tag_list
+
   acts_as_taggable
 
   def self.user_filtered user, tag=nil
@@ -22,6 +23,6 @@ class Post < ActiveRecord::Base
   end
 
   def excerpt
-    content.gsub( REMOVE_CODE_EXPR, '' ).split( /\n/ ).first
+    self[:excerpt].present? ? self[:excerpt] : content.gsub( REMOVE_CODE_EXPR, '' ).split( /\n/ ).first
   end
 end

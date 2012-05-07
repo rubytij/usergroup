@@ -9,7 +9,7 @@ UserGroup::Application.routes.draw do
     end
   end
 
-  resources :users, :only => [ ] do
+  resources :user, :only => [ ] do
     resources :posts, :only => [ :index, :show ]
   end
 
