@@ -3,6 +3,20 @@
     _bare_host = _bare_host[1]
   end
 
+  def use_gzip_static
+    if Rails.env.production?
+      <<-eos
+location ~ ^/assets/ {
+  gzip_static on;
+  gzip_disable "MSIE [1-6]\.";
+  expires max;
+  add_header Cache-Control public;
+  add_header ETag "";
+}
+    eos
+    end
+  end
+
   def _vhost
     <<__EOI
   root #{ @public };
@@ -37,6 +51,7 @@ server {
   server_name  <%= @host %><%= " *.#{_bare_host}" if Rails.env.development? %>;
 
 <%= _vhost %>
+<%= use_gzip_static %>
 }
 # vim: set filetype=nginx
 

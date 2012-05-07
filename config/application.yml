@@ -1,0 +1,10 @@
+defaults: &defaults
+  GITHUB_ID:    daefbbe9a532
+  GIHUB_SECRET: 447447493db7c27eb72a642755e219e1
+
+test:
+  <<: *defaults
+development:
+  <<: *defaults
+production:
+  <<: *defaults
