@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_filter :authenticate_user!,    :only => [ :new, :create ]
+  before_filter :authenticate_user!,    :only => [ :new, :create, :edit, :update, :destroy ]
   before_filter :find_user_with_params, :only => [ :show, :index ]
   before_filter :find_post,             :only => [ :edit, :update, :destroy ]
 
