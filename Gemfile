@@ -13,6 +13,8 @@ gem 'redcarpet'
 gem 'pygments.rb'
 gem 'bootstrap-will_paginate'
 gem 'acts-as-taggable-on', '~> 2.2.2'
+gem 'pg'
+gem 'pry-rails'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -32,13 +34,4 @@ group :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'mocha'
-end
-
-group :development do
-  gem 'sqlite3'
-  gem 'pry-rails'
-end
-
-group :production do
-  gem 'pg'
 end
