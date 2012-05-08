@@ -23,4 +23,19 @@ class SectionsController < ApplicationController
   def show
     @section = Section.find params[:id]
   end
+
+  def edit
+    @section = Section.find params[:id]
+  end
+
+  def update
+    @section = Section.find(params[:id])
+
+    if @section.update_attributes(params[:section])
+      flash[:success] = t 'sections.messages.edit_success'
+      redirect_to @section
+    else
+      render :edit
+    end
+  end
 end
