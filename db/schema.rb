@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(:version => 20120507075335) do
     t.string   "github_uid",     :null => false
     t.string   "name"
     t.string   "username",       :null => false
-    t.string   "email",          :null => false
+    t.string   "email"
     t.string   "site_url"
     t.string   "gravatar_token"
     t.datetime "banned_at"
