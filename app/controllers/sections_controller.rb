@@ -1,5 +1,5 @@
 class SectionsController < ApplicationController
-  #before_filter :authenticate_user!
+  before_filter :find_section, :only => [:show, :edit, :update]
 
   def index
     @sections = Section.all
@@ -21,16 +21,12 @@ class SectionsController < ApplicationController
   end
 
   def show
-    @section = Section.find params[:id]
   end
 
   def edit
-    @section = Section.find params[:id]
   end
 
   def update
-    @section = Section.find(params[:id])
-
     if @section.update_attributes(params[:section])
       flash[:success] = t 'sections.messages.edit_success'
       redirect_to @section
@@ -38,4 +34,9 @@ class SectionsController < ApplicationController
       render :edit
     end
   end
+
+  private
+    def find_section
+      @section = Section.find(params[:id])
+    end
 end

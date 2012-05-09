@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  before_filter :find_page, :only => [:show, :edit, :update]
   def index
     @pages = Page.all
   end
@@ -19,16 +20,12 @@ class PagesController < ApplicationController
   end
 
   def show
-    @page = Page.find params[:id]
   end
 
   def edit
-    @page = Page.find params[:id]
   end
 
   def update
-    @page = Page.find(params[:id])
-
     if @page.update_attributes(params[:page])
       flash[:sucess] = t"pages.messages.update_success"
       redirect_to @page
@@ -36,4 +33,9 @@ class PagesController < ApplicationController
       render :edit
     end
   end
+
+  private
+    def find_page
+      @page = Page.find(params[:id])
+    end
 end

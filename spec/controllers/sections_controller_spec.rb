@@ -23,13 +23,13 @@ describe SectionsController do
     describe "with existing section" do
       it "should render edit" do
         get :edit, :id => @section
-        response.status.should eql (200)
-        response.status.should render_template (:edit)
+        response.status.should eql(200)
+        response.status.should render_template(:edit)
       end
 
       it "should update and redirect" do
         put :update, :id => @section, :section => { :name => "newname" }
-        response.should redirect_to ( section_path (@section) )
+        response.should redirect_to( section_path (@section) )
         @section.reload.name.should eql("newname")
       end
     end

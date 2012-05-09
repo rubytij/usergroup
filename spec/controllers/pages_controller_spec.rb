@@ -24,13 +24,13 @@ describe PagesController do
     describe "with existing page" do
       it "should render edit" do
         get :edit, :id => @page
-        response.status.should eql (200)
+        response.status.should eql(200)
         response.status.should render_template( :edit )
       end
 
       it "should update and redirect" do
         put :update, :id => @page, :page => { :name => "updatedpage" }
-        response.should redirect_to ( page_path (@page) )
+        response.should redirect_to( page_path (@page) )
         @page.reload.name.should eql("updatedpage")
       end
     end
