@@ -1,0 +1,5 @@
+#section-page-container
+  - @pages.each do |page|
+    #section-page
+      %span= page.name
+      %span= link_to t('misc.actions.edit'), edit_page_path(page)

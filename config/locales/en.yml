@@ -9,4 +9,14 @@ en:
   sections:
     messages:
       create_success: "Section created successfully"
+    headers:
+      listing: "Sections"
+    buttons:
+      create_section: "Create Section"
+  pages:
+    buttons:
+      create_page: "Create Page"
+  misc:
+    actions:
+      edit: "Edit"
 
