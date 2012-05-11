@@ -1,0 +1,13 @@
+%h1= t ('sections.headers.listing')
+
+.button= link_to t('sections.buttons.create_section'), new_section_path
+.button= link_to t('page.buttons.create_page'), new_page_path
+- @sections.each do |section|
+  - @pages = Page.where(:section_id => section.id)
+  #section-container
+    #section-name
+      %span= section.name
+      %span= link_to t('misc.actions.edit'), edit_section_path(section)
+
+    = render 'pages/list_pages', :pages => @pages
+

@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120427234536) do
+ActiveRecord::Schema.define(:version => 20120505223935) do
+
+  create_table "pages", :force => true do |t|
+    t.string   "name",           :null => false
+    t.integer  "section_id",     :null => false
+    t.string   "title"
+    t.string   "tags"
+    t.text     "content"
+    t.datetime "created_on"
+    t.integer  "created_by"
+    t.datetime "last_update"
+    t.integer  "last_update_by"
+  end
+
+  add_index "pages", ["name"], :name => "index_pages_on_name", :unique => true
 
   create_table "roles", :force => true do |t|
     t.string   "name",              :limit => 40
@@ -24,6 +39,14 @@ ActiveRecord::Schema.define(:version => 20120427234536) do
     t.integer "user_id"
     t.integer "role_id"
   end
+
+  create_table "sections", :force => true do |t|
+    t.string "name",        :null => false
+    t.string "description"
+    t.string "status"
+  end
+
+  add_index "sections", ["name"], :name => "index_sections_on_name", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "github_uid",     :null => false

@@ -8,6 +8,7 @@ gem 'system_timer', :platform => :ruby_18
 gem 'acl9'
 gem 'omniauth', :git => 'git://github.com/intridea/omniauth.git'
 gem 'omniauth-github'
+gem 'simple_form'
 gem 'pg'
 
 group :assets do

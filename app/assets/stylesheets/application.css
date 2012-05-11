@@ -11,3 +11,20 @@
  *= require_self
  *= require_tree .
 */
+
+/* Sections section */
+#section-container
+{
+  margin: 5px 10px 5px 10px;
+}
+#section-name
+{
+  padding: 10px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#section-page-container
+{
+  padding: 5px 0 5px 20px;
+}

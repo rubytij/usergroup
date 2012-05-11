@@ -6,3 +6,16 @@ es:
     sessions:
       sign_in: 'Iniciar sesión con GitHub'
       destroy: 'Cerrar sesión'
+  sections:
+    messages:
+      create_success: "Sección creada correctamente"
+    headers:
+      listing: "Secciones"
+    buttons:
+      create_section: "Crear Seccion"
+  pages:
+    buttons:
+      create_page: "Crear Pagina"
+  misc:
+    actions:
+      edit: "Editar"
