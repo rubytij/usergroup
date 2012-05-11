@@ -9,6 +9,7 @@ gem 'acl9'
 gem 'omniauth', :git => 'git://github.com/intridea/omniauth.git'
 gem 'omniauth-github'
 gem 'simple_form'
+gem 'pg'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -27,12 +28,4 @@ group :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'mocha'
-end
-
-group :development do
-  gem 'sqlite3'
-end
-
-group :production do
-  gem 'pg'
 end
