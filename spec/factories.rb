@@ -15,16 +15,8 @@ FactoryGirl.define do
     "role_#{n}"
   end
 
-  sequence :section_name do |n|
-    "section_#{n}"
-  end
-
-  sequence :page_name do |n|
-    "page_#{n}"
-  end
-
-  sequence :section_id do |n|
-    "11#{n}"
+  sequence :name do |n|
+    "name#{n}"
   end
 
   factory :user do
@@ -39,15 +31,13 @@ FactoryGirl.define do
   end
 
   factory :section do
-    name              { Factory.next :section_name }
-    description       "Section Description"
+    name { Factory.next :name }
   end
 
   factory :page do
-    name        { Factory.next :page_name }
-    section_id  { Factory.next :section_id }
+    name        { Factory.next :name }
+    association :section
     title       "Page Title"
-    tags        "Tags"
     content     "hello"
   end
 end
