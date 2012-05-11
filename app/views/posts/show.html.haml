@@ -13,5 +13,6 @@
 
   .span10
     %h1= @post.title
+    = link_to :back, :back
     = content_tag_for :div, @post do
       = markdown @post.content
