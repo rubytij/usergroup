@@ -42,15 +42,29 @@ img.avatar {
 
 .post {
   margin-bottom: 20px;
+}
+
+.post-actions {
+  margin-top: 10px;
+  .btn {
+    margin-bottom: 4px;
+  }
+}
+
+
+.post-item {
   h1 {
     color: $ruby_color;
     border-bottom: 1px solid #ccc;
     margin-bottom: 4px;
+    a {
+      color: $ruby_color;
+    }
   }
   .excerpt {
     height: auto;
   }
-  .post-actions {
+  .post-item-actions {
     border: 1px solid #ccc;
     border-radius: 3px;
     background-color: #efefef;
