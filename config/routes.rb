@@ -15,5 +15,5 @@ UserGroup::Application.routes.draw do
 
   resources :posts, :except => [ :show ]
 
-  root :to => 'dummy#index'
+  root :to => 'posts#index'
 end

@@ -9,4 +9,4 @@
         = markdown post.excerpt
       .post-actions
         = link_to t('actions.read_more'), user_post_path( post.user, post ), :class => 'read-more'
-        = link_to t('actions.edit'), edit_post_path( post.user, post ), :class => :edit
+        = link_to t('actions.edit'), edit_post_path( post ), :class => :edit
