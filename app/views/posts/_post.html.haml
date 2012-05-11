@@ -1,8 +1,12 @@
-.span1
-  = image_tag post.author_gravatar_url( 80 ), :class => :avatar, :alt => post.author_username
-.span8
-  = content_tag_for :div, post do
-    %h1= post.title
-    %p= authored_by post.author_username, post.created_at
-    = markdown post.excerpt
-    = link_to t('actions.read_more'), user_post_path( post.user, post )
+.post-wrap.row-fluid
+  .avatar.span2
+    = image_tag post.author_gravatar_url( 80 ), :class => :avatar, :alt => post.author_username
+  .span8
+    = content_tag_for :div, post do
+      %h1= post.title
+      %p= authored_by post.author_username, post.created_at
+      .excerpt
+        = markdown post.excerpt
+      .post-actions
+        = link_to t('actions.read_more'), user_post_path( post.user, post ), :class => 'read-more'
+        = link_to t('actions.edit'), edit_post_path( post.user, post ), :class => :edit
