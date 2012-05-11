@@ -2,6 +2,8 @@
 @import 'bootstrap';
 @import 'bootstrap-responsive';
 
+$ruby_color: #7c202b;
+
 $tag_cloud: #bbb;
 
 .tag_cloud {
@@ -39,7 +41,19 @@ img.avatar {
 }
 
 .post {
+  margin-bottom: 20px;
+  h1 {
+    color: $ruby_color;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 4px;
+  }
   .excerpt {
     height: auto;
+  }
+  .post-actions {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #efefef;
+    padding:4px;
   }
 }
