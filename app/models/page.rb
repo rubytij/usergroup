@@ -1,8 +1,12 @@
 class Page < ActiveRecord::Base
+  extend FriendlyId
+
   belongs_to :section
 
-  validates :name, :uniqueness => true, :presence => true
-  validates :section, :presence => true
+  validates :title, :presence => true, :uniqueness => true
+  validates :name, :section, :content, :presence => true
 
-  attr_accessible :name, :section_id, :title, :tags, :content, :created_on, :created_by, :last_update, :last_update_by
+  attr_accessible :name, :section_id, :section, :title, :content
+
+  friendly_id :name, :use => :slugged
 end

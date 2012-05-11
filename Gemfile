@@ -10,6 +10,7 @@ gem 'omniauth', :git => 'git://github.com/intridea/omniauth.git'
 gem 'omniauth-github'
 gem 'simple_form'
 gem 'pg'
+gem 'friendly_id', '~> 4.0.1'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

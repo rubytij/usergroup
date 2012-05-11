@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -14,18 +13,17 @@
 ActiveRecord::Schema.define(:version => 20120505223935) do
 
   create_table "pages", :force => true do |t|
-    t.string   "name",           :null => false
-    t.integer  "section_id",     :null => false
-    t.string   "title"
-    t.string   "tags"
-    t.text     "content"
-    t.datetime "created_on"
-    t.integer  "created_by"
-    t.datetime "last_update"
-    t.integer  "last_update_by"
+    t.string   "name",       :null => false
+    t.integer  "section_id", :null => false
+    t.string   "title",      :null => false
+    t.text     "content",    :null => false
+    t.string   "slug"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "pages", ["name"], :name => "index_pages_on_name", :unique => true
+  add_index "pages", ["slug"], :name => "index_pages_on_slug", :unique => true
 
   create_table "roles", :force => true do |t|
     t.string   "name",              :limit => 40
@@ -41,12 +39,14 @@ ActiveRecord::Schema.define(:version => 20120505223935) do
   end
 
   create_table "sections", :force => true do |t|
-    t.string "name",        :null => false
-    t.string "description"
-    t.string "status"
+    t.string   "name",       :null => false
+    t.string   "slug"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "sections", ["name"], :name => "index_sections_on_name", :unique => true
+  add_index "sections", ["slug"], :name => "index_sections_on_slug", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "github_uid",     :null => false
