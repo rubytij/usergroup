@@ -1,4 +1,6 @@
 @import 'compass';
+@import 'bootstrap';
+@import 'bootstrap-responsive';
 
 $tag_cloud: #bbb;
 
@@ -31,12 +33,13 @@ img.avatar {
   display: block;
 }
 
-.post { min-height: 120px; }
-
 .excerpt {
   height: 120px;
   width: 100%;
 }
 
-@import 'bootstrap';
-@import 'bootstrap-responsive';
+.post {
+  .excerpt {
+    height: auto;
+  }
+}
