@@ -22,9 +22,9 @@ describe Page do
     end
   end
 
-  describe "section" do
+  describe "section_name" do
     it "must be present" do
-      page = Factory.build :page, :section => nil
+      page = Factory.build :page, :section_name => nil
       page.should be_invalid
     end
   end

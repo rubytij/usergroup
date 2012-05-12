@@ -35,9 +35,9 @@ FactoryGirl.define do
   end
 
   factory :page do
-    name        { Factory.next :name }
-    association :section
-    title       "Page Title"
-    content     "hello"
+    name          { Factory.next :name }
+    section_name  { Factory.next :name }
+    title         { Factory.next :name }
+    content       'hello'
   end
 end

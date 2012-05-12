@@ -1,7 +1,6 @@
-= simple_form_for @page do |f|
-  = f.input         :name, :null => false
-  = f.association   :section
-  = f.input         :title
-  = f.input         :tags
-  = f.input         :content, :as => :text
-  = f.submit
+= simple_form_for page do |f|
+  = f.input :name, :null => false
+  = f.input :section_name
+  = f.input :title
+  = f.input :content, :as => :text
+  = f.button :submit

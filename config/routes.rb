@@ -5,11 +5,9 @@ UserGroup::Application.routes.draw do
     resource :session, :only => [ :create, :destroy ]
   end
 
-  resources :sections do
-    resources :pages, :only => :show
-  end
-
   resources :pages, :except => :show
+
+  match ':section_name/:page_name' => 'pages#show', :as => :section_page, :via => :get
 
   root :to => 'dummy#index'
 end
