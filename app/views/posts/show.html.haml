@@ -9,10 +9,11 @@
           = t 'actions.delete', :item => t('activerecord.models.post')
         = link_to edit_post_path( @post ), :class => 'btn btn-warning' do
           %i.icon-edit.icon-white
-          = t 'actions.edit_item', :item => t('activerecord.models.post')
+          = t 'actions.edit', :item => t('activerecord.models.post')
 
   .span10
     %h1= @post.title
-    = link_to :back, :back
+    %p= authored_by @post.author_username, @post.created_at
+
     = content_tag_for :div, @post do
       = markdown @post.content

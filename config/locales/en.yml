@@ -13,6 +13,7 @@ en:
   actions:
     new: New %{item}
     delete: Delete %{item}
+    edit: Edit %{item}
     read_more: Read More
 
   navigation:

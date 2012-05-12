@@ -10,4 +10,5 @@
         = markdown post.excerpt
       .post-item-actions
         = link_to t('actions.read_more'), user_post_path( post.user, post ), :class => 'read-more'
-        = link_to_if is_author?( post ), t('actions.edit'), edit_post_path( post ), :class => :edit
+        \-
+        = link_to_if is_author?( post ), t('actions.edit', :item => ''), edit_post_path( post ), :class => :edit

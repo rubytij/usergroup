@@ -34,8 +34,7 @@ es:
     new: Nuevo %{item}
     delete: Eliminar %{item}
     read_more: Leer más
-    edit_item: Editar %{item}
-    edit: Editar
+    edit: Editar %{item}
 
   activerecord:
     models:
