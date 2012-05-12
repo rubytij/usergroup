@@ -1,0 +1,19 @@
+defaults: &defaults
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
+  host: localhost
+  username: postgres
+  min_messages: warning
+
+development:
+  <<: *defaults
+  database: usergroup_development
+
+test:
+  <<: *defaults
+  database: usergroup_test
+
+production:
+  <<: *defaults
+  database: usergroup_production
