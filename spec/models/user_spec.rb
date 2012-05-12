@@ -68,10 +68,40 @@ describe User do
     end
   end
 
-  describe ".roles" do
+  describe 'posts associations' do
+    it "should be an array" do
+      @user.posts.is_a?(Array).should be_true
+    end
+
+    it "can have posts" do
+      post = Factory.create( :post, :user => @user )
+      @user.posts.include?( post ).should be_true
+      @user.posts.count.should be(1)
+    end
+
+    it "can create posts" do
+      @user.posts.should be_empty
+      @user.posts.create( :title => "foo", :content => 'Lorem ipsum' )
+      @user.posts.should_not be_empty
+    end
+  end
+
+  describe "roles association" do
     it "includes roles assigned" do
       user = Factory.create( :user, :roles => 3.times.map{ Factory.create( :role ) } )
       user.roles.count.should eq(3)
+    end
+  end
+
+  describe 'gravatar_url' do
+    before { @user.update_attributes! :gravatar_token => '30f39a09e233e8369dddf6feb4be0308' }
+
+    it 'should return gravatar url' do
+      @user.gravatar_url.should =~ /30f39a09e233e8369dddf6feb4be0308/
+    end
+
+    it 'should return with desired size' do
+      @user.gravatar_url(64).should =~ /s=64/
     end
   end
 end
