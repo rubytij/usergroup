@@ -1,16 +1,10 @@
 require 'spec_helper'
 
 describe Page do
-  before { @section = Factory.create :section
-           @page = Factory.create :page, :section_id => @section.id }
-
   describe "name" do
-    it "must be present" do
-      page = Factory.build :page, :name => ""
-      page.should be_invalid
-    end
+    before { @page = Factory.create :page }
 
-    it "can't be nil" do
+    it "must be present" do
       page = Factory.build :page, :name => nil
       page.should be_invalid
     end
@@ -21,9 +15,16 @@ describe Page do
     end
   end
 
-  describe "section_id" do
-    it "must have a section" do
-      page = Factory.build :page, :section_id => nil
+  describe "title" do
+    it "must be present" do
+      page = Factory.build :page, :title => nil
+      page.should be_invalid
+    end
+  end
+
+  describe "section_name" do
+    it "must be present" do
+      page = Factory.build :page, :section_name => nil
       page.should be_invalid
     end
   end

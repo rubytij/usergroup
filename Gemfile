@@ -9,6 +9,13 @@ gem 'acl9'
 gem 'omniauth', :git => 'git://github.com/intridea/omniauth.git'
 gem 'omniauth-github'
 gem 'simple_form'
+gem 'friendly_id', '~> 4.0.1'
+gem 'redcarpet'
+gem 'pygments.rb'
+gem 'bootstrap-will_paginate'
+gem 'acts-as-taggable-on', '~> 2.2.2'
+gem 'pg'
+gem 'pry-rails'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -20,6 +27,7 @@ group :assets do
 end
 
 gem 'rspec-rails', :group => [ :test, :development ]
+gem 'single_test', :group => [ :test, :development ]
 gem 'jquery-rails'
 
 group :test do
@@ -27,12 +35,4 @@ group :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'mocha'
-end
-
-group :development do
-  gem 'sqlite3'
-end
-
-group :production do
-  gem 'pg'
 end
