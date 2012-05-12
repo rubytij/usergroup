@@ -27,7 +27,7 @@ en:
     tags: Separate tags by commas.
 
   will_paginate:
-    next_label: Next &#8594;
+    next_label: ! '&raquo;'
     page_entries_info:
       multi_page: Displaying %{model} %{from} - %{to} of %{count} in total
       multi_page_html: Displaying %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{count}</b>
@@ -41,12 +41,16 @@ en:
         other: Displaying <b>all&nbsp;%{count}</b> %{model}
         zero: No %{model} found
     page_gap: ! '&hellip;'
-    previous_label: ! '&#8592; Previous'
+    previous_label: ! '&laquo;'
 
   activerecord:
     models:
       post: Post
+      section: Section
+      page: Page
     attributes:
       user:
         github_uid: UID
         site_url: Blog
+      page:
+        section_name: Section Name

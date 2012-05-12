@@ -21,14 +21,14 @@ es:
     tags: Separa las etiquetas por comas.
 
   will_paginate:
-    next_label: siguiente →
+    next_label: ! '&raquo;'
     page_gap: ! '&hellip;'
-    previous_label: ← atrás
+    previous_label: ! '&laquo;'
 
   attributes:
     name: Nombre
     email: Correo electrónico
-    title: Titulo
+    title: Título
     content: Contenido
 
   actions:
@@ -41,6 +41,7 @@ es:
     models:
       user: Usuario
       post: Articulo
+      page: Página
     attributes:
       user:
         github_uid: UID
@@ -51,3 +52,5 @@ es:
         user: Creador
         tag_list: Etiquetas
         excerpt: Resumen
+      page:
+        section_name: Nombre de la sección

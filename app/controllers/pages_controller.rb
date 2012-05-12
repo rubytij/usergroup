@@ -1,5 +1,8 @@
 class PagesController < ApplicationController
-  before_filter :find_page, :only => [ :edit, :update ]
+  before_filter :authenticate_user!,  :only => [ :new, :create, :edit, :update, :destroy ]
+  before_filter :find_page,           :only => [ :edit, :update ]
+
+  layout 'posts'
 
   def show
     @section  = Section.find params[:section_name]

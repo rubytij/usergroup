@@ -2,5 +2,7 @@
   = f.input :name, :null => false
   = f.input :section_name
   = f.input :title
-  = f.input :content, :as => :text
-  = f.button :submit
+  .wmd-panel
+    #wmd-button-bar
+    = f.input :content, :as => :text, :label => false, :input_html => { :id => 'wmd-input', :class => 'wmd-input' }
+  = f.button :submit, :class => 'btn-success'

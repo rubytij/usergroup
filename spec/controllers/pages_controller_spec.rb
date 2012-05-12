@@ -3,34 +3,38 @@ require 'spec_helper'
 describe PagesController do
   before { @page = Factory.create :page }
 
-  describe 'create new page' do
-    it 'should redirect after creating page' do
-      post :create, :page => Factory.attributes_for( :page )
+  describe 'logged in' do
+    before { session[:user_id] = Factory.create( :user ).id }
 
-      page = assigns :page
-      response.should redirect_to( section_page_path( page.section, page ) )
+    describe 'create new page' do
+      it 'should redirect after creating page' do
+        post :create, :page => Factory.attributes_for( :page )
+
+        page = assigns :page
+        response.should redirect_to( section_page_path( page.section, page ) )
+      end
+
+      it 'should render new on failure' do
+        post :create, :section => Factory.attributes_for( :page, :name => nil)
+
+        response.should render_template( :new )
+      end
     end
 
-    it 'should render new on failure' do
-      post :create, :section => Factory.attributes_for( :page, :name => nil)
+    describe 'with existing page' do
+      it 'should render edit' do
+        get :edit, :id => @page
+        response.status.should eql(200)
+        response.status.should render_template( :edit )
+      end
 
-      response.should render_template( :new )
-    end
-  end
+      it 'should update and redirect' do
+        put :update, :id => @page, :page => { :name => 'updatedpage' }
 
-  describe 'with existing page' do
-    it 'should render edit' do
-      get :edit, :id => @page
-      response.status.should eql(200)
-      response.status.should render_template( :edit )
-    end
-
-    it 'should update and redirect' do
-      put :update, :id => @page, :page => { :name => 'updatedpage' }
-
-      page = assigns :page
-      response.should redirect_to( section_page_path page.section, page )
-      page.name.should eql('updatedpage')
+        page = assigns :page
+        response.should redirect_to( section_page_path page.section, page )
+        page.name.should eql('updatedpage')
+      end
     end
   end
 end
