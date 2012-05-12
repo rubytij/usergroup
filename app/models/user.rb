@@ -3,7 +3,9 @@ class User < ActiveRecord::Base
   validates :github_uid, :username, :uniqueness => true, :presence => true
   validates :email, :format => { :with => /\A[^@]+@[^@]+\z/ }, :uniqueness => true, :allow_blank => true
 
-  attr_accessible :avatar_url, :email, :name, :site_url, :username, :github_uid
+  attr_accessible :gravatar_token, :email, :name, :site_url, :username, :github_uid
+
+  has_many :posts
 
   def self.create_from_github( omniauth )
     user_info = omniauth['info']
@@ -22,5 +24,12 @@ class User < ActiveRecord::Base
 
       user.save!
     end
+  end
+
+  def gravatar_url size=64
+    default_image = "/assets/ruby.png"
+
+    return "http://gravatar.com/avatar/#{ gravatar_token }.png?s=#{ size }&d=#{ CGI.escape default_image }" if gravatar_token.present?
+    default_image
   end
 end

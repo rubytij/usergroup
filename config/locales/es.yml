@@ -6,16 +6,48 @@ es:
     sessions:
       sign_in: 'Iniciar sesión con GitHub'
       destroy: 'Cerrar sesión'
-  sections:
-    messages:
-      create_success: "Sección creada correctamente"
-    headers:
-      listing: "Secciones"
-    buttons:
-      create_section: "Crear Seccion"
-  pages:
-    buttons:
-      create_page: "Crear Pagina"
-  misc:
-    actions:
-      edit: "Editar"
+
+  posts:
+    authored_by: Escrito por %{author} hace %{time}
+
+  navigation:
+    posts: Articulos
+    talks: Reuniones
+
+  messages:
+    confirmation: ¿Estás seguro?
+
+  hints:
+    tags: Separa las etiquetas por comas.
+
+  will_paginate:
+    next_label: siguiente →
+    page_gap: ! '&hellip;'
+    previous_label: ← atrás
+
+  attributes:
+    name: Nombre
+    email: Correo electrónico
+    title: Titulo
+    content: Contenido
+
+  actions:
+    new: Nuevo %{item}
+    delete: Eliminar %{item}
+    read_more: Leer más
+    edit: Editar %{item}
+
+  activerecord:
+    models:
+      user: Usuario
+      post: Articulo
+    attributes:
+      user:
+        github_uid: UID
+        username: Nombre de Usuario
+        site_url: Blog
+        banned_at: Expulsado en
+      post:
+        user: Creador
+        tag_list: Etiquetas
+        excerpt: Resumen

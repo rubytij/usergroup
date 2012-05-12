@@ -6,10 +6,8 @@ describe PagesController do
   describe 'create new page' do
     it 'should redirect after creating page' do
       post :create, :page => Factory.attributes_for( :page )
+
       page = assigns :page
-
-      puts page.errors.messages.inspect
-
       response.should redirect_to( section_page_path( page.section, page ) )
     end
 

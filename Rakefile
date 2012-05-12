@@ -4,4 +4,8 @@
 
 require File.expand_path('../config/application', __FILE__)
 
+if defined? SingleTest
+  SingleTest.load_tasks
+end
+
 UserGroup::Application.load_tasks

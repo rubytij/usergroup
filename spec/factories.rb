@@ -3,6 +3,10 @@ FactoryGirl.define do
     "user#{n}"
   end
 
+  sequence :title do |n|
+    "theme #{n}"
+  end
+
   sequence :email do |n|
     "user#{n}@email.com"
   end
@@ -19,15 +23,15 @@ FactoryGirl.define do
     "name#{n}"
   end
 
+  factory :role do
+    name { Factory.next :role_name }
+  end
+
   factory :user do
     email       { Factory.next :email }
     username    { Factory.next :username }
     github_uid  { Factory.next :uid }
     name        'Super developer'
-  end
-
-  factory :role do
-    name { Factory.next :role_name }
   end
 
   factory :section do
@@ -37,7 +41,13 @@ FactoryGirl.define do
   factory :page do
     name          { Factory.next :name }
     section_name  { Factory.next :name }
-    title         { Factory.next :name }
+    title         { Factory.next :title }
     content       'hello'
+  end
+
+  factory :post do
+    title       { Factory.next :title }
+    content     "Lorem ipsum"
+    user
   end
 end
