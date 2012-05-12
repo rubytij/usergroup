@@ -16,7 +16,7 @@ module UserGroup
     # -- all .rb files in that directory are automatically loaded.
 
     # Custom directories with classes and modules you want to be autoloadable.
-    # config.autoload_paths += %W(#{config.root}/extras)
+    config.autoload_paths += %W(#{config.root}/lib/extensions)
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
@@ -27,11 +27,11 @@ module UserGroup
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
-    # config.time_zone = 'Central Time (US & Canada)'
+    config.time_zone = 'Pacific Time (US & Canada)'
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
-    # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    # config.i18n.default_locale = :de
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
+    config.i18n.default_locale = :es
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
@@ -55,5 +55,23 @@ module UserGroup
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    config.assets.precompile += %w/application.css Markdown.Editor.css desert.css/
+
+    $markdown_extensions = {
+        :autolink             => true,
+        :no_intra_emphasis    => true,
+        :fenced_code_blocks   => true,
+        :space_after_headers  => true,
+        :superscript          => true,
+      }
+
+    $render_options = {
+      :filter_html    => true,
+      :hard_wrap      => true,
+      :with_toc_data  => true,
+    }
   end
 end
+
+require File.join( Rails.root, 'lib', 'extensions', 'exceptions' )

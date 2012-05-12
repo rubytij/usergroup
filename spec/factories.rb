@@ -3,6 +3,10 @@ FactoryGirl.define do
     "user#{n}"
   end
 
+  sequence :title do |n|
+    "theme #{n}"
+  end
+
   sequence :email do |n|
     "user#{n}@email.com"
   end
@@ -24,5 +28,11 @@ FactoryGirl.define do
 
   factory :role do
     name { Factory.next :role_name }
+  end
+
+  factory :post do
+    title       { Factory.next :title }
+    content     "Lorem ipsum"
+    user
   end
 end

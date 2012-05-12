@@ -1,3 +1,0 @@
-class DummyController < ApplicationController
-
-end

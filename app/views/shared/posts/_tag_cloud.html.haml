@@ -1,0 +1,2 @@
+- tag_cloud( post_cloud, %w/frozen cold warm hot-tamale/ ) do |tag, css_class|
+  = link_to tag.name, posts_path( :tag => tag.name ), :class => css_class

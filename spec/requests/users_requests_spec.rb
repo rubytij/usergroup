@@ -12,31 +12,38 @@ describe "Users requests" do
         },
         'extra' => {}
     }
+
+    visit '/'
   end
 
-  it "Create session for existing user" do
-    OmniAuth.config.add_mock( :github, "uid" => @user.github_uid )
-    visit '/auth/github'
+  describe "Existing user" do
+    before :each do
+      OmniAuth.config.add_mock( :github, "uid" => @user.github_uid )
+      page.click_link I18n.t('user.sessions.sign_in')
+    end
 
-    page.should have_content( I18n.t 'user.sessions.destroy' )
+    it "Create session for existing user" do
+      page.should have_content( I18n.t 'user.sessions.destroy' )
+    end
+
+    it "Can destroy existing sessions" do
+      page.should have_content( I18n.t 'user.sessions.destroy' )
+
+      page.click_link( I18n.t 'user.sessions.destroy' )
+      current_path.should eql( '/' )
+      page.should have_content( I18n.t 'user.sessions.sign_in' )
+    end
   end
 
-  it "Create session for un-existing users" do
-    OmniAuth.config.add_mock( :github, @omniauth )
-    visit '/auth/github'
+  describe "Un-existant user" do
+    before :each do
+      OmniAuth.config.add_mock( :github, @omniauth )
+      page.click_link I18n.t('user.sessions.sign_in')
+    end
 
-    page.should have_content( I18n.t 'user.sessions.destroy' )
-    User.count.should be_eql( 2 )
-  end
-
-  it "Can destroy existing sessions" do
-    OmniAuth.config.add_mock( :github, "uid" => @user.github_uid )
-    visit '/auth/github'
-
-    page.should have_content( I18n.t 'user.sessions.destroy' )
-
-    page.click_link( I18n.t 'user.sessions.destroy' )
-    current_path.should eql( '/' )
-    page.should have_content( I18n.t 'user.sessions.sign_in' )
+    it "Create session for un-existing users" do
+      page.should have_content( I18n.t 'user.sessions.destroy' )
+      User.count.should be_eql( 2 )
+    end
   end
 end
