@@ -7,6 +7,10 @@ es:
       sign_in: 'Iniciar sesión con GitHub'
       destroy: 'Cerrar sesión'
 
+  pages:
+    form:
+      select_section: Elige una sección
+
   posts:
     authored_by: Escrito por %{author} hace %{time}
 
@@ -53,4 +57,11 @@ es:
         tag_list: Etiquetas
         excerpt: Resumen
       page:
-        section_name: Nombre de la sección
+        section: Sección
+    symbolizes:
+      page:
+        section:
+          home: Principal
+          about: Acerca
+          contact: Contacto
+          meetings: Reuniones

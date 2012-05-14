@@ -7,6 +7,10 @@ en:
       sign_in: 'Sign in with GitHub'
       destroy: 'Sign out'
 
+  pages:
+    form:
+      select_section: Select a section for this page
+
   posts:
     authored_by: Authored by %{author} about %{time}
 
@@ -53,4 +57,11 @@ en:
         github_uid: UID
         site_url: Blog
       page:
-        section_name: Section Name
+        section: Section
+    symbolizes:
+      page:
+        section:
+          home: Home
+          about: About us
+          contact: Contact us
+          meetings: Meetings

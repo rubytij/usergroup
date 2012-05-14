@@ -34,20 +34,16 @@ FactoryGirl.define do
     name        'Super developer'
   end
 
-  factory :section do
-    name { Factory.next :name }
-  end
-
   factory :page do
-    name          { Factory.next :name }
-    section_name  { Factory.next :name }
-    title         { Factory.next :title }
-    content       'hello'
+    name    { Factory.next :name }
+    section :home
+    title   { Factory.next :title }
+    content 'hello'
   end
 
   factory :post do
-    title       { Factory.next :title }
-    content     "Lorem ipsum"
+    title   { Factory.next :title }
+    content "Lorem ipsum"
     user
   end
 end

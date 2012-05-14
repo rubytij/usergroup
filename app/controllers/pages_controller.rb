@@ -5,8 +5,7 @@ class PagesController < ApplicationController
   layout 'posts'
 
   def show
-    @section  = Section.find params[:section_name]
-    @page     = @section.pages.find params[:page_name]
+    @page = Page.where( :section => params[:section_name] ).find params[:page_name]
   end
 
   def new

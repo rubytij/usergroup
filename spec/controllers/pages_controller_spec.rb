@@ -37,4 +37,38 @@ describe PagesController do
       end
     end
   end
+
+  describe 'not logged in' do
+    describe 'new' do
+      it do
+        get :new
+        response.status.should eql( 404 )
+      end
+
+      it do
+        post :create, :page => Factory.attributes_for( :page )
+        response.status.should eql( 404 )
+      end
+    end
+
+    describe 'edit' do
+      it do
+        get :edit, :id => @page
+        response.status.should eql( 404 )
+      end
+
+      it do
+        put :update, :id => @page, :page => Factory.attributes_for( :page )
+        response.status.should eql( 404 )
+      end
+    end
+
+    describe 'show' do
+      it do
+        get :show, :page_name => @page.slug, :section_name => @page.section
+        response.status.should eql( 200 )
+        response.should render_template( 'show' )
+      end
+    end
+  end
 end

@@ -14,6 +14,7 @@ gem 'redcarpet'
 gem 'pygments.rb'
 gem 'bootstrap-will_paginate'
 gem 'acts-as-taggable-on', '~> 2.2.2'
+gem 'symbolize', :require => 'symbolize/active_record'
 gem 'pg'
 gem 'pry-rails'
 
