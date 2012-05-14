@@ -8,6 +8,7 @@
 
       .nav-collapse
         %ul.nav.pull-left
+          = render 'layouts/page_links'
           %li= link_to t('navigation.posts'), posts_path
 
         %ul.nav.pull-right
