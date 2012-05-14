@@ -16,4 +16,5 @@
     %p= authored_by @post.author_username, @post.created_at
 
     = content_tag_for :div, @post do
-      = markdown @post.content
+      :plain
+        #{ markdown @post.content }

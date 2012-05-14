@@ -8,4 +8,6 @@
   .wmd-panel
     #wmd-button-bar
     = f.input :content, :as => :text, :label => false, :input_html => { :id => 'wmd-input', :class => 'wmd-input' }
-  = f.button :submit, :class => 'btn-success'
+
+  .form-actions
+    = f.button :submit, :class => 'btn-success'
