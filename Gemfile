@@ -15,6 +15,7 @@ gem 'bootstrap-will_paginate'
 gem 'acts-as-taggable-on', '~> 2.2.2'
 gem 'pg'
 gem 'pry-rails'
+gem "disqus", "~> 1.0.4"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
