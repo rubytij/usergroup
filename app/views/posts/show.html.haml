@@ -17,3 +17,5 @@
 
     = content_tag_for :div, @post do
       = markdown @post.content
+
+    = disqus_thread.html_safe
