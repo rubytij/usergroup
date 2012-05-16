@@ -17,5 +17,3 @@
 
     = content_tag_for :div, @post do
       = markdown @post.content
-
-    = render :partial => "shared/disqus", :locals => { :title => @post.title }
