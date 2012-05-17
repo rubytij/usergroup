@@ -1,14 +1,10 @@
 defaults: &defaults
     account:         "example"
-    developer:       true
-    container_id:    'disqus_thread'
-    avatar_size:     48
-    hide_avatars:    false
-    num_items:       10
-    show_powered_by: false
 test:
   <<: *defaults
+  developer: true
 development:
   <<: *defaults
+  developer: true
 production:
   <<: *defaults
