@@ -73,10 +73,6 @@ describe PostsController do
         response.status.should eql( 200 )
         response.should render_template( 'show' )
       end
-
-      it 'should show disqus container' do
-        page.has_selector?( :disqus_thread )
-      end
     end
   end
 
