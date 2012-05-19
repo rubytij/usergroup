@@ -13,7 +13,7 @@ describe "Users requests" do
         'extra' => {}
     }
 
-    visit '/'
+    visit root_path
   end
 
   describe "Existing user" do
@@ -30,7 +30,7 @@ describe "Users requests" do
       page.should have_content( I18n.t 'user.sessions.destroy' )
 
       page.click_link( I18n.t 'user.sessions.destroy' )
-      current_path.should eql( '/' )
+      current_path.should eql( root_path )
       page.should have_content( I18n.t 'user.sessions.sign_in' )
     end
   end
