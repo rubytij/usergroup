@@ -68,8 +68,8 @@ describe PostsController do
     end
 
     describe 'show' do
-      before{ get :show, :user_id => @user, :id => Factory.create( :post, :user => @user ) }
       it 'should response successfully' do
+        get :show, :user_id => @user, :id => Factory.create( :post, :user => @user )
         response.status.should eql( 200 )
         response.should render_template( 'show' )
       end
