@@ -6,12 +6,6 @@ GIT
       hashie (~> 1.2)
       rack
 
-PATH
-  remote: ~/coinslider-rails/
-  specs:
-    coinslider-rails (0.0.1)
-      railties (>= 3.1.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -250,7 +244,6 @@ DEPENDENCIES
   capybara
   capybara-webkit
   coffee-rails (~> 3.2.1)
-  coinslider-rails!
   compass-rails
   database_cleaner
   disqus (~> 1.0.4)
