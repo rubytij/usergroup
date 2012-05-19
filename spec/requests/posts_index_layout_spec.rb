@@ -13,20 +13,20 @@ describe 'PostsController#index layout' do
       page.should have_css( '.avatar' )
     end
 
-    it 'should show disqus elements' do
+    it 'should show disqus elements', :js => true do
       visit user_post_path(@user.id, @post.id)
+      puts page.html
       page.should have_css( '#disqus_thread' )
       page.should have_css( '#dsq-comments-title' )
       page.should have_css( '#dsq-comments' )
       page.should have_css( '#dsq-new-post' )
-      puts page.body.inspect
     end
   end
   describe 'create a new comment' do
     before { visit user_post_path(@user.id, @post.id) }
 
     describe 'with empty message' do
-      it "should show a error message" do
+      it "should show a error message", :js => true do
         page.should_not have_css('#dsq-popup-message')
         #fill_in( "dsq-textarea-wrapper", "foo" )
         click_button( "dsq-post-button" )
