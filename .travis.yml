@@ -1,5 +1,7 @@
 language: ruby
 before_script:
+  - sudo apt-get install python-pip
+  - sudo pip install pygments
   - cp config/database.yml{.example,}
   - cp config/application.yml{.example,}
   - psql -c 'create database usergroup_test;' -U postgres
