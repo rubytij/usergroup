@@ -14,7 +14,7 @@
         %ul.nav.pull-right
           - unless current_user
             %li.divider-vertical
-            %li= link_to t('user.sessions.sign_in'), new_user_session_path( :return_to => current_path )
+            %li= link_to t('user.sessions.sign_in'), new_user_session_path( :return_to => request.url )
           - else
             %ul.nav
               %li= link_to t('actions.new', :item => t('activerecord.models.post') ), new_post_path
