@@ -5,7 +5,7 @@ describe 'PostsController#index layout' do
 
   describe 'layout' do
     it 'should show could tag and avatar' do
-      visit '/posts'
+      visit posts_path
       page.should have_css( '.tag_cloud' )
       page.should have_css( '.avatar' )
     end
