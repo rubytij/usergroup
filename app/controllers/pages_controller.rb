@@ -2,8 +2,6 @@ class PagesController < ApplicationController
   before_filter :authenticate_user!,  :only => [ :new, :create, :edit, :update, :destroy ]
   before_filter :find_page,           :only => [ :edit, :update ]
 
-  layout 'posts'
-
   def show
     @related  = Page.where( :section => params[:section_name] )
     @page     = @related.find params[:page_name]
