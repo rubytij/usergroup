@@ -4,7 +4,12 @@ defaults: &defaults
 
 test:
   <<: *defaults
+  disqus:
+    account: "example"
 development:
   <<: *defaults
+  disqus:
+    account: "example"
+    developer: true
 production:
   <<: *defaults
