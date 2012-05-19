@@ -1,10 +1,14 @@
 language: ruby
 before_script:
+  - sudo apt-get install python-pip
+  - sudo pip install pygments
   - cp config/database.yml{.example,}
   - cp config/application.yml{.example,}
   - psql -c 'create database usergroup_test;' -U postgres
+  - "sh -e /etc/init.d/xvfb start"
   - bundle exec rake db:migrate db:test:prepare
-script: "bundle exec rake spec"
+script:
+  - "DISPLAY=:99.0 bundle exec rake spec"
 rvm:
   - 1.8.7
   - 1.9.2
