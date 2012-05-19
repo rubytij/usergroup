@@ -22,8 +22,6 @@ describe 'PostsController#index layout' do
       find( '#dsq-comments' )
       page.should have_css( '#dsq-comments' )
       page.should have_css( '#dsq-new-post' )
-
-      find('#dsq-textarea-wrapper')
     end
   end
 end
