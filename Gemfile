@@ -17,6 +17,7 @@ gem 'acts-as-taggable-on', '~> 2.2.2'
 gem 'symbolize', :require => 'symbolize/active_record'
 gem 'pg'
 gem 'pry-rails'
+gem "disqus", "~> 1.0.4"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -35,5 +36,6 @@ group :test do
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'capybara-webkit'
   gem 'mocha'
 end
