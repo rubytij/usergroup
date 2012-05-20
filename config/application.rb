@@ -56,7 +56,7 @@ module UserGroup
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
-    config.assets.precompile += %w/application.css Markdown.Editor.css desert.css/
+    config.assets.precompile += %w/application.css Markdown.Editor.css desert.css syntax.css/
 
     $markdown_extensions = {
         :autolink             => true,
