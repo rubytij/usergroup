@@ -16,6 +16,10 @@ role :web, "live.rt"
 role :db, "live.rt", :primary => true
 
 namespace :deploy do
+  task :config, :roles => [:app, :web] do
+    run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+    run "ln -nfs #{shared_path}/config/application.yml #{release_path}/config/application.yml"
+  end
   task :start do ; end
   task :stop do ; end
   task :restart, :roles => :app do
@@ -26,5 +30,7 @@ end
 before 'deploy:restart' do
   run "cd #{release_path} && bundle exec rake RAILS_ENV=#{rails_env} config:generate"
 end
+
+after "deploy:update_code","deploy:config"
 before 'deploy:restart', 'deploy:migrate'
 after :deploy, 'deploy:cleanup'
