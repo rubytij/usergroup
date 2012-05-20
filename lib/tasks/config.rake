@@ -8,7 +8,7 @@ namespace :config do
 
     erb_env = Proc.new do
       @host = Rails.env.development? ? 'www.rt.dev' : 'www.rubitij.org'
-      @root = Rails.env.development? ? Rails.root : '/home/deployer/app'
+      @root = Rails.root
       @public = File.join( @root, 'public' )
       @log = "#{ @root }/log"
       binding
