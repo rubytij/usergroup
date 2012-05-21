@@ -1,0 +1,13 @@
+- symbolize   = 'activerecord.symbolizes.page.section'
+- collection  = [ [ t("#{symbolize}.home"), :home ], [ t("#{symbolize}.about"), :about ], [ t("#{symbolize}.contact"), :contact ], [ t("#{symbolize}.meetings"), :meetings ] ]
+
+= simple_form_for page do |f|
+  = f.input :name
+  = f.input :title
+  = f.input :section, :collection => collection, :prompt => t('.select_section')
+  .wmd-panel
+    #wmd-button-bar
+    = f.input :content, :as => :text, :label => false, :input_html => { :id => 'wmd-input', :class => 'wmd-input' }
+
+  .form-actions
+    = f.button :submit, :class => 'btn-success'

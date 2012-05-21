@@ -1,0 +1,2 @@
+- page_link = section_page_path page.section, page
+%li{ :class => ( current_page?( page_link) ? 'active' : '' ) }= link_to page.title, page_link

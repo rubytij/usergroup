@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  extend FriendlyId
+
   acts_as_authorization_subject :association_name => :roles, :join_table_name => :roles_users
   validates :github_uid, :username, :uniqueness => true, :presence => true
   validates :email, :format => { :with => /\A[^@]+@[^@]+\z/ }, :uniqueness => true, :allow_blank => true
@@ -6,6 +8,8 @@ class User < ActiveRecord::Base
   attr_accessible :gravatar_token, :email, :name, :site_url, :username, :github_uid
 
   has_many :posts
+
+  friendly_id :username, :use => :slugged
 
   def self.create_from_github( omniauth )
     user_info = omniauth['info']
