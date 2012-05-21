@@ -5,4 +5,6 @@
     = f.input :content, :label => false, :input_html => { :id => 'wmd-input', :class => 'wmd-input' }
   = f.input :excerpt, :as => :text, :input_html => { :class => 'excerpt' }
   = f.input :tag_list, :hint =>  t('hints.tags')
-  = f.button :submit, :class => 'btn-success'
+
+  .form-actions
+    = f.button :submit, :class => 'btn-success'
