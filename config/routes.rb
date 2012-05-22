@@ -9,11 +9,14 @@ UserGroup::Application.routes.draw do
     end
   end
 
-  resources :user, :only => [ ] do
+  resources :posts, :except => :show
+  resources :pages, :except => :show
+
+  resources :user, :only => [] do
     resources :posts, :only => [ :index, :show ]
   end
 
-  resources :posts, :except => [ :show ]
+  match ':section_name/:page_name' => 'pages#show', :as => :section_page, :via => :get
 
   root :to => 'posts#index'
 end

@@ -19,6 +19,14 @@ FactoryGirl.define do
     "role_#{n}"
   end
 
+  sequence :name do |n|
+    "name#{n}"
+  end
+
+  factory :role do
+    name { Factory.next :role_name }
+  end
+
   factory :user do
     email       { Factory.next :email }
     username    { Factory.next :username }
@@ -26,13 +34,16 @@ FactoryGirl.define do
     name        'Super developer'
   end
 
-  factory :role do
-    name { Factory.next :role_name }
+  factory :page do
+    name    { Factory.next :name }
+    section :home
+    title   { Factory.next :title }
+    content 'hello'
   end
 
   factory :post do
-    title       { Factory.next :title }
-    content     "Lorem ipsum"
+    title   { Factory.next :title }
+    content "Lorem ipsum"
     user
   end
 end

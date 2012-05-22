@@ -1,4 +1,6 @@
 class Post < ActiveRecord::Base
+  extend FriendlyId
+
   REMOVE_CODE_EXPR = /^``` ?(.*?)\r?\n(.+?)\r?\n```\r?$/m
 
   belongs_to :user
@@ -12,6 +14,8 @@ class Post < ActiveRecord::Base
   scope :latest, order( 'created_at DESC' )
 
   attr_accessible :title, :content, :excerpt, :tag_list
+
+  friendly_id :title, :use => :slugged
 
   acts_as_taggable
 

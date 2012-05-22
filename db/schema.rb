@@ -10,7 +10,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120507075335) do
+ActiveRecord::Schema.define(:version => 20120513200048) do
+
+  create_table "pages", :force => true do |t|
+    t.string   "name",       :null => false
+    t.string   "section",    :null => false
+    t.string   "title",      :null => false
+    t.text     "content",    :null => false
+    t.string   "slug"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "pages", ["name"], :name => "index_pages_on_name", :unique => true
+  add_index "pages", ["slug"], :name => "index_pages_on_slug", :unique => true
 
   create_table "posts", :force => true do |t|
     t.string   "title"
@@ -19,8 +32,10 @@ ActiveRecord::Schema.define(:version => 20120507075335) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.text     "excerpt"
+    t.string   "slug"
   end
 
+  add_index "posts", ["slug"], :name => "index_posts_on_slug", :unique => true
   add_index "posts", ["user_id", "title"], :name => "index_posts_on_user_id_and_title"
 
   create_table "roles", :force => true do |t|
@@ -63,10 +78,12 @@ ActiveRecord::Schema.define(:version => 20120507075335) do
     t.datetime "banned_at"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+    t.string   "slug"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"
   add_index "users", ["github_uid"], :name => "index_users_on_github_uid", :unique => true
+  add_index "users", ["slug"], :name => "index_users_on_slug", :unique => true
   add_index "users", ["username"], :name => "index_users_on_username", :unique => true
 
 end

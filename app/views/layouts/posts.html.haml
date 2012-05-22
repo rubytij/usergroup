@@ -1,8 +1,0 @@
-= content_for :head do
-  - if %w/new edit create update/.include? action_name
-    = stylesheet_link_tag 'Markdown.Editor', :media => 'all'
-    = javascript_include_tag 'markdown_editor'
-  - else
-    = stylesheet_link_tag 'syntax'
-
-= render :file => 'layouts/application', :format => :html
