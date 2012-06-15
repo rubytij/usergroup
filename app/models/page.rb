@@ -18,9 +18,10 @@ class Page < ActiveRecord::Base
   end
 
   def check_main_page
-    if main_page?
-      page = Page.where("main_page = ?", true).first
-      page.update_attributes(:main_page => false) if page.present? && page != self
+    Page.where( :main_page => true ).find_each( :batch_size => 100 ) do |page|
+      page.update_attributes :main_page => false
     end
+
+    self.main_page = true
   end
 end
