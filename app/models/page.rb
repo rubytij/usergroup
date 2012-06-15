@@ -11,7 +11,7 @@ class Page < ActiveRecord::Base
 
   friendly_id :name, :use => :slugged
 
-  scope :latest, order( 'created_at DESC' )
+  scope :latest, lambda { order( 'created_at DESC' ) }
 
   def self.main_page
     where( :main_page => true ).first

@@ -11,7 +11,7 @@ class Post < ActiveRecord::Base
   delegate :username,     :to => :user, :prefix => :author
   delegate :gravatar_url, :to => :user, :prefix => :author
 
-  scope :latest, order( 'created_at DESC' )
+  scope :latest, lambda { order( 'created_at DESC' ) }
 
   attr_accessible :title, :content, :excerpt, :tag_list
 
