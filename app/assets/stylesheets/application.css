@@ -10,6 +10,6 @@
  *
  *= require_self
  *= require layout
- *= require Markdown.Editor
+ *= require markdown_editor
  *= require syntax
 */
