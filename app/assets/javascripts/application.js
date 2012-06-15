@@ -12,5 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require markdown_editor
 //= require bootstrap
 //= require_tree .
