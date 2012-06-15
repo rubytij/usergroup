@@ -29,6 +29,10 @@ class PagesController < ApplicationController
     end
   end
 
+  def main_page
+    @page = Page.latest_main
+  end
+
   private
   def find_page
     @page = Page.find params[:id]
