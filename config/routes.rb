@@ -18,5 +18,5 @@ UserGroup::Application.routes.draw do
 
   match ':section_name/:page_name' => 'pages#show', :as => :section_page, :via => :get
 
-  root :to => 'posts#index'
+  root :to => 'pages#main_page'
 end
