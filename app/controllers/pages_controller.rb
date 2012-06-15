@@ -30,7 +30,7 @@ class PagesController < ApplicationController
   end
 
   def main_page
-    @page = Page.latest_main
+    @page = Page.main_page
   end
 
   private
