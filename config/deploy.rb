@@ -34,13 +34,6 @@ namespace :deploy do
     run "touch #{ File.join current_path, 'tmp', 'restart.txt' }"
   end
 
-  task :cold do
-    run "mkdir -p #{ deploy_to }/releases"
-    run "mkdir -p #{ shared_path }/log"
-
-    update
-  end
-
   task :gems do
     run "ln -nfs #{ shared_path }/bundle  #{ release_path }/vendor/bundle"
   end
