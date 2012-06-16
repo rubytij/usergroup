@@ -1,6 +1,7 @@
 @import 'compass';
 @import 'bootstrap';
 @import 'bootstrap-responsive';
+@import 'compass/css3/images';
 
 $ruby_color: #7c202b;
 
@@ -69,5 +70,78 @@ img.avatar {
     border-radius: 3px;
     background-color: #efefef;
     padding:4px;
+  }
+}
+html {
+  background-image: url('ios-linen.jpg');
+}
+body {
+  background-color: transparent;
+}
+.wrapper {
+  width: 960px;
+  background-color: white;
+  overflow: hidden;
+}
+.navbar {
+  margin-bottom: 0px;
+}
+header {
+  height: 130px;
+  overflow: hidden;
+  @include background( linear-gradient( #fff, #ddd ) );
+}
+.logo {
+  background-image: url('ruby_logo.png');
+  width: 150px;
+  height: 77px;
+  margin: 20px 0 0 20px;
+  display:block;
+  float:left;
+}
+.banner, .photos, .banner_info, .latest_articles {
+  min-height: 240px;
+}
+.banner {
+  border: 1px solid #aaa;
+  border-width:1px 0 1px 0;
+}
+.main, .banner {
+  overflow: hidden;
+}
+.main_content {
+  width: 560px;
+  float: left;
+  margin: 20px;
+}
+.photos {
+  width: 600px;
+  float: left;
+  margin: 0px;
+}
+.banner_info, .latest_articles {
+  width: 360px;
+  float: left;
+}
+.banner_info {
+  width: 359px;
+  border-left: 1px solid #aaa;
+}
+.quick_news {
+  background-color: #2C2C2C;
+  min-height: 50px;
+  border-bottom: 1px solid #aaa;
+}
+.ruby_tij_network_sites {
+  border-top: 1px solid #aaa;
+  min-height: 200px;
+  @include background( linear-gradient( #fff, #ddd ) );
+}
+footer {
+  color: #999;
+  background-color: #2C2C2C;
+  padding: 20px;
+  p {
+    margin:0px;
   }
 }
