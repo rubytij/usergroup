@@ -39,6 +39,7 @@ FactoryGirl.define do
     section :home
     title   { Factory.next :title }
     content 'hello'
+    main_page true
   end
 
   factory :post do

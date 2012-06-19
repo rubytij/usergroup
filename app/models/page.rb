@@ -14,14 +14,11 @@ class Page < ActiveRecord::Base
   scope :latest, lambda { order( 'created_at DESC' ) }
 
   def self.main_page
-    where( :main_page => true ).first
+    where( :main_page => true ).first or raise ActiveRecord::RecordNotFound
   end
 
   def check_main_page
-    Page.where( :main_page => true ).find_each( :batch_size => 100 ) do |page|
-      page.update_attributes :main_page => false
-    end
-
-    self.main_page = true
+    page = self.class.where( :main_page => true ).last
+    page.update_attributes :main_page => false if page && page != self
   end
 end
