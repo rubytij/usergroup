@@ -1,6 +1,5 @@
 @import 'compass';
 @import 'bootstrap';
-@import 'bootstrap-responsive';
 @import 'compass/css3/images';
 
 $ruby_color: #7c202b;
@@ -82,6 +81,7 @@ body {
   width: 960px;
   background-color: white;
   overflow: hidden;
+  margin:0 auto;
 }
 .navbar {
   margin-bottom: 0px;
@@ -103,7 +103,6 @@ header {
   min-height: 240px;
 }
 .banner {
-  border: 1px solid #aaa;
   border-width:1px 0 1px 0;
 }
 .main, .banner {
@@ -113,6 +112,9 @@ header {
   width: 560px;
   float: left;
   margin: 20px;
+}
+.main {
+  background-color: #d9dade;
 }
 .photos {
   width: 600px;
@@ -124,13 +126,14 @@ header {
   float: left;
 }
 .banner_info {
-  width: 359px;
-  border-left: 1px solid #aaa;
+  width: 360px;
+  background-color: #2C3230;
 }
 .quick_news {
-  background-color: #2C2C2C;
+  @include background( linear-gradient( #bc0100, #95040b ) );
   min-height: 50px;
   border-bottom: 1px solid #aaa;
+  clear: both;
 }
 .ruby_tij_network_sites {
   border-top: 1px solid #aaa;
