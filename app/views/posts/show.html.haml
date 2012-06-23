@@ -4,10 +4,10 @@
       = image_tag @post.author_gravatar_url( 80 ), :class => :avatar, :alt => @post.author_username
     .post-actions
       - if is_author? @post
-        = link_to post_path( @post ), :class => 'btn btn-danger', :method => :delete, :confirm => t('messages.confirmation') do
+        = link_to dashboard_post_path( @post ), :class => 'btn btn-danger', :method => :delete, :confirm => t('messages.confirmation') do
           %i.icon-remove.icon-white
           = t 'actions.delete', :item => t('activerecord.models.post')
-        = link_to edit_post_path( @post ), :class => 'btn btn-warning' do
+        = link_to edit_dashboard_post_path( @post ), :class => 'btn btn-warning' do
           %i.icon-edit.icon-white
           = t 'actions.edit', :item => t('activerecord.models.post')
 

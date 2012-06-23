@@ -9,12 +9,16 @@ UserGroup::Application.routes.draw do
     end
   end
 
-  resources :posts, :except => :show
-  resources :pages, :except => :show
+  namespace :dashboard do
+    resources :pages, :only => [ :create, :update, :new, :edit, :destroy ]
+    resources :posts, :only => [ :create, :update, :new, :edit, :destroy ]
+  end
 
   resources :user, :only => [] do
     resources :posts, :only => [ :index, :show ]
   end
+
+  resources :posts, :only => :index
 
   match ':section_name/:page_name' => 'pages#show', :as => :section_page, :via => :get
 
