@@ -127,8 +127,19 @@ header {
   float: left;
 }
 .banner_info {
-  width: 360px;
+  width: 320px;
+  padding:20px;
   background-color: #2C3230;
+  h1 {
+    color:#efefef;
+    font-size:40px;
+    margin-bottom:10px;
+  }
+  p {
+    color:#ccc;
+    font-size:16px;
+    line-height:1.2;
+  }
 }
 .quick_news {
   @include background( linear-gradient( #bc0100, #95040b ) );
