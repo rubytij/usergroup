@@ -1,11 +1,17 @@
 @import 'compass';
 @import 'bootstrap';
 @import 'compass/css3/images';
+@import "compass/css3/box-shadow";
+@import "compass/css3/font-face";
+
+@include font-face("Bebas-neue", font-files("bebas-neue/BebasNeue-webfont.woff","bebas-neue/BebasNeue-webfont.ttf","bebas-neue/BebasNeue-webfont.svg"), "bebas-neue/BebasNeue-webfont.eot");
 
 $ruby_color: #7c202b;
-
 $tag_cloud: #bbb;
 
+h1,h2,h3,h4,h5 {
+  font-family: "Bebas-neue";
+}
 .tag_cloud {
   a.frozen {
     font-size: 1.0em;
@@ -27,31 +33,25 @@ $tag_cloud: #bbb;
     color: darken( $tag_cloud, 75% );
   }
 }
-
 img.avatar {
   @include border-radius( 50% );
   @include box-shadow( 1px 2px 5px #888 );
   background-color: #333;
   display: block;
 }
-
 .excerpt {
   height: 120px;
   width: 100%;
 }
-
 .post {
   margin-bottom: 20px;
 }
-
 .post-actions {
   margin-top: 10px;
   .btn {
     margin-bottom: 4px;
   }
 }
-
-
 .post-item {
   h1 {
     color: $ruby_color;
@@ -72,7 +72,7 @@ img.avatar {
   }
 }
 html {
-  background-image: url('ios-linen.jpg');
+  background-image: url('subtlenet2.png');
 }
 body {
   background-color: transparent;
@@ -82,6 +82,7 @@ body {
   background-color: white;
   overflow: hidden;
   margin:0 auto;
+  @include single-box-shadow(#888,0px,0px,5px,0px);
 }
 .navbar {
   margin-bottom: 0px;
@@ -114,7 +115,7 @@ header {
   margin: 20px;
 }
 .main {
-  background-color: #d9dade;
+  background-color: #f7f7f7;
 }
 .photos {
   width: 600px;
