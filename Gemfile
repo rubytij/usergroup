@@ -18,6 +18,7 @@ gem 'symbolize', :require => 'symbolize/active_record'
 gem 'pg'
 gem 'pry-rails'
 gem "disqus", "~> 1.0.4"
+gem 'octokit'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
