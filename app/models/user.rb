@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
   validates :github_uid, :username, :uniqueness => true, :presence => true
   validates :email, :format => { :with => /\A[^@]+@[^@]+\z/ }, :uniqueness => true, :allow_blank => true
 
+  after_create :update_roles
+
+  attr_accessor :oauth_token
   attr_accessible :gravatar_token, :email, :name, :site_url, :username, :github_uid
 
   has_many :posts
@@ -26,6 +29,7 @@ class User < ActiveRecord::Base
         user.gravatar_token = extras['gravatar_id']
       end
 
+      user.oauth_token = omniauth['credentials']['token'] if omniauth['credentials'].present?
       user.save!
     end
   end
@@ -35,5 +39,21 @@ class User < ActiveRecord::Base
 
     return "http://gravatar.com/avatar/#{ gravatar_token }.png?s=#{ size }&d=#{ CGI.escape default_image }" if gravatar_token.present?
     default_image
+  end
+
+  private
+  def update_roles
+    client  = Octokit::Client.new :login => self.username, :oauth_token => self.oauth_token
+
+    begin
+      teams = client.org_teams 'rubytij'
+
+      teams.each do |team|
+        members = client.team_members( team.id ).map( &:login )
+        self.has_role! team.name.parameterize if members.include? self.username
+      end
+    rescue
+      # User is not part of github org
+    end
   end
 end
