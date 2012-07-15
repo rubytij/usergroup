@@ -19,6 +19,7 @@ gem 'pg'
 gem 'pry-rails'
 gem "disqus", "~> 1.0.4"
 gem 'octokit'
+gem 'fakeweb'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

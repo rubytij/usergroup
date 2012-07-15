@@ -53,7 +53,7 @@ class User < ActiveRecord::Base
         self.has_role! team.name.parameterize if members.include? self.username
       end
     rescue
-      # User is not part of github org
+      # User is not part of github org or has wrong token
     end
   end
 end
