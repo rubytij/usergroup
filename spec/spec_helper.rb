@@ -4,6 +4,7 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/rspec'
+require 'fakeweb'
 
 Capybara.javascript_driver = :webkit
 
@@ -34,4 +35,10 @@ RSpec.configure do |config|
   # automatically. This will be the default behavior in future versions of
   # rspec-rails.
   config.infer_base_class_for_anonymous_controllers = false
+
+  ## Will prevent requests to github on test env when creating user factories
+  config.before :each do
+    FakeWeb.register_uri(:get, "https://api.github.com/orgs/rubytij/teams", :body => [ { :name   => 'Owners', :id => 1 } ].to_json )
+    FakeWeb.register_uri(:get, 'https://api.github.com/teams/1/members', :body => [ { :login  => 'github_user' } ].to_json )
+  end
 end
