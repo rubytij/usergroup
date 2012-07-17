@@ -53,13 +53,20 @@ describe User do
     before :each do
       @omniauth = { 'uid' => Factory.next(:uid),
         'info' => {
-          'nickname'  => Factory.next(:username),
+          'nickname'  => 'github_user',
           'email'     => Factory.next(:email),
           'name'      => 'John Doe'
         },
 
-        'extra' => {}
+        'extra'       => {},
+        'credentials' => { :token => 'abc123' }
       }
+    end
+
+    it 'should create roles of from github' do
+      user =  User.create_from_github( @omniauth )
+      user.roles.should_not be_empty
+      user.should have_role( 'owners' ) # baffled by how this works, check spec_helper.rb
     end
 
     it 'can create user from omniauth hash' do
