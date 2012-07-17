@@ -65,3 +65,6 @@ en:
           about: About us
           contact: Contact us
           meetings: Meetings
+    errors:
+      event:
+        starts_at_greater: The event can't end before it starts

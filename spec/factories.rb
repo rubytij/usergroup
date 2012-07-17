@@ -47,4 +47,12 @@ FactoryGirl.define do
     content "Lorem ipsum"
     user
   end
+
+  factory :event do
+    name { Factory.next :name }
+    start_date { Date.today }
+    end_date { 1.day.from_now }
+    description 'Discuss Time and Space'
+    association :user
+  end
 end

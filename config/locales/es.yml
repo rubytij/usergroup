@@ -65,3 +65,6 @@ es:
           about: Acerca
           contact: Contacto
           meetings: Reuniones
+    errors:
+      event:
+        starts_at_greater: El evento no puede iniciar después de acabar
