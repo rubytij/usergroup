@@ -7,6 +7,9 @@ es:
       sign_in: 'Iniciar sesión con GitHub'
       destroy: 'Cerrar sesión'
 
+  labels:
+    language: Idioma
+
   pages:
     form:
       select_section: Elige una sección

@@ -7,6 +7,9 @@ en:
       sign_in: 'Sign in with GitHub'
       destroy: 'Sign out'
 
+  labels:
+    language: Language
+
   pages:
     form:
       select_section: Select a section for this page
