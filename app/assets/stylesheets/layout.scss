@@ -1,5 +1,5 @@
-@import 'compass';
 @import 'bootstrap';
+@import "compass/css3/border-radius";
 @import 'compass/css3/images';
 @import "compass/css3/box-shadow";
 @import "compass/css3/font-face";
@@ -8,6 +8,7 @@
 
 $ruby_color: #7c202b;
 $tag_cloud: #bbb;
+$dark_gray: #2C3230;
 
 h1,h2,h3,h4,h5 {
   font-family: "Bebas-neue";
@@ -100,6 +101,31 @@ header {
   display:block;
   float:left;
 }
+#site_sections {
+  float: right;
+  width: 540px;
+  margin: 50px 20px 0 20px;
+  ul {
+    margin: 0;
+  }
+  a {
+    color: white;
+    display:block;
+    padding:10px 20px;
+    float:right;
+    text-transform: capitalize;
+    background-color: $dark_gray;
+    &:hover {
+      text-decoration: none;
+      background-color: $ruby_color;
+    }
+  }
+  li {
+    list-style: none;
+    margin: 0;
+  }
+}
+
 .banner, .photos, .banner_info, .latest_articles {
   min-height: 240px;
 }
@@ -129,7 +155,7 @@ header {
 .banner_info {
   width: 320px;
   padding:20px;
-  background-color: #2C3230;
+  background-color: $dark_gray;
   h1 {
     color:#efefef;
     font-size:40px;

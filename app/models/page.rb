@@ -12,6 +12,7 @@ class Page < ActiveRecord::Base
   friendly_id :name, :use => :slugged
 
   scope :latest, lambda { order( 'created_at DESC' ) }
+  #scope :sections, lambda { select( :section ).uniq }
 
   def self.main_page
     where( :main_page => true ).first or raise ActiveRecord::RecordNotFound
@@ -20,5 +21,9 @@ class Page < ActiveRecord::Base
   def check_main_page
     page = self.class.where( :main_page => true ).last
     page.update_attributes :main_page => false if page && page != self
+  end
+
+  def self.sections
+    select( :section ).uniq.map( &:section )
   end
 end

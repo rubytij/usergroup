@@ -16,7 +16,11 @@
     .wrapper
       %header
         .logo
-        %nav.site_sections
+        %nav#site_sections
+          %ul
+            -@site_sections.reverse.each do |s|
+              %li
+                = link_to s, "#{s}"
       - if @page.try(:main_page?)
         %section.banner
           .photos

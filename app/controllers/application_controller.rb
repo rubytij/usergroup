@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   helper_method :current_user
-  before_filter :set_locale
+  before_filter :set_locale, :site_sections
+
   rescue_from UserGroup::UserNotAuthenticated, :with => :unauthenticated_access
 
   protect_from_forgery
@@ -21,5 +22,9 @@ class ApplicationController < ActionController::Base
   def set_locale
     session[:locale]  = params[:locale] if params[:locale].present?
     I18n.locale       = session[:locale]
+  end
+
+  def site_sections
+    @site_sections = Page.sections
   end
 end
