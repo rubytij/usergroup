@@ -18,7 +18,7 @@
         .logo
         %nav#site_sections
           %ul
-            -@site_sections.reverse.each do |s|
+            - Page::SECTIONS.reverse.each do |s|
               %li
                 = link_to s, "#{s}"
       - if @page.try(:main_page?)
