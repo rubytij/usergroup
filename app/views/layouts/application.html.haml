@@ -18,7 +18,7 @@
         .logo
         %nav#site_sections
           %ul
-            - Page::SECTIONS.reverse.each do |s|
+            - Page::SECTIONS.each do |s|
               %li
                 = link_to s, "#{s}"
       - if @page.try(:main_page?)
@@ -33,8 +33,9 @@
           = yield
         .latest_articles
       %section.ruby_tij_network_sites
-        .twitter
-        .github
-        .reddit
+        .github.widget
+          %img{ :src => 'assets/github_logo.png' }
+        .reddit.widget
+        .twitter.widget
       %footer
         %p CC rubytij

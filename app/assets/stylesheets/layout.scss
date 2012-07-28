@@ -103,18 +103,21 @@ header {
 }
 #site_sections {
   float: right;
-  width: 540px;
+  width: 326px;
   margin: 50px 20px 0 20px;
+  overflow: hidden;
+  @include border-radius( 5px );
   ul {
     margin: 0;
+    background-color: $dark_gray;
+    overflow: hidden;
+    width: 500px;
   }
   a {
     color: white;
     display:block;
     padding:10px 20px;
-    float:right;
     text-transform: capitalize;
-    background-color: $dark_gray;
     &:hover {
       text-decoration: none;
       background-color: $ruby_color;
@@ -122,15 +125,23 @@ header {
   }
   li {
     list-style: none;
-    margin: 0;
+    display:block;
+    float: left;
   }
 }
 
 .banner, .photos, .banner_info, .latest_articles {
   min-height: 240px;
 }
+.banner_info {
+  min-height:201px;
+}
 .banner {
   border-width:1px 0 1px 0;
+}
+.photos {
+  border-top:1px solid $dark_gray;
+  background-image: url('pendertuga.png');
 }
 .main, .banner {
   overflow: hidden;
@@ -177,6 +188,11 @@ header {
   border-top: 1px solid #aaa;
   min-height: 200px;
   @include background( linear-gradient( #fff, #ddd ) );
+  .widget {
+    margin: 20px;
+    float: left;
+    width: 278px;
+  }
 }
 footer {
   color: #999;
