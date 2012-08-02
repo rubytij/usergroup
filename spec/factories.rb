@@ -50,8 +50,8 @@ FactoryGirl.define do
 
   factory :event do
     name { Factory.next :name }
-    start_date { Date.today }
-    end_date { 1.day.from_now }
+    starts_at { Date.today }
+    ends_at { 1.day.from_now }
     description 'Discuss Time and Space'
     association :user
   end

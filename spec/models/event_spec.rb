@@ -19,7 +19,7 @@ describe Event do
 
   describe "start date and end date" do
     it "end must be greater than start" do
-      Factory.build( :event, :start_date => DateTime.now + 1.day, :end_date => DateTime.now - 1.day ).should be_invalid
+      Factory.build( :event, :starts_at => DateTime.now + 1.day, :ends_at => DateTime.now - 1.day ).should be_invalid
     end
   end
 
