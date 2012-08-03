@@ -15,7 +15,7 @@
     = render 'layouts/navigation'
     .wrapper
       %header
-        .logo
+        = link_to '', '/', :class => 'logo'
         %nav#site_sections
           %ul
             - symbolize = 'activerecord.symbolizes.page.section'
