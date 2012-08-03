@@ -103,7 +103,7 @@ header {
 }
 #site_sections {
   float: right;
-  width: 326px;
+  min-width: 326px;
   margin: 50px 20px 0 20px;
   overflow: hidden;
   @include border-radius( 5px );
@@ -111,7 +111,6 @@ header {
     margin: 0;
     background-color: $dark_gray;
     overflow: hidden;
-    width: 500px;
   }
   a {
     color: white;

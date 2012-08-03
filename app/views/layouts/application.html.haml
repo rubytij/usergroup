@@ -18,9 +18,9 @@
         .logo
         %nav#site_sections
           %ul
-            - Page::SECTIONS.each do |s|
-              %li
-                = link_to s, "#{s}"
+            - symbolize = 'activerecord.symbolizes.page.section'
+            - [ Page.home.first, Page.about.first, Page.contact.first, Page.meetings.first ].compact.each do |page|
+              %li= link_to t("#{ symbolize }.#{ page.section }"), section_page_path( page.section, page )
       - if @page.try(:main_page?)
         %section.banner
           .photos

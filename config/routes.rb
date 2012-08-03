@@ -22,5 +22,5 @@ UserGroup::Application.routes.draw do
 
   match ':section_name/:page_name' => 'pages#show', :as => :section_page, :via => :get
 
-  root :to => 'pages#main_page'
+  root :to => 'pages#show', :section_name => 'home', :page_name => 'main'
 end

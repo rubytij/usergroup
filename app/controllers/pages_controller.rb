@@ -3,8 +3,4 @@ class PagesController < ApplicationController
     @related  = Page.where( :section => params[:section_name] )
     @page     = @related.find params[:page_name]
   end
-
-  def main_page
-    @page = Page.main_page
-  end
 end
