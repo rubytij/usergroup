@@ -1,8 +1,6 @@
-.row-fluid
-  .span3
-    %ul.nav.nav-pills.nav-stacked= render :partial => 'internal_nav', :collection => @related, :as => :page
+- content_for :additional_content do
+  %ul.nav.nav-pills.nav-stacked= render :partial => 'internal_nav', :collection => @related, :as => :page
 
-  .span9
-    %h1= @page.title.titleize
-    :plain
-      #{ markdown @page.content }
+%h1= @page.title.titleize
+:plain
+  #{ markdown @page.content }

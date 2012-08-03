@@ -153,6 +153,11 @@ header {
 .main {
   background-color: #f7f7f7;
 }
+.additional_content {
+  width: 320px;
+  float:right;
+  padding: 20px;
+}
 .photos {
   width: 600px;
   float: left;
@@ -199,5 +204,17 @@ footer {
   padding: 20px;
   p {
     margin:0px;
+  }
+}
+
+.nav-pills {
+  .active a {
+    background-color: $ruby_color;
+    &:hover {
+      background-color: lighten($ruby_color, 10);
+    }
+  }
+  a {
+    color: $ruby_color;
   }
 }

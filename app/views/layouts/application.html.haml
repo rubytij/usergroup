@@ -27,11 +27,12 @@
           .banner_info
             %h1 Somos rubytij
             %p Sitio de informacion sobre el lenguaje de programacion Ruby.
-          %section.quick_news
+      %section.quick_news
       %section.main
         .main_content
           = yield
-        .latest_articles
+        .additional_content
+          = yield :additional_content
       %section.ruby_tij_network_sites
         .github.widget
           = image_tag 'github_logo.png'
