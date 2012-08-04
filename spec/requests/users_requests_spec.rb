@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "Users requests" do
   before :each do
-    Factory.create :page
+    Factory.create :page, :section => :home, :name => 'main'
     @user = Factory.create :user
     @omniauth = {
       'uid' => Factory.next(:uid),
