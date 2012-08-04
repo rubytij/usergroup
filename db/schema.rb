@@ -11,17 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120713231630) do
-
-  create_table "events", :force => true do |t|
-    t.string   "name"
-    t.datetime "starts_at"
-    t.datetime "ends_at"
-    t.text     "description"
-    t.integer  "user_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
+ActiveRecord::Schema.define(:version => 20120615221524) do
 
   create_table "pages", :force => true do |t|
     t.string   "name",       :null => false
@@ -35,7 +25,9 @@ ActiveRecord::Schema.define(:version => 20120713231630) do
   end
 
   add_index "pages", ["name", "section"], :name => "index_pages_on_name_and_section", :unique => true
+  add_index "pages", ["name"], :name => "index_pages_on_name"
   add_index "pages", ["slug", "section"], :name => "index_pages_on_slug_and_section", :unique => true
+  add_index "pages", ["slug"], :name => "index_pages_on_slug"
 
   create_table "posts", :force => true do |t|
     t.string   "title"
