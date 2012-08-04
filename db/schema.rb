@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(:version => 20120713231630) do
     t.boolean  "main_page"
   end
 
-  add_index "pages", ["name"], :name => "index_pages_on_name", :unique => true
-  add_index "pages", ["slug"], :name => "index_pages_on_slug", :unique => true
+  add_index "pages", ["name", "section"], :name => "index_pages_on_name_and_section", :unique => true
+  add_index "pages", ["slug", "section"], :name => "index_pages_on_slug_and_section", :unique => true
 
   create_table "posts", :force => true do |t|
     t.string   "title"
