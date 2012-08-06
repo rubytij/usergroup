@@ -20,6 +20,9 @@ UserGroup::Application.routes.draw do
 
   resources :posts, :only => :index
 
+  match 'contact'       => 'pages#contact', :as => :contact_page, :via => :get
+  match 'contact/send'  => 'pages#email',   :as => :send_email,   :via => :post
+
   match ':section_name/:page_name' => 'pages#show', :as => :section_page, :via => :get
 
   root :to => 'pages#show', :section_name => 'home', :page_name => 'main'

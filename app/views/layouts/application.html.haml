@@ -18,9 +18,8 @@
         = link_to '', '/', :class => 'logo'
         %nav#site_sections
           %ul
-            - symbolize = 'activerecord.symbolizes.page.section'
-            - [ Page.home.first, Page.about.first, Page.meetings.first ].compact.each do |page|
-              %li= link_to t("#{ symbolize }.#{ page.section }"), section_page_path( page.section, page )
+            = render 'layouts/page_links'
+
       - if @page.try(:main_page?)
         %section.banner
           .photos

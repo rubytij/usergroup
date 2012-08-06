@@ -55,4 +55,10 @@ FactoryGirl.define do
     description 'Discuss Time and Space'
     association :user
   end
+
+  factory :contact_form do
+    name  { Factory.next :name }
+    email { Factory.next :email }
+    message 'Who let the dogs out?'
+  end
 end

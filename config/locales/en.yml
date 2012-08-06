@@ -9,6 +9,7 @@ en:
 
   labels:
     language: Language
+    send_email: Send email
 
   pages:
     form:
@@ -22,6 +23,7 @@ en:
     delete: Delete %{item}
     edit: Edit %{item}
     read_more: Read More
+    sent: '%{item} sent'
 
   navigation:
     Posts: Articles
@@ -55,6 +57,7 @@ en:
       post: Post
       section: Section
       page: Page
+      contact_form: Email
     attributes:
       user:
         github_uid: UID

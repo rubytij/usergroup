@@ -9,6 +9,7 @@ es:
 
   labels:
     language: Idioma
+    send_email: Enviar correo electrónico
 
   pages:
     form:
@@ -37,18 +38,21 @@ es:
     email: Correo electrónico
     title: Título
     content: Contenido
+    message: Mensaje
 
   actions:
     new: Nuevo %{item}
     delete: Eliminar %{item}
     read_more: Leer más
     edit: Editar %{item}
+    sent: '%{item} enviado'
 
   activerecord:
     models:
       user: Usuario
       post: Articulo
       page: Página
+      contact_form: Correo
     attributes:
       user:
         github_uid: UID
