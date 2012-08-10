@@ -7,8 +7,8 @@ namespace :config do
     require 'erb'
 
     erb_env = Proc.new do
-      @host = Rails.env.development? ? 'www.rt.dev' : 'www.rubitij.org'
-      @root = Rails.env.development? ? Rails.root : '/home/deployer/app'
+      @host = Rails.env.development? ? 'www.rt.dev' : 'www.rubytij.org'
+      @root = Rails.env.development? ? Rails.root : '/home/deployer/srv/app/usergroup'
       @public = File.join( @root, 'public' )
       @log = "#{ @root }/log"
       binding
