@@ -1,49 +1,39 @@
 require 'bundler/capistrano'
 
-set :application, 'usergroup'
-set :user,        'deployer'
-set :ssh_name,    'rubytij.org'
+set :stages,        %w/staging production/
+set :default_stage, 'staging'
 
-set :scm,         :git
-set :scm_verbose, true
-set :repository,  `git config --get remote.origin.url`.chomp
-set :branch,      'master'
+require 'capistrano/ext/multistage'
 
-set :use_sudo,        false
-set :group_writable,  false
-set :keep_releases,   2
+set :use_sudo, false
+
+set :scm, :git
+set :repository, `git config --get remote.origin.url`.chomp
+set :branch, ENV['TAG']
 
 ssh_options[:forward_agent] = true
+default_run_options[:pty]   = true
 
-set :deploy_to, "/home/#{ user }/srv/app/#{ application }"
-set :deploy_via, :remote_cache
-set :rails_env, 'production'
-
-role :app,  ssh_name
-role :web,  ssh_name
-role :db,   ssh_name, :primary => true
+set :keep_releases, 2
+set :port, 22
 
 namespace :deploy do
-  task :config, :roles => :app do
-    run "ln -nfs #{ shared_path }/config/database.yml     #{ release_path }/config/database.yml"
-    run "ln -nfs #{ shared_path }/config/application.yml  #{ release_path }/config/application.yml"
-    run "ln -nfs #{ shared_path }/log                     #{ release_path }/log"
+  desc "Tell Passenger to restart the app"
+  task :restart, :roles => :app, :except => { :no_release => true } do
+    run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
 
-  task :restart, :roles => :app do
-    run "touch #{ File.join current_path, 'tmp', 'restart.txt' }"
-  end
-
-  task :gems do
-    run "ln -nfs #{ shared_path }/bundle  #{ release_path }/vendor/bundle"
+  namespace :config do
+    task :generate do
+      run "cd #{release_path} && RAILS_ENV=#{rails_env} bundle exec rake config:generate"
+    end
   end
 end
 
-before 'deploy:restart' do
-  run "cd #{ release_path } && bundle exec rake RAILS_ENV=#{ rails_env } config:generate"
-end
 
-after   'deploy:update_code', 'deploy:config'
-after   'deploy:update',      'deploy:gems'
-before  'deploy:restart',     'deploy:migrate'
-after   :deploy,              'deploy:cleanup'
+before 'deploy:assets:precompile',  'deploy:config:generate'
+
+before 'deploy:restart', 'deploy:create_symlink'
+before 'deploy:restart', 'deploy:migrate'
+
+after :deploy, 'deploy:cleanup'
