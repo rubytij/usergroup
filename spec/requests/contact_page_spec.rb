@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "Contact Page" do
   before :each do
-    Factory.create :page, :section => :home, :name => :main
+    Factory.create :page
     visit root_path
     click_link I18n.t 'activerecord.symbolizes.page.section.contact'
   end
