@@ -13,4 +13,9 @@ class Page < ActiveRecord::Base
   friendly_id :name, :use => :scoped, :scope => :section
 
   scope :latest, lambda { order( 'created_at DESC' ) }
+
+  def self.main
+    where( :main_page => true ).first
+  end
+
 end

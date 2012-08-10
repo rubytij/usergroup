@@ -3,4 +3,5 @@
   - page = Page.try( section ).try( :first )
   - next unless page
   %li= link_to t("#{ symbolize }.#{ section }"), section_page_path(section, page)
+%li= link_to t('navigation.posts'), posts_path
 %li= link_to t("#{ symbolize }.contact"), contact_page_path

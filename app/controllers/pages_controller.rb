@@ -17,4 +17,9 @@ class PagesController < ApplicationController
       render :contact
     end
   end
+
+  def main
+    @page = Page.main
+    render :show
+  end
 end
