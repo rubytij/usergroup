@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   helper_method :current_user
+  before_filter :set_locale
+
   rescue_from UserGroup::UserNotAuthenticated, :with => :unauthenticated_access
 
   protect_from_forgery
@@ -15,5 +17,10 @@ class ApplicationController < ActionController::Base
 
   def unauthenticated_access
     render :file => 'public/404', :format => :html, :status => :not_found
+  end
+
+  def set_locale
+    session[:locale]  = params[:locale] if params[:locale].present?
+    I18n.locale       = session[:locale]
   end
 end

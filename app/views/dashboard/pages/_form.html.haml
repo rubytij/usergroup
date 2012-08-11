@@ -1,7 +1,7 @@
 - symbolize   = 'activerecord.symbolizes.page.section'
 - collection  = [ [ t("#{symbolize}.home"), :home ], [ t("#{symbolize}.about"), :about ], [ t("#{symbolize}.contact"), :contact ], [ t("#{symbolize}.meetings"), :meetings ] ]
 
-= simple_form_for page do |f|
+= simple_form_for [ :dashboard, page ] do |f|
   = f.input :name
   = f.input :title
   = f.input :section, :collection => collection, :prompt => t('.select_section')
