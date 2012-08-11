@@ -4,7 +4,11 @@ describe Dashboard::PagesController do
   before { @page = Factory.create :page }
 
   describe 'logged in' do
-    before { session[:user_id] = Factory.create( :user ).id }
+    before do
+      user = Factory.create :user
+      user.has_role! :owners
+      session[:user_id] = user.id
+    end
 
     describe 'create new page' do
       it 'should redirect after creating page' do
