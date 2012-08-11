@@ -6,7 +6,7 @@ describe Dashboard::PagesController do
   describe 'logged in' do
     before do
       user = Factory.create :user
-      user.has_role! :owners
+      user.has_role! :admin
       session[:user_id] = user.id
     end
 

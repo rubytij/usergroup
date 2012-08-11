@@ -2,6 +2,10 @@ class Dashboard::PagesController < ApplicationController
   before_filter :authenticate_user!
   before_filter :find_page, :only => [ :edit, :update ]
 
+  access_control do
+    allow :admin, :editor
+  end
+
   layout 'dashboard'
 
   def new
