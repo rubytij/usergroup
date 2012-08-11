@@ -39,11 +39,26 @@ FactoryGirl.define do
     section :home
     title   { Factory.next :title }
     content 'hello'
+    main_page true
   end
 
   factory :post do
     title   { Factory.next :title }
     content "Lorem ipsum"
     user
+  end
+
+  factory :event do
+    name { Factory.next :name }
+    starts_at { Date.today }
+    ends_at { 1.day.from_now }
+    description 'Discuss Time and Space'
+    association :user
+  end
+
+  factory :contact_form do
+    name  { Factory.next :name }
+    email { Factory.next :email }
+    message 'Who let the dogs out?'
   end
 end

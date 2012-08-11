@@ -9,14 +9,21 @@ UserGroup::Application.routes.draw do
     end
   end
 
-  resources :posts, :except => :show
-  resources :pages, :except => :show
+  namespace :dashboard do
+    resources :pages, :only => [ :create, :update, :new, :edit, :destroy ]
+    resources :posts, :only => [ :create, :update, :new, :edit, :destroy ]
+  end
 
   resources :user, :only => [] do
     resources :posts, :only => [ :index, :show ]
   end
 
+  resources :posts, :only => :index
+
+  match 'contact'       => 'pages#contact', :as => :contact_page, :via => :get
+  match 'contact/send'  => 'pages#email',   :as => :send_email,   :via => :post
+
   match ':section_name/:page_name' => 'pages#show', :as => :section_page, :via => :get
 
-  root :to => 'posts#index'
+  root :to => 'pages#main'
 end

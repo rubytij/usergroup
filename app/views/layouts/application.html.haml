@@ -13,5 +13,34 @@
     %meta{ :name => :viewport, :content => 'width=device-width, initial-scale=1.0' }
   %body
     = render 'layouts/navigation'
-    .container
-      = yield
+    .wrapper
+      %header
+        = link_to '', '/', :class => 'logo'
+        %nav#site_sections
+          %ul
+            = render 'layouts/page_links'
+
+      - if @page.try(:main_page?)
+        %section.banner
+          .photos
+          .banner_info
+            %h1 Somos rubytij
+            %p Sitio de informacion sobre el lenguaje de programacion Ruby.
+      %section.quick_news
+      %section.main
+        .main_content
+          = yield
+        .additional_content
+          = yield :additional_content
+      %section.ruby_tij_network_sites
+        .github.widget
+          %a{ :href => '//github.com/rubytij' }
+            = image_tag 'github_logo.png'
+        .reddit.widget
+          %a{ :href => '//reddit.com/r/rubytij' }
+            = image_tag 'reddit_logo.png'
+        .twitter.widget
+          %a{ :href => '//twitter.com/rubytij' }
+            = image_tag 'twitter_logo.png'
+      %footer
+        %p CC rubytij

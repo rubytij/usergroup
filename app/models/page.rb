@@ -1,12 +1,21 @@
 class Page < ActiveRecord::Base
   extend FriendlyId
 
-  symbolize :section, :in => [ :home, :about, :contact, :meetings ], :scopes => true, :methods => true
+  SECTIONS = [ :home, :about, :meetings ]
 
-  validates :name, :presence => true, :uniqueness => true
+  symbolize :section, :in => SECTIONS, :scopes => true, :methods => true
+
+  validates :name, :presence => true, :uniqueness => { :scope => :section }
   validates :title, :content, :section, :presence => true
 
-  attr_accessible :name, :title, :content, :section
+  attr_accessible :name, :title, :content, :section, :main_page
 
-  friendly_id :name, :use => :slugged
+  friendly_id :name, :use => :scoped, :scope => :section
+
+  scope :latest, lambda { order( 'created_at DESC' ) }
+
+  def self.main
+    where( :main_page => true ).first
+  end
+
 end

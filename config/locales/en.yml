@@ -7,6 +7,10 @@ en:
       sign_in: 'Sign in with GitHub'
       destroy: 'Sign out'
 
+  labels:
+    language: Language
+    send_email: Send email
+
   pages:
     form:
       select_section: Select a section for this page
@@ -19,6 +23,7 @@ en:
     delete: Delete %{item}
     edit: Edit %{item}
     read_more: Read More
+    sent: '%{item} sent'
 
   navigation:
     Posts: Articles
@@ -52,6 +57,7 @@ en:
       post: Post
       section: Section
       page: Page
+      contact_form: Email
     attributes:
       user:
         github_uid: UID
@@ -65,3 +71,6 @@ en:
           about: About us
           contact: Contact us
           meetings: Meetings
+    errors:
+      event:
+        starts_at_greater: The event can't end before it starts

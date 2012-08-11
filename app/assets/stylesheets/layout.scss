@@ -1,11 +1,18 @@
-@import 'compass';
 @import 'bootstrap';
-@import 'bootstrap-responsive';
+@import "compass/css3/border-radius";
+@import 'compass/css3/images';
+@import "compass/css3/box-shadow";
+@import "compass/css3/font-face";
+
+@include font-face("Bebas-neue", font-files("bebas-neue/BebasNeue-webfont.woff","bebas-neue/BebasNeue-webfont.ttf","bebas-neue/BebasNeue-webfont.svg"), "bebas-neue/BebasNeue-webfont.eot");
 
 $ruby_color: #7c202b;
-
 $tag_cloud: #bbb;
+$dark_gray: #2C3230;
 
+h1,h2,h3,h4,h5 {
+  font-family: "Bebas-neue";
+}
 .tag_cloud {
   a.frozen {
     font-size: 1.0em;
@@ -27,31 +34,25 @@ $tag_cloud: #bbb;
     color: darken( $tag_cloud, 75% );
   }
 }
-
 img.avatar {
   @include border-radius( 50% );
   @include box-shadow( 1px 2px 5px #888 );
   background-color: #333;
   display: block;
 }
-
 .excerpt {
   height: 120px;
   width: 100%;
 }
-
 .post {
   margin-bottom: 20px;
 }
-
 .post-actions {
   margin-top: 10px;
   .btn {
     margin-bottom: 4px;
   }
 }
-
-
 .post-item {
   h1 {
     color: $ruby_color;
@@ -69,5 +70,151 @@ img.avatar {
     border-radius: 3px;
     background-color: #efefef;
     padding:4px;
+  }
+}
+html {
+  background-image: url('subtlenet2.png');
+}
+body {
+  background-color: transparent;
+}
+.wrapper {
+  width: 960px;
+  background-color: white;
+  overflow: hidden;
+  margin:0 auto;
+  @include single-box-shadow(#888,0px,0px,5px,0px);
+}
+.navbar {
+  margin-bottom: 0px;
+}
+header {
+  height: 130px;
+  overflow: hidden;
+  @include background( linear-gradient( #fff, #ddd ) );
+}
+.logo {
+  background-image: url('ruby_logo.png');
+  width: 150px;
+  height: 77px;
+  margin: 20px 0 0 20px;
+  display:block;
+  float:left;
+}
+#site_sections {
+  float: right;
+  min-width: 326px;
+  margin: 50px 20px 0 20px;
+  overflow: hidden;
+  @include border-radius( 5px );
+  ul {
+    margin: 0;
+    background-color: $dark_gray;
+    overflow: hidden;
+  }
+  a {
+    color: white;
+    display:block;
+    padding:10px 20px;
+    text-transform: capitalize;
+    &:hover {
+      text-decoration: none;
+      background-color: $ruby_color;
+    }
+  }
+  li {
+    list-style: none;
+    display:block;
+    float: left;
+  }
+}
+
+.banner, .photos, .banner_info, .latest_articles {
+  min-height: 240px;
+}
+.banner_info {
+  min-height:201px;
+}
+.banner {
+  border-width:1px 0 1px 0;
+}
+.photos {
+  border-top:1px solid $dark_gray;
+  background-image: url('pendertuga.png');
+}
+.main, .banner {
+  overflow: hidden;
+}
+.main_content {
+  width: 560px;
+  float: left;
+  margin: 20px;
+}
+.main {
+  background-color: #f7f7f7;
+}
+.additional_content {
+  width: 320px;
+  float:right;
+  padding: 20px;
+}
+.photos {
+  width: 600px;
+  float: left;
+  margin: 0px;
+}
+.banner_info, .latest_articles {
+  width: 360px;
+  float: left;
+}
+.banner_info {
+  width: 320px;
+  padding:20px;
+  background-color: $dark_gray;
+  h1 {
+    color:#efefef;
+    font-size:40px;
+    margin-bottom:10px;
+  }
+  p {
+    color:#ccc;
+    font-size:16px;
+    line-height:1.2;
+  }
+}
+.quick_news {
+  @include background( linear-gradient( #bc0100, #95040b ) );
+  min-height: 50px;
+  border-bottom: 1px solid #aaa;
+  clear: both;
+}
+.ruby_tij_network_sites {
+  border-top: 1px solid #aaa;
+  min-height: 200px;
+  @include background( linear-gradient( #fff, #ddd ) );
+  .widget {
+    margin: 20px;
+    float: left;
+    width: 278px;
+  }
+}
+footer {
+  color: #999;
+  background-color: #2C2C2C;
+  padding: 20px;
+  p {
+    margin:0px;
+  }
+}
+
+.nav-pills {
+  .active a {
+    background-color: $ruby_color;
+    &:hover {
+      background-color: lighten($ruby_color, 10);
+    }
+  }
+  a {
+    color: $ruby_color;
   }
 }

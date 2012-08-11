@@ -1,36 +1,25 @@
 class PagesController < ApplicationController
-  before_filter :authenticate_user!,  :only => [ :new, :create, :edit, :update, :destroy ]
-  before_filter :find_page,           :only => [ :edit, :update ]
-
   def show
     @related  = Page.where( :section => params[:section_name] )
     @page     = @related.find params[:page_name]
   end
 
-  def new
-    @page = Page.new
+  def contact
+    @contact_form = ContactForm.new
   end
 
-  def create
-    @page = Page.new params[:page]
+  def email
+    @contact_form = ContactForm.new params[:contact_form]
 
-    if @page.save
-      redirect_to section_page_path( @page.section, @page )
+    if @contact_form.deliver
+      redirect_to contact_page_path, :flash => { :success => t('actions.sent', :item => t('activerecord.models.contact_form')) }
     else
-      render :new
+      render :contact
     end
   end
 
-  def update
-    if @page.update_attributes params[:page]
-      redirect_to section_page_path( @page.section, @page )
-    else
-      render :edit
-    end
-  end
-
-  private
-  def find_page
-    @page = Page.find params[:id]
+  def main
+    @page = Page.main
+    render :show
   end
 end

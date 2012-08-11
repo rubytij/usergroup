@@ -13,12 +13,22 @@
           %li= link_to t('navigation.posts'), posts_path
 
         %ul.nav.pull-right
+          %li.divider-vertical
+          %li.dropdown
+            = link_to '#', :data => { :toggle => :dropdown }, :class => 'dropdown-toggle' do
+              = t 'labels.language'
+              %b.caret
+            %ul.dropdown-menu
+              %li= link_to 'Español', params.merge( :locale => :es )
+              %li= link_to 'English', params.merge( :locale => :en )
+
+        %ul.nav.pull-right
           - unless current_user
             %li.divider-vertical
             %li= link_to t('user.sessions.sign_in'), new_user_session_path( :return_to => request.url )
           - else
             %ul.nav
-              %li= link_to t('actions.new', :item => t('activerecord.models.post') ), new_post_path
+              %li= link_to t('actions.new', :item => t('activerecord.models.post') ), new_dashboard_post_path
               %li.divider-vertical
             %li.dropdown
               %a.dropdown-toggle{ :'data-toggle' => :dropdown, :href => '#' }

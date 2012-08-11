@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.3'
+gem 'rails', '3.2.6'
 gem 'json'
 gem 'capistrano'
 gem 'haml-rails'
@@ -20,6 +20,7 @@ gem 'pry-rails'
 gem "disqus", "~> 1.0.4"
 gem 'octokit'
 gem 'fakeweb'
+gem 'mail_form'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
