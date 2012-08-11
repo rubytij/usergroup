@@ -4,10 +4,12 @@
 = simple_form_for [ :dashboard, page ] do |f|
   = f.input :name
   = f.input :title
-  = f.input :section, :collection => collection, :prompt => t('.select_section')
+  = f.input :section, :collection => collection, :prompt => t('pages.form.select_section')
   .wmd-panel
     #wmd-button-bar
     = f.input :content, :as => :text, :label => false, :input_html => { :id => 'wmd-input', :class => 'wmd-input' }
+
+  = f.input :main_page
 
   .form-actions
     = f.button :submit, :class => 'btn-success'

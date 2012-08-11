@@ -7,6 +7,7 @@ class Page < ActiveRecord::Base
 
   validates :name, :presence => true, :uniqueness => { :scope => :section }
   validates :title, :content, :section, :presence => true
+  validate  :main_page_selection
 
   attr_accessible :name, :title, :content, :section, :main_page
 
@@ -18,4 +19,12 @@ class Page < ActiveRecord::Base
     where( :main_page => true ).first
   end
 
+  private
+  def main_page_selection
+    if main_page?
+      Page.where( "main_page = ?", true ).each do |page|
+        page.update_attributes( :main_page => false ) if page.present? && page != self
+      end
+    end
+  end
 end

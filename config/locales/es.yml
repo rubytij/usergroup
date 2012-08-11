@@ -65,6 +65,7 @@ es:
         excerpt: Resumen
       page:
         section: Sección
+        main_page: Página principal
     symbolizes:
       page:
         section:
