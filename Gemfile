@@ -21,6 +21,7 @@ gem "disqus", "~> 1.0.4"
 gem 'octokit'
 gem 'fakeweb'
 gem 'mail_form'
+gem 'bullet', :group => :development
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
