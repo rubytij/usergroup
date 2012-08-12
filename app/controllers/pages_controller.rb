@@ -19,7 +19,8 @@ class PagesController < ApplicationController
   end
 
   def main
-    @page = Page.main
+    @page     = Page.main
+    @related  = Page.where( :section => @page.section )
     render :show
   end
 end

@@ -10,7 +10,7 @@
         %ul.nav.pull-left
           - cache do
             = render 'layouts/page_links'
-          %li= link_to t('navigation.posts'), posts_path
+          %li= link_to Post.model_name.human(:count => 0), posts_path
 
         %ul.nav.pull-right
           %li.divider-vertical
@@ -28,7 +28,8 @@
             %li= link_to t('user.sessions.sign_in'), new_user_session_path( :return_to => request.url )
           - else
             %ul.nav
-              %li= link_to t('actions.new', :item => t('activerecord.models.post') ), new_dashboard_post_path
+              %li= link_to t('actions.new', :item => Page.model_name.human), new_dashboard_page_path
+              %li= link_to t('actions.new', :item => Post.model_name.human), new_dashboard_post_path
               %li.divider-vertical
             %li.dropdown
               %a.dropdown-toggle{ :'data-toggle' => :dropdown, :href => '#' }

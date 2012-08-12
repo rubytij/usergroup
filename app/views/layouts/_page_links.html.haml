@@ -1,7 +1,7 @@
 - symbolize = 'activerecord.symbolizes.page.section'
-- Page::SECTIONS.each do |section|
+- Page::Sections.each do |section|
   - page = Page.try( section ).try( :first )
   - next unless page
   %li= link_to t("#{ symbolize }.#{ section }"), section_page_path(section, page)
-%li= link_to t('navigation.posts'), posts_path
-%li= link_to t("#{ symbolize }.contact"), contact_page_path
+%li= link_to Post.model_name.human(:count => 0), posts_path
+%li= link_to ContactForm.model_name.human, contact_page_path

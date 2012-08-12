@@ -1,5 +1,5 @@
 - content_for :additional_content do
-  %ul.nav.nav-pills.nav-stacked= render :partial => 'internal_nav', :collection => @related, :as => :page
+  %ul.nav.nav-pills.nav-stacked= render :partial => 'internal_nav', :collection => @related, :locals => { :current_page => @page }, :as => :page
 
 %h1= @page.title.titleize
 :plain

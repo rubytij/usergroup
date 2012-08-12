@@ -1,9 +1,9 @@
 class Page < ActiveRecord::Base
   extend FriendlyId
 
-  SECTIONS = [ :home, :about, :meetings ]
+  Sections = [ :home, :about, :meetings ]
 
-  symbolize :section, :in => SECTIONS, :scopes => true, :methods => true
+  symbolize :section, :in => Sections, :scopes => true, :methods => true
 
   validates :name, :presence => true, :uniqueness => { :scope => :section }
   validates :title, :content, :section, :presence => true

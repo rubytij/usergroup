@@ -1,4 +1,4 @@
-Page::SECTIONS.each do |section|
+Page::Sections.each do |section|
   Page.create! :name => "main", :section => section, :title => "#{ section } page title", :content => "This is a #{ section } page."
 end
 

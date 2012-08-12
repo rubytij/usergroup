@@ -4,7 +4,7 @@ describe "Contact Page" do
   before :each do
     Factory.create :page
     visit root_path
-    click_link I18n.t 'activerecord.symbolizes.page.section.contact'
+    click_link ContactForm.model_name.human
   end
 
   it "emails if all fields are filled in" do

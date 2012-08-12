@@ -6,10 +6,10 @@
       - if is_author? @post
         = link_to dashboard_post_path( @post ), :class => 'btn btn-danger', :method => :delete, :confirm => t('messages.confirmation') do
           %i.icon-remove.icon-white
-          = t 'actions.delete', :item => t('activerecord.models.post')
+          = t 'actions.delete', :item => Post.model_name.human
         = link_to edit_dashboard_post_path( @post ), :class => 'btn btn-warning' do
           %i.icon-edit.icon-white
-          = t 'actions.edit', :item => t('activerecord.models.post')
+          = t 'actions.edit', :item => Post.model_name.human
 
   .span10
     %h1= @post.title

@@ -17,8 +17,7 @@
       %header
         = link_to '', '/', :class => 'logo'
         %nav#site_sections
-          %ul
-            = render 'layouts/page_links'
+          %ul= render 'layouts/page_links'
 
       - if @page.try(:main_page?)
         %section.banner
@@ -28,19 +27,11 @@
             %p Sitio de informacion sobre el lenguaje de programacion Ruby.
       %section.quick_news
       %section.main
-        .main_content
-          = yield
-        .additional_content
-          = yield :additional_content
+        .main_content= yield
+        .additional_content= yield :additional_content
       %section.ruby_tij_network_sites
-        .github.widget
-          %a{ :href => '//github.com/rubytij' }
-            = image_tag 'github_logo.png'
-        .reddit.widget
-          %a{ :href => '//reddit.com/r/rubytij' }
-            = image_tag 'reddit_logo.png'
-        .twitter.widget
-          %a{ :href => '//twitter.com/rubytij' }
-            = image_tag 'twitter_logo.png'
+        .github.widget=   link_to image_tag('github_logo.png'), '//github.com/rubytij'
+        .reddit.widget=   link_to image_tag('reddit_logo.png'), '//reddit.com/r/rubytij'
+        .twitter.widget=  link_to image_tag('twitter_logo.png'), '//twitter.com/rubytij'
       %footer
         %p CC rubytij

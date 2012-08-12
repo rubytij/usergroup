@@ -18,10 +18,6 @@ es:
   posts:
     authored_by: Escrito por %{author} hace %{time}
 
-  navigation:
-    posts: Articulos
-    talks: Reuniones
-
   messages:
     confirmation: ¿Estás seguro?
 
@@ -47,12 +43,17 @@ es:
     edit: Editar %{item}
     sent: '%{item} enviado'
 
+  mail_form:
+    models:
+      contact_form: Contacto
+
   activerecord:
     models:
       user: Usuario
-      post: Articulo
+      post:
+        one: Articulo
+        other: Articulos
       page: Página
-      contact_form: Correo
     attributes:
       user:
         github_uid: UID
@@ -71,7 +72,6 @@ es:
         section:
           home: Principal
           about: Acerca
-          contact: Contacto
           meetings: Reuniones
     errors:
       event:
