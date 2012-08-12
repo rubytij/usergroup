@@ -6,7 +6,7 @@ gem 'capistrano'
 gem 'haml-rails'
 gem 'system_timer', :platform => :ruby_18
 gem 'acl9'
-gem 'omniauth', :git => 'git://github.com/intridea/omniauth.git'
+gem 'omniauth'
 gem 'omniauth-github'
 gem 'simple_form'
 gem 'friendly_id', '~> 4.0.1'
