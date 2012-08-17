@@ -49,6 +49,7 @@ namespace :config do
 
       @github_id      = ENV['GITHUB_ID']
       @github_secret  = ENV['GITHUB_SECRET']
+      @disqus_account = ENV['DISQUS_ACCOUNT']
 
       binding
     end.call
