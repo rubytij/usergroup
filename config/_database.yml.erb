@@ -4,7 +4,9 @@ defaults: &defaults
   pool: 5
   host: localhost
   username: <%= @db_username %>
+<% if @db_password %>
   password: <%= @db_password %>
+<% end %>
   min_messages: warning
 
 test:

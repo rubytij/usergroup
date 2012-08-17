@@ -43,8 +43,8 @@ namespace :config do
 
       @subdomain    = @host.split('.').first
       @db_engine    = ENV['DATABASE_ENGINE']    || 'postgresql'
-      @db_username  = ENV['DATABASE_USERNAME']  || 'usergroup'
-      @db_password  = ENV['DATABASE_PASSWORD']  || 'usergroup'
+      @db_username  = ENV['DATABASE_USERNAME']  || 'postgres'
+      @db_password  = ENV['DATABASE_PASSWORD']
       @app_name     = 'rubytij'
 
       @github_id      = ENV['GITHUB_ID']
