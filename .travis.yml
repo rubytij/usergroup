@@ -2,7 +2,7 @@ language: ruby
 before_script:
   - sudo apt-get install python-pip
   - sudo pip install pygments
-  - bundle exec rake config:generate
+  - RAILS_ENV=development bundle exec rake config:generate
   - psql -c 'create database rubytij_test;' -U postgres
   - "sh -e /etc/init.d/xvfb start"
   - bundle exec rake db:migrate db:test:prepare
