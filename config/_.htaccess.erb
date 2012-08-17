@@ -1,0 +1,18 @@
+PassengerEnabled on
+PassengerAppRoot <%= @public %>
+RailsEnv <%= Rails.env %>
+
+RewriteEngine on
+RewriteCond %{HTTP_HOST} !^<%= @subdomain %>\.
+RewriteRule (.*) http://<%= @host %>/$1 [R=301,L]
+
+Options -Indexes FollowSymLinks SymLinksIfOwnerMatch
+
+AddOutputFilterByType DEFLATE application/javascript
+AddOutputFilterByType DEFLATE application/x-javascript
+
+<FilesMatch "\.(html|css|js)$">
+  SetOutputFilter DEFLATE
+</FilesMatch>
+
+FileETag none
