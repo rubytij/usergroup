@@ -1,6 +1,6 @@
 namespace :config do
   desc 'Generate config files'
-  task :generate => [ :vhost, :database ]
+  task :generate => [ :vhost, :database, :application, :htaccess ]
 
   desc 'Create database.yml'
   task :database do
