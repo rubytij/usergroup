@@ -1,0 +1,14 @@
+defaults: &defaults
+  GITHUB_ID:      <%= @github_id      || 'daefbbe9a532' %>
+  GITHUB_SECRET:  <%= @github_secret  || '447447493db7c27eb72a642755e219e1' %>
+  disqus:
+    account: <%= @disqus_account || 'example' %>
+<% if Rails.env.development? %>
+    developer:  true
+<% end %>
+
+test:
+  <<: *defaults
+<%= Rails.env %>:
+  <<: *defaults
+
