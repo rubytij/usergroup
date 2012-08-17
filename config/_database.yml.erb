@@ -1,0 +1,16 @@
+defaults: &defaults
+  adapter: <%= @db_engine %>
+  encoding: utf8
+  pool: 5
+  host: localhost
+  username: <%= @db_username %>
+  password: <%= @db_password %>
+  min_messages: warning
+
+test:
+  <<: *defaults
+  database: usergroup_test
+
+<%= Rails.env %>:
+  <<: *defaults
+  database: usergroup_<%= Rails.env %>

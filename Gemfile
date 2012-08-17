@@ -15,13 +15,18 @@ gem 'pygments.rb'
 gem 'bootstrap-will_paginate'
 gem 'acts-as-taggable-on', '~> 2.2.2'
 gem 'symbolize', :require => 'symbolize/active_record'
-gem 'pg'
 gem 'pry-rails'
 gem "disqus", "~> 1.0.4"
 gem 'octokit'
 gem 'fakeweb'
 gem 'mail_form'
 gem 'bullet', :group => :development
+
+if ENV['DATABASE_ENGINE'] == "mysql"
+  gem 'mysql2'
+else
+  gem 'pg'
+end
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
