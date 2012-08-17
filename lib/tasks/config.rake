@@ -42,7 +42,6 @@ namespace :config do
       @log    = File.join @root, 'log'
 
       @subdomain    = @host.split('.').first
-      @db_engine    = ENV['DATABASE_ENGINE']    || 'postgresql'
       @db_username  = ENV['DATABASE_USERNAME']  || 'postgres'
       @db_password  = ENV['DATABASE_PASSWORD']
       @app_name     = 'rubytij'
