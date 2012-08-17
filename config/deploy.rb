@@ -25,11 +25,10 @@ namespace :deploy do
 
   namespace :config do
     task :generate do
-      run "cd #{release_path} && RAILS_ENV=#{rails_env} bundle exec rake config:generate"
+      run "cd #{release_path} && bundle exec rake config:generate"
     end
   end
 end
-
 
 before 'deploy:assets:precompile',  'deploy:config:generate'
 
