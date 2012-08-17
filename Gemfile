@@ -21,12 +21,7 @@ gem 'octokit'
 gem 'fakeweb'
 gem 'mail_form'
 gem 'bullet', :group => :development
-
-if ENV['DATABASE_ENGINE'] == "mysql"
-  gem 'mysql2'
-else
-  gem 'pg'
-end
+gem 'pg'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
