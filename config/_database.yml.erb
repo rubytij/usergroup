@@ -9,8 +9,8 @@ defaults: &defaults
 
 test:
   <<: *defaults
-  database: usergroup_test
+  database: <%= @app_name %>_test
 
 <%= Rails.env %>:
   <<: *defaults
-  database: usergroup_<%= Rails.env %>
+  database: <%= @app_name %>_<%= Rails.env %>

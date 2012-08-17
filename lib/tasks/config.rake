@@ -7,6 +7,11 @@ namespace :config do
     erb_config :database, :extension => '.yml'
   end
 
+  desc 'Create application.yml'
+  task :application do
+    erb_config :application, :extension => '.yml'
+  end
+
   desc 'nginx config file'
   task :vhost do
     erb_config :vhost
@@ -40,6 +45,10 @@ namespace :config do
       @db_engine    = ENV['DATABASE_ENGINE']    || 'postgresql'
       @db_username  = ENV['DATABASE_USERNAME']  || 'usergroup'
       @db_password  = ENV['DATABASE_PASSWORD']  || 'usergroup'
+      @app_name     = 'rubytij'
+
+      @github_id      = ENV['GITHUB_ID']
+      @github_secret  = ENV['GITHUB_SECRET']
 
       binding
     end.call
