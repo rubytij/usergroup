@@ -1,10 +1,11 @@
 require 'spec_helper'
 
 describe Dashboard::PostsController do
-  before { @user = Factory.create :user }
+  let(:user) { Factory.create :user }
+  let(:user_post) { Factory.create :post, :user => user }
 
   describe 'logged in' do
-    before { session[:user_id] = @user.id }
+    before { session[:user_id] = user.id }
 
     describe 'new' do
       it 'should respond successfully if logged in' do
@@ -17,7 +18,7 @@ describe Dashboard::PostsController do
     describe 'create a new post' do
       it 'should redirect after creating post' do
         post :create, :post => Factory.attributes_for( :post )
-        response.should redirect_to( user_post_path( @user, assigns(:post) ) )
+        response.should redirect_to( user_post_path( user, assigns(:post) ) )
       end
 
       it 'should render new if it fails' do
@@ -27,23 +28,21 @@ describe Dashboard::PostsController do
     end
 
     describe 'with existing post' do
-      before { @post = Factory.create :post, :user => @user }
-
       it 'should render edit' do
-        get :edit, :id => @post
+        get :edit, :id => user_post
         response.status.should eql( 200 )
         response.should render_template( :edit )
       end
 
       it 'should update and redirect' do
-        @post.tags.should be_empty
-        put :update, :id => @post, :post => { :tag_list => 'updated' }
-        response.should redirect_to( user_post_path @user, @post )
-        @post.reload.tags.count.should eql( 1 )
+        user_post.tags.should be_empty
+        put :update, :id => user_post, :post => { :tag_list => 'updated' }
+        response.should redirect_to( user_post_path user, user_post )
+        user_post.reload.tags.count.should eql( 1 )
       end
 
       it 'should destroy existing post' do
-        delete :destroy, :id => @post
+        delete :destroy, :id => user_post
         response.should redirect_to( posts_path )
         Post.count.should eql( 0 )
       end

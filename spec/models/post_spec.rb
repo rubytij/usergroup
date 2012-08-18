@@ -1,9 +1,7 @@
 require 'spec_helper'
 
 describe Post do
-  before :each do
-    @user = Factory.create :user
-  end
+  let(:user) { Factory.create :user }
 
   describe "title" do
     it "must be present" do
@@ -31,7 +29,7 @@ describe Post do
   describe "accesible attributes" do
     it "should not allow access to user_id" do
       expect do
-        Post.new( :user_id => @user )
+        Post.new( :user_id => user )
       end.should raise_error( ActiveModel::MassAssignmentSecurity::Error )
     end
   end

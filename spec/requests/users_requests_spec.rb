@@ -1,25 +1,27 @@
 require 'spec_helper'
 
 describe "Users requests" do
-  before :each do
-    Factory.create :page
-    @user = Factory.create :user
-    @omniauth = {
+  let(:user) { Factory.create :user }
+  let(:omniauth) do
+    {
       'uid' => Factory.next(:uid),
         'info' => {
           'nickname'  => Factory.next(:username),
           'email'     => Factory.next(:email),
           'name'      => 'John Doe'
         },
-        'extra' => {}
+      'extra' => {}
     }
+  end
 
+  before :each do
+    Factory.create :page
     visit root_path
   end
 
   describe "Existing user" do
     before :each do
-      OmniAuth.config.add_mock( :github, "uid" => @user.github_uid )
+      OmniAuth.config.add_mock( :github, "uid" => user.github_uid )
       page.click_link I18n.t('user.sessions.sign_in')
     end
 
@@ -38,13 +40,13 @@ describe "Users requests" do
 
   describe "Un-existant user" do
     before :each do
-      OmniAuth.config.add_mock( :github, @omniauth )
+      OmniAuth.config.add_mock( :github, omniauth )
       page.click_link I18n.t('user.sessions.sign_in')
     end
 
     it "Create session for un-existing users" do
       page.should have_content( I18n.t 'user.sessions.destroy' )
-      User.count.should be_eql( 2 )
+      User.count.should be_eql( 1 ) # user no longer created by default
     end
   end
 end

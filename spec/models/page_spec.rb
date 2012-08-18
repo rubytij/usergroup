@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Page do
   describe "name" do
-    before { @page = Factory.create :page }
+    let(:new_page) { Factory.create :page }
 
     it "must be present" do
       page = Factory.build :page, :name => nil
@@ -10,7 +10,7 @@ describe Page do
     end
 
     it "must be unique" do
-      page = Factory.build :page, :name => @page.name
+      page = Factory.build :page, :name => new_page.name
       page.should be_invalid
     end
   end

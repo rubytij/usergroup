@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe User do
-  before { @user = Factory.create :user }
+  let(:existing_user) { Factory.create :user }
 
   describe 'email' do
     it 'can be blank' do
@@ -20,7 +20,7 @@ describe User do
     end
 
     it 'must be unique' do
-      user = Factory.build :user, :email => @user.email
+      user = Factory.build :user, :email => existing_user.email
       user.should be_invalid
     end
   end
@@ -32,7 +32,7 @@ describe User do
     end
 
     it 'must be unique' do
-      user = Factory.build :user, :username => @user.username
+      user = Factory.build :user, :username => existing_user.username
       user.should be_invalid
     end
   end
@@ -44,7 +44,7 @@ describe User do
     end
 
     it 'must be unique' do
-      user = Factory.build :user, :github_uid => @user.github_uid
+      user = Factory.build :user, :github_uid => existing_user.github_uid
       user.should be_invalid
     end
   end
@@ -77,19 +77,19 @@ describe User do
 
   describe 'posts associations' do
     it "should be an array" do
-      @user.posts.is_a?(Array).should be_true
+      existing_user.posts.is_a?(Array).should be_true
     end
 
     it "can have posts" do
-      post = Factory.create( :post, :user => @user )
-      @user.posts.include?( post ).should be_true
-      @user.posts.count.should be(1)
+      post = Factory.create( :post, :user => existing_user )
+      existing_user.posts.include?( post ).should be_true
+      existing_user.posts.count.should be(1)
     end
 
     it "can create posts" do
-      @user.posts.should be_empty
-      @user.posts.create( :title => "foo", :content => 'Lorem ipsum' )
-      @user.posts.should_not be_empty
+      existing_user.posts.should be_empty
+      existing_user.posts.create( :title => "foo", :content => 'Lorem ipsum' )
+      existing_user.posts.should_not be_empty
     end
   end
 
@@ -101,14 +101,14 @@ describe User do
   end
 
   describe 'gravatar_url' do
-    before { @user.update_attributes! :gravatar_token => '30f39a09e233e8369dddf6feb4be0308' }
+    before { existing_user.update_attributes! :gravatar_token => '30f39a09e233e8369dddf6feb4be0308' }
 
     it 'should return gravatar url' do
-      @user.gravatar_url.should =~ /30f39a09e233e8369dddf6feb4be0308/
+      existing_user.gravatar_url.should =~ /30f39a09e233e8369dddf6feb4be0308/
     end
 
     it 'should return with desired size' do
-      @user.gravatar_url(64).should =~ /s=64/
+      existing_user.gravatar_url(64).should =~ /s=64/
     end
   end
 end
