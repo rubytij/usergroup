@@ -1,2 +1,2 @@
-%h1= t 'actions.edit', Post.model_name.human
+%h1= t 'actions.edit', :item => Post.model_name.human
 = render 'form', :post => @post
