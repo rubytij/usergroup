@@ -28,11 +28,7 @@
             %p Sitio de informacion sobre el lenguaje de programacion Ruby.
       %section.quick_news
       %section.main
-        - unless controller_name == 'posts'
-          .main_content= yield
-        - else
-          = yield
-
+        .main_content= yield
         .additional_content= yield :additional_content
       %section.ruby_tij_network_sites
         .github.widget=   link_to image_tag('github_logo.png'), '//github.com/rubytij'
