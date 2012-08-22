@@ -1,21 +1,22 @@
-.row-fluid
-  .span2
-    .author_info
-      = image_tag @post.author_gravatar_url( 80 ), :class => :avatar, :alt => @post.author_username
-    .post-actions
-      - if is_author? @post
-        = link_to dashboard_post_path( @post ), :class => 'btn btn-danger', :method => :delete, :confirm => t('messages.confirmation') do
-          %i.icon-remove.icon-white
-          = t 'actions.delete', :item => Post.model_name.human
-        = link_to edit_dashboard_post_path( @post ), :class => 'btn btn-warning' do
-          %i.icon-edit.icon-white
-          = t 'actions.edit', :item => Post.model_name.human
+.container
+  .row
+    .span9
+      %h1= @post.title
+      %p= authored_by @post.author_username, @post.created_at
 
-  .span10
-    %h1= @post.title
-    %p= authored_by @post.author_username, @post.created_at
+      = content_tag_for :div, @post do
+        :plain
+          #{ markdown @post.content }
 
-    = content_tag_for :div, @post do
-      :plain
-        #{ markdown @post.content }
-    = disqus_thread.html_safe
+    .span2.pull-right
+      .author_info
+        = image_tag @post.author_gravatar_url( 80 ), :class => :avatar, :alt => @post.author_username
+      .post-actions
+        - if is_author? @post
+          = link_to dashboard_post_path( @post ), :class => 'btn btn-danger btn-mini', :method => :delete, :confirm => t('messages.confirmation') do
+            %i.icon-trash.icon-white
+          = link_to edit_dashboard_post_path( @post ), :class => 'btn btn-warning btn-mini' do
+            %i.icon-edit.icon-white
+
+  .row
+    .span11= disqus_thread.html_safe
