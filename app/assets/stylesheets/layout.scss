@@ -9,6 +9,7 @@
 $ruby_color: #7c202b;
 $tag_cloud: #bbb;
 $dark_gray: #2C3230;
+$light_gray: #ccc;
 
 h1,h2,h3,h4,h5 {
   font-family: "Bebas-neue";
@@ -40,14 +41,19 @@ img.avatar {
   background-color: #333;
   display: block;
 }
+#new_post {
+  .excerpt {
+    height: 120px;
+    width: 100%;
+  }
+}
 .excerpt {
-  height: 120px;
-  width: 100%;
+  height: auto;
 }
 .post {
   margin-bottom: 20px;
 }
-.post-actions {
+.actions {
   margin-top: 10px;
   .btn {
     margin-bottom: 4px;
@@ -218,4 +224,25 @@ footer {
   a {
     color: $ruby_color;
   }
+}
+#new_contact_form {
+  #contact_form_nickname {
+    display: none;
+  }
+  input, textarea {
+   @extend .span5
+  }
+  .actions input {
+    width: auto;
+  }
+}
+.actions {
+  border-top: 1px solid $light_gray;
+}
+.read-more {
+  @extend .btn;
+  @extend .btn-primary;
+}
+.edit {
+  @extend .btn;
 }
