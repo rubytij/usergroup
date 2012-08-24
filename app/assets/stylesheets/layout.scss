@@ -7,12 +7,22 @@
 @include font-face("Bebas-neue", font-files("bebas-neue/BebasNeue-webfont.woff","bebas-neue/BebasNeue-webfont.ttf","bebas-neue/BebasNeue-webfont.svg"), "bebas-neue/BebasNeue-webfont.eot");
 
 $ruby_color: #7c202b;
-$tag_cloud: #bbb;
+$ruby_gradient: #bc0100;
+$ruby_gradient_other: #95040b;
+$tag_cloud: $ruby_color;
 $dark_gray: #2C3230;
 $light_gray: #ccc;
 
+.btn-primary {
+  @include background( linear-gradient( $ruby_gradient, $ruby_gradient_other  ) );
+  border: 1px solid $ruby_gradient;
+}
 h1,h2,h3,h4,h5 {
   font-family: "Bebas-neue";
+}
+h1 {
+  border-bottom: 1px solid $light_gray;
+  margin-bottom: 4px;
 }
 .tag_cloud {
   a.frozen {
@@ -22,17 +32,17 @@ h1,h2,h3,h4,h5 {
 
   a.cold {
     font-size: 1.2em;
-    color: darken( $tag_cloud, 25% );
+    color: $tag_cloud + 25 ;
   }
 
   a.warm {
     font-size: 1.4em;
-    color: darken( $tag_cloud, 50% );
+    color: $tag_cloud + 50 ;
   }
 
   a.hot-tamale {
     font-size: 1.6em;
-    color: darken( $tag_cloud, 75% );
+    color: $tag_cloud + 75;
   }
 }
 img.avatar {
@@ -41,7 +51,7 @@ img.avatar {
   background-color: #333;
   display: block;
 }
-#new_post {
+#new_post, .edit_post {
   .excerpt {
     height: 120px;
     width: 100%;
@@ -51,9 +61,18 @@ img.avatar {
   height: auto;
 }
 .post {
+  padding-bottom: 20px;
   margin-bottom: 20px;
 }
-.actions {
+.post_info {
+  font-size: 12px;
+  font-style: italic;
+  color: $light_gray - 60;
+}
+.actions, .form-actions {
+  padding:10px;
+  outline: 1px solid $light_gray;
+  background-color: $light_gray + 30;
   margin-top: 10px;
   .btn {
     margin-bottom: 4px;
@@ -70,12 +89,6 @@ img.avatar {
   }
   .excerpt {
     height: auto;
-  }
-  .post-item-actions {
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    background-color: #efefef;
-    padding:4px;
   }
 }
 html {
@@ -141,6 +154,9 @@ header {
 }
 .banner_info {
   min-height:201px;
+  h1 {
+    border: 0px;
+  }
 }
 .banner {
   border-width:1px 0 1px 0;
@@ -159,6 +175,16 @@ header {
 }
 .main {
   background-color: #f7f7f7;
+  font-size: 14px;
+  a {
+    color: $ruby_color;
+  }
+  a.btn {
+    color: #333;
+  }
+  a.btn-primary, a.btn-danger, a.btn-warning {
+    color: white;
+  }
 }
 .additional_content {
   width: 320px;
@@ -236,13 +262,15 @@ footer {
     width: auto;
   }
 }
-.actions {
-  border-top: 1px solid $light_gray;
-}
 .read-more {
   @extend .btn;
   @extend .btn-primary;
 }
 .edit {
   @extend .btn;
+}
+
+
+.dropdown-menu li > a:hover, .dropdown-menu .active > a, .dropdown-menu .active > a:hover {
+  background-color: $ruby_gradient;
 }

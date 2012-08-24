@@ -14,3 +14,6 @@
   :plain
     #{ markdown @post.content }
 = disqus_thread.html_safe
+
+= content_for :additional_content do
+  .tag_cloud= render 'shared/posts/tag_cloud'

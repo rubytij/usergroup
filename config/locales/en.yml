@@ -17,6 +17,7 @@ en:
 
   posts:
     authored_by: Authored by %{author} about %{time}
+    tag_cloud: Tag cloud
 
   actions:
     new: New %{item}
@@ -51,6 +52,12 @@ en:
   mail_form:
     models:
       contact_form: Contact us
+
+  footer:
+    notice: CC rubytij
+
+  head:
+    title: RubyTij - Usergroup
 
   activerecord:
     models:
