@@ -1,14 +1,12 @@
-%h1= @post.title
-%p= authored_by @post.author_username, @post.created_at
-
-.actions
-  - if is_author? @post
-    = link_to dashboard_post_path( @post ), :class => 'btn btn-danger', :method => :delete, :confirm => t('messages.confirmation') do
-      %i.icon-remove.icon-white
-      = t 'actions.delete', :item => Post.model_name.human
-    = link_to edit_dashboard_post_path( @post ), :class => 'btn btn-warning' do
-      %i.icon-edit.icon-white
-      = t 'actions.edit', :item => Post.model_name.human
+%h1
+  = @post.title
+  %span.actions-alt
+    - if is_author? @post
+      = link_to dashboard_post_path( @post ), :class => 'post-delete', :method => :delete, :confirm => t('messages.confirmation') do
+        %i.icon-remove.icon-white
+      = link_to edit_dashboard_post_path( @post ), :class => 'post-edit' do
+        %i.icon-edit.icon-white
+%p.post_info= authored_by @post.author_username, @post.created_at
 
 = content_tag_for :div, @post do
   :plain

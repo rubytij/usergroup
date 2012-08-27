@@ -16,6 +16,9 @@ $light_gray: #ccc;
 .btn-primary {
   @include background( linear-gradient( $ruby_gradient, $ruby_gradient_other  ) );
   border: 1px solid $ruby_gradient;
+  &:active {
+    background-color: $ruby_color;
+  }
 }
 h1,h2,h3,h4,h5 {
   font-family: "Bebas-neue";
@@ -77,6 +80,11 @@ img.avatar {
   .btn {
     margin-bottom: 4px;
   }
+}
+.actions-alt {
+  text-align: right;
+  display: block;
+  float: right;
 }
 .post-item {
   h1 {
@@ -266,11 +274,19 @@ footer {
   @extend .btn;
   @extend .btn-primary;
 }
+.post-delete, .post-edit {
+  @extend .btn;
+  @extend .btn-mini;
+}
+.post-delete {
+  @extend .btn-danger;
+}
+.post-edit {
+  @extend .btn-warning;
+}
 .edit {
   @extend .btn;
 }
-
-
 .dropdown-menu li > a:hover, .dropdown-menu .active > a, .dropdown-menu .active > a:hover {
   background-color: $ruby_gradient;
 }
