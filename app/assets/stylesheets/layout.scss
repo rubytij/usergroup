@@ -27,22 +27,22 @@ body .main .tag_cloud p {
 }
 .tag_cloud {
   a.frozen {
-    font-size: 1.0em;
+    font-size: 5em;
     color: $tag_cloud;
   }
 
   a.cold {
-    font-size: 1.2em;
+    font-size: .8em;
     color: $tag_cloud + 25 ;
   }
 
   a.warm {
-    font-size: 1.4em;
+    font-size: 1em;
     color: $tag_cloud + 50 ;
   }
 
   a.hot-tamale {
-    font-size: 1.6em;
+    font-size: 1.2em;
     color: $tag_cloud + 75;
   }
 }
@@ -184,7 +184,7 @@ body .main{
   font-size: 15px;
   line-height: 1.6;
   p {
-    margin: 20px 0 0 0;
+    margin: 0 0 20px 0;
   }
 }
 .main {
@@ -199,6 +199,9 @@ body .main{
   a.btn-primary, a.btn-danger, a.btn-warning {
     color: white;
   }
+}
+body .additional_content h1 {
+  font-size: 1.2em;
 }
 .additional_content {
   width: 320px;
