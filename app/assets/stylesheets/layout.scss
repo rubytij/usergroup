@@ -4,8 +4,6 @@
 @import "compass/css3/box-shadow";
 @import "compass/css3/font-face";
 
-@include font-face("Bebas-neue", font-files("bebas-neue/BebasNeue-webfont.woff","bebas-neue/BebasNeue-webfont.ttf","bebas-neue/BebasNeue-webfont.svg"), "bebas-neue/BebasNeue-webfont.eot");
-
 $ruby_color: #7c202b;
 $ruby_gradient: #bc0100;
 $ruby_gradient_other: #95040b;
@@ -19,9 +17,6 @@ $light_gray: #ccc;
   &:active {
     background-color: $ruby_color;
   }
-}
-h1,h2,h3,h4,h5 {
-  font-family: "Bebas-neue";
 }
 h1 {
   border-bottom: 1px solid $light_gray;
