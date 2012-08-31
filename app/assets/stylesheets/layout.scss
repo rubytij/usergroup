@@ -27,6 +27,9 @@ h1 {
   border-bottom: 1px solid $light_gray;
   margin-bottom: 4px;
 }
+body .main .tag_cloud p {
+  margin:0 0 20px 0;
+}
 .tag_cloud {
   a.frozen {
     font-size: 1.0em;
@@ -63,20 +66,18 @@ img.avatar {
 .excerpt {
   height: auto;
 }
-.post {
-  padding-bottom: 20px;
-  margin-bottom: 20px;
-}
-.post_info {
+body .main .post_info {
   font-size: 12px;
   font-style: italic;
   color: $light_gray - 60;
+  margin: 10px 0 0 0;
 }
 .actions, .form-actions {
   padding:10px;
   outline: 1px solid $light_gray;
   background-color: $light_gray + 30;
   margin-top: 10px;
+  text-align: right;
   .btn {
     margin-bottom: 4px;
   }
@@ -181,6 +182,16 @@ header {
   float: left;
   margin: 20px;
 }
+.main_dashboard {
+  margin: 20px;
+}
+body .main{
+  font-size: 15px;
+  line-height: 1.6;
+  p {
+    margin: 20px 0 0 0;
+  }
+}
 .main {
   background-color: #f7f7f7;
   font-size: 14px;
@@ -231,7 +242,7 @@ header {
 }
 .ruby_tij_network_sites {
   border-top: 1px solid #aaa;
-  min-height: 200px;
+  overflow: hidden;
   @include background( linear-gradient( #fff, #ddd ) );
   .widget {
     margin: 20px;
@@ -266,8 +277,13 @@ footer {
   input, textarea {
    @extend .span5
   }
-  .actions input {
-    width: auto;
+  .actions {
+    width: 360px;
+    text-align: right;
+
+    input {
+      width: auto;
+    }
   }
 }
 .read-more {
