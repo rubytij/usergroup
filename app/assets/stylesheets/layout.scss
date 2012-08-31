@@ -4,14 +4,26 @@
 @import "compass/css3/box-shadow";
 @import "compass/css3/font-face";
 
-@include font-face("Bebas-neue", font-files("bebas-neue/BebasNeue-webfont.woff","bebas-neue/BebasNeue-webfont.ttf","bebas-neue/BebasNeue-webfont.svg"), "bebas-neue/BebasNeue-webfont.eot");
-
 $ruby_color: #7c202b;
-$tag_cloud: #bbb;
+$ruby_gradient: #bc0100;
+$ruby_gradient_other: #95040b;
+$tag_cloud: $ruby_color;
 $dark_gray: #2C3230;
+$light_gray: #ccc;
 
-h1,h2,h3,h4,h5 {
-  font-family: "Bebas-neue";
+.btn-primary {
+  @include background( linear-gradient( $ruby_gradient, $ruby_gradient_other  ) );
+  border: 1px solid $ruby_gradient;
+  &:active {
+    background-color: $ruby_color;
+  }
+}
+h1 {
+  border-bottom: 1px solid $light_gray;
+  margin-bottom: 4px;
+}
+body .main .tag_cloud p {
+  margin:0 0 20px 0;
 }
 .tag_cloud {
   a.frozen {
@@ -21,17 +33,17 @@ h1,h2,h3,h4,h5 {
 
   a.cold {
     font-size: 1.2em;
-    color: darken( $tag_cloud, 25% );
+    color: $tag_cloud + 25 ;
   }
 
   a.warm {
     font-size: 1.4em;
-    color: darken( $tag_cloud, 50% );
+    color: $tag_cloud + 50 ;
   }
 
   a.hot-tamale {
     font-size: 1.6em;
-    color: darken( $tag_cloud, 75% );
+    color: $tag_cloud + 75;
   }
 }
 img.avatar {
@@ -40,18 +52,35 @@ img.avatar {
   background-color: #333;
   display: block;
 }
+#new_post, .edit_post {
+  .excerpt {
+    height: 120px;
+    width: 100%;
+  }
+}
 .excerpt {
-  height: 120px;
-  width: 100%;
+  height: auto;
 }
-.post {
-  margin-bottom: 20px;
+body .main .post_info {
+  font-size: 12px;
+  font-style: italic;
+  color: $light_gray - 60;
+  margin: 10px 0 0 0;
 }
-.post-actions {
+.actions, .form-actions {
+  padding:10px;
+  outline: 1px solid $light_gray;
+  background-color: $light_gray + 30;
   margin-top: 10px;
+  text-align: right;
   .btn {
     margin-bottom: 4px;
   }
+}
+.actions-alt {
+  text-align: right;
+  display: block;
+  float: right;
 }
 .post-item {
   h1 {
@@ -64,12 +93,6 @@ img.avatar {
   }
   .excerpt {
     height: auto;
-  }
-  .post-item-actions {
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    background-color: #efefef;
-    padding:4px;
   }
 }
 html {
@@ -135,6 +158,9 @@ header {
 }
 .banner_info {
   min-height:201px;
+  h1 {
+    border: 0px;
+  }
 }
 .banner {
   border-width:1px 0 1px 0;
@@ -151,8 +177,28 @@ header {
   float: left;
   margin: 20px;
 }
+.main_dashboard {
+  margin: 20px;
+}
+body .main{
+  font-size: 15px;
+  line-height: 1.6;
+  p {
+    margin: 20px 0 0 0;
+  }
+}
 .main {
   background-color: #f7f7f7;
+  font-size: 14px;
+  a {
+    color: $ruby_color;
+  }
+  a.btn {
+    color: #333;
+  }
+  a.btn-primary, a.btn-danger, a.btn-warning {
+    color: white;
+  }
 }
 .additional_content {
   width: 320px;
@@ -191,12 +237,14 @@ header {
 }
 .ruby_tij_network_sites {
   border-top: 1px solid #aaa;
-  min-height: 200px;
+  overflow: hidden;
+  min-height: 80px;
   @include background( linear-gradient( #fff, #ddd ) );
   .widget {
     margin: 20px;
     float: left;
     width: 278px;
+    text-align: center;
   }
 }
 footer {
@@ -218,4 +266,40 @@ footer {
   a {
     color: $ruby_color;
   }
+}
+#new_contact_form {
+  #contact_form_nickname {
+    display: none;
+  }
+  input, textarea {
+   @extend .span5
+  }
+  .actions {
+    width: 360px;
+    text-align: right;
+
+    input {
+      width: auto;
+    }
+  }
+}
+.read-more {
+  @extend .btn;
+  @extend .btn-primary;
+}
+.post-delete, .post-edit {
+  @extend .btn;
+  @extend .btn-mini;
+}
+.post-delete {
+  @extend .btn-danger;
+}
+.post-edit {
+  @extend .btn-warning;
+}
+.edit {
+  @extend .btn;
+}
+.dropdown-menu li > a:hover, .dropdown-menu .active > a, .dropdown-menu .active > a:hover {
+  background-color: $ruby_gradient;
 }

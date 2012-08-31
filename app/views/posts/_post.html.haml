@@ -1,14 +1,9 @@
-.post-item.row-fluid
-  .avatar.span2
-    = image_tag post.author_gravatar_url( 80 ), :class => :avatar, :alt => post.author_username
-  .span8
-    = content_tag_for :div, post do
-      %h1
-        = link_to post.title, user_post_path( post.user, post )
-      %p= authored_by post.author_username, post.created_at
-      .excerpt
-        = markdown post.excerpt
-      .post-item-actions
-        = link_to t('actions.read_more'), user_post_path( post.user, post ), :class => 'read-more'
-        \-
-        = link_to_if is_author?( post ), t('actions.edit', :item => ''), edit_dashboard_post_path( post ), :class => :edit
+= content_tag_for :div, post do
+  %h1= link_to post.title, user_post_path( post.user, post )
+  %p.post_info= authored_by post.author_username, post.created_at
+  .excerpt
+    = markdown post.excerpt
+  .actions
+    = link_to t('actions.read_more'), user_post_path( post.user, post ), :class => 'read-more'
+    - if is_author?( post )
+      = link_to t('actions.edit', :item => ''), edit_dashboard_post_path( post ), :class => :edit
