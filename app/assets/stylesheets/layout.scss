@@ -243,11 +243,13 @@ body .main{
 .ruby_tij_network_sites {
   border-top: 1px solid #aaa;
   overflow: hidden;
+  min-height: 80px;
   @include background( linear-gradient( #fff, #ddd ) );
   .widget {
     margin: 20px;
     float: left;
     width: 278px;
+    text-align: center;
   }
 }
 footer {
