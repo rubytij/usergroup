@@ -17,6 +17,7 @@ es:
 
   posts:
     authored_by: Escrito por %{author} hace %{time}
+    tag_cloud: Etiquetas relacionadas
 
   messages:
     confirmation: ¿Estás seguro?
@@ -46,6 +47,12 @@ es:
   mail_form:
     models:
       contact_form: Contacto
+
+  footer:
+    notice: CC rubytij
+
+  head:
+    title: RubyTij - Grupo de usuarios
 
   activerecord:
     models:

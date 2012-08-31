@@ -1,7 +1,8 @@
-= simple_form_for @contact_form, :url => send_email_path, :defaults => { :input_html => { :class => 'span5' }} do |f|
-  = f.input :nickname, :input_html => { :style => 'display:none' }, :label => false
+= simple_form_for @contact_form, :url => send_email_path do |f|
+  = f.input :nickname, :label => false
   = f.input :name
   = f.input :email
 
   = f.input :message, :as => :text, :input_html => { :rows => 5 }
-  = f.submit t('labels.send_email'), :class => 'btn-primary'
+  .actions
+    = f.submit t('labels.send_email'), :class => 'btn btn-primary'
