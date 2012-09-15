@@ -36,8 +36,7 @@
         .twitter.widget=  link_to image_tag('twitter_logo.png'), '//twitter.com/rubytij'
       %footer
         %p
-          %a{ :rel => "license", :href => "http://creativecommons.org/licenses/by/3.0/deed.en_US" }
-            %img{ :alt => "Creative Commons License", :src => "http://i.creativecommons.org/l/by/3.0/88x31.png" }
-          This work is licensed under a
-          %a{ :rel => "license", :href => "http://creativecommons.org/licenses/by/3.0/deed.en_US"}
-            Creative Commons Attribution 3.0 Unported License
+          - deed = "http://creativecommons.org/licenses/by-sa/3.0/deed.#{ I18n.locale }"
+          = link_to deed, :rel => "license" do
+            = image_tag 'http://i.creativecommons.org/l/by-sa/3.0/88x31.png', :alt => "Creative Commons License"
+          = t( 'licenses.statement', :item => link_to( t('licenses.version'), deed, :rel => :license  ) ).html_safe
