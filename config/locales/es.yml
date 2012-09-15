@@ -44,6 +44,10 @@ es:
     edit: Editar %{item}
     sent: '%{item} enviado'
 
+  licenses:
+    statement: Este trabajo es liberado bajo un licencia %{item}
+    version: Creative Commons Atribución-CompartirIgual 3.0
+
   mail_form:
     models:
       contact_form: Contacto
