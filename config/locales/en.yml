@@ -26,6 +26,10 @@ en:
     read_more: Read More
     sent: '%{item} sent'
 
+  licenses:
+    statement: This work is under a %{item}
+    version: Creative Commons Attribution-ShareAlike 3.0
+
   messages:
     confirmation: Are you sure?
 
