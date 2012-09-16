@@ -5,13 +5,13 @@ class Page < ActiveRecord::Base
 
   symbolize :section, :in => Sections, :scopes => true, :methods => true
 
-  validates :name, :presence => true, :uniqueness => { :scope => :section }
+  validates :name, :presence => true, :uniqueness => true
   validates :title, :content, :section, :presence => true
   validate  :main_page_selection
 
   attr_accessible :name, :title, :content, :section, :main_page
 
-  friendly_id :name, :use => :scoped, :scope => :section
+  friendly_id :name, :use => :slugged
 
   scope :latest, lambda { order( 'created_at DESC' ) }
 
