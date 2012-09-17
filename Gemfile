@@ -20,8 +20,14 @@ gem "disqus", "~> 1.0.4"
 gem 'octokit'
 gem 'fakeweb'
 gem 'mail_form'
-gem 'bullet', :group => :development
 gem 'pg'
+gem 'pg_power'
+
+group :development do
+  gem 'quiet_assets'
+  gem 'bullet'
+  gem 'pry-rails'
+end
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
