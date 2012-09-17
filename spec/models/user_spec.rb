@@ -98,6 +98,14 @@ describe User do
       user = Factory.create( :user, :roles => 3.times.map{ Factory.create( :role ) } )
       user.roles.count.should eq(3)
     end
+
+    it 'creates an erollment per role' do
+      existing_user.roles.should be_empty
+      existing_user.has_role! :foo
+
+      existing_user.roles.length.should       eql(1)
+      existing_user.enrollments.length.should eql(1)
+    end
   end
 
   describe 'gravatar_url' do
