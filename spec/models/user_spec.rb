@@ -119,4 +119,10 @@ describe User do
       existing_user.gravatar_url(64).should =~ /s=64/
     end
   end
+
+  describe 'profile_url' do
+    it 'should return a profile url' do
+      existing_user.profile_url.should =~ /(http:\/\/www.coderwall.com)/
+    end
+  end
 end
