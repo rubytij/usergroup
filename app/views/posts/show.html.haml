@@ -6,7 +6,7 @@
         %i.icon-remove.icon-white
       = link_to edit_dashboard_post_path( @post ), :class => 'post-edit' do
         %i.icon-edit.icon-white
-%p.post_info= authored_by @post.author_username, @post.created_at
+%p.post_info= authored_by @post.author_username, @post.author_profile_url, @post.created_at
 
 = content_tag_for :div, @post do
   :plain

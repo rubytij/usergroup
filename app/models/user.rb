@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  PROFILE_BASE_URL = "http://www.coderwall.com"
   extend FriendlyId
 
   acts_as_authorization_subject :association_name => :roles, :join_table_name => :enrollments
@@ -41,6 +42,10 @@ class User < ActiveRecord::Base
 
     return "http://gravatar.com/avatar/#{ gravatar_token }.png?s=#{ size }&d=#{ CGI.escape default_image }" if gravatar_token.present?
     default_image
+  end
+
+  def profile_url
+    "#{PROFILE_BASE_URL}/#{username}"
   end
 
   private

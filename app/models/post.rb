@@ -10,6 +10,7 @@ class Post < ActiveRecord::Base
 
   delegate :username,     :to => :user, :prefix => :author
   delegate :gravatar_url, :to => :user, :prefix => :author
+  delegate :profile_url,  :to => :user, :prefix => :author
 
   scope :latest, lambda { order( 'created_at DESC' ) }
 
