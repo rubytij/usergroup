@@ -1,6 +1,6 @@
 = content_tag_for :div, post do
   %h1= link_to post.title, user_post_path( post.user, post )
-  %p.post_info= authored_by post.author_username, post.created_at
+  %p.post_info= authored_by post.author_username, post.author_profile_url,  post.created_at
   .excerpt
     = markdown post.excerpt
   .actions

@@ -9,9 +9,9 @@ module PostsHelper
     Post.tag_counts_on(:tags)
   end
 
-  def authored_by author, time
+  def authored_by author, profile_url, time
     t( 'posts.authored_by',
-      :author => link_to( author, '#' ),
+      :author => link_to( author, profile_url ),
       :time   => time_ago_in_words( time )
     ).html_safe
   end
