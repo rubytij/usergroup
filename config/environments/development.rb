@@ -35,6 +35,9 @@ UserGroup::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = false
 
+  config.action_mailer.delivery_method      = :sendmail
+  config.action_mailer.default_url_options  = { :host => 'rt.dev' }
+
   config.after_initialize do
     Bullet.enable                 = true
     Bullet.alert                  = true
