@@ -13,7 +13,7 @@ class Post < ActiveRecord::Base
 
   scope :latest, lambda { order( 'created_at DESC' ) }
 
-  attr_accessible :title, :content, :excerpt, :tag_list
+  attr_accessible :title, :content, :excerpt, :tag_list, :published
 
   friendly_id :title, :use => :slugged
 

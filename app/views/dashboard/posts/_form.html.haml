@@ -1,10 +1,23 @@
 = simple_form_for [ :dashboard, post ] do |f|
   = f.input :title
-  .wmd-panel
-    #wmd-button-bar
-    = f.input :content, :label => false, :input_html => { :id => 'wmd-input', :class => 'wmd-input' }
+  %ul.nav.nav-tabs{:id =>"contentTabs"}
+    %li.active
+      %a{:href => "#editor", "data-toggle" => "tab"}= t("post.editor")
+    %li
+      %a{:href => "#preview", "data-toggle" => "tab"}= t("post.preview")
+
+  .tab-content
+    .tab-pane.active{:id => "editor"}
+      .wmd-panel
+        #wmd-button-bar
+        = f.input :content, :label => false, :input_html => { :id => 'wmd-input', :class => 'wmd-input' }
+    .tab-pane{:id => "preview"}
+      .wmd-panel
+        #wmd-preview
+
   = f.input :excerpt, :as => :text, :input_html => { :class => 'excerpt' }
   = f.input :tag_list, :hint =>  t('hints.tags')
+  = f.input :published, :hint => t('hints.published')
 
   .form-actions
     = f.button :submit, :class => 'btn-success'
