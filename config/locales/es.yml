@@ -78,7 +78,7 @@ es:
         user: Creador
         tag_list: Etiquetas
         excerpt: Resumen
-        published: Publicado?
+        published: ¿Publicado?
       page:
         section: Sección
         main_page: Página principal

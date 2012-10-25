@@ -1,17 +1,15 @@
 = simple_form_for [ :dashboard, post ] do |f|
   = f.input :title
-  %ul.nav.nav-tabs{:id =>"contentTabs"}
-    %li.active
-      %a{:href => "#editor", "data-toggle" => "tab"}= t("post.editor")
-    %li
-      %a{:href => "#preview", "data-toggle" => "tab"}= t("post.preview")
+  %ul.nav.nav-tabs#content-tabs
+    %li.active= link_to t('posts.editor'), '#editor', :data => {:toggle => :tab}
+    %li= link_to t('posts.preview'), '#preview', :data => {:toggle => :tab}
 
   .tab-content
-    .tab-pane.active{:id => "editor"}
+    .tab-pane.active#editor
       .wmd-panel
         #wmd-button-bar
         = f.input :content, :label => false, :input_html => { :id => 'wmd-input', :class => 'wmd-input' }
-    .tab-pane{:id => "preview"}
+    .tab-pane#preview
       .wmd-panel
         #wmd-preview
 
