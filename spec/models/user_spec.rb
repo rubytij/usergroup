@@ -95,11 +95,12 @@ describe User do
 
   describe "roles association" do
     it "includes roles assigned" do
-      user = Factory.create( :user, :roles => 3.times.map{ Factory.create( :role ) } )
+      user = Factory.create( :user )
+      3.times { user.has_role! Factory.create( :role ) }
       user.roles.count.should eq(3)
     end
 
-    it 'creates an erollment per role' do
+    it 'creates an enrollment per role' do
       existing_user.roles.should be_empty
       existing_user.has_role! :foo
 
