@@ -91,7 +91,7 @@ GEM
     faraday_middleware (0.8.8)
       faraday (>= 0.7.4, < 0.9)
     ffi (1.0.11)
-    friendly_id (4.0.8)
+    friendly_id (4.0.9)
     fssm (0.2.9)
     haml (3.1.4)
     haml-rails (0.3.4)
@@ -273,7 +273,7 @@ DEPENDENCIES
   disqus (~> 1.0.4)
   factory_girl_rails
   fakeweb
-  friendly_id (~> 4.0.1)
+  friendly_id
   haml-rails
   jquery-rails
   json
