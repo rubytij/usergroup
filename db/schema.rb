@@ -13,6 +13,7 @@
 
 ActiveRecord::Schema.define(:version => 20120916100917) do
 
+
   create_table "enrollments", :force => true do |t|
     t.integer  "user_id"
     t.integer  "role_id"
