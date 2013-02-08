@@ -1,7 +1,7 @@
 %h2
   = t('user.registrations.edit')
-  %small= current_user.username
-= form_for current_user do |user|
+  %small= @user.username
+= form_for @user do |user|
   = user.label :email
   = user.text_field :email
   = user.label :name
