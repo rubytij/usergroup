@@ -302,14 +302,7 @@ footer {
   @extend .btn-mini;
 }
 .post-delete {
-  @extend .btn-danger;figure.thumbnail.user_avatar{
-  img{
-    width: 100%;
-    height: 100%;
-  }
-}
-
-
+  @extend .btn-danger;
 }
 .post-edit {
   @extend .btn-warning;
