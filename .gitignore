@@ -19,3 +19,4 @@ public/.htaccess
 config/vhost.conf
 config/application.yml
 config/database.yml
+*.swp

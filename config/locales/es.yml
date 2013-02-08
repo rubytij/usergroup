@@ -3,6 +3,12 @@ es:
     account: 'Cuenta'
     registrations:
       show: 'Perfil'
+      edit: 'Editar Perfil'
+    profile:
+      information: 'Información'
+      post_count: Ha escrito %{count} posts
+      website: Sitio Web
+      registered_since: Registrado desde %{date}
     sessions:
       sign_in: 'Iniciar sesión con GitHub'
       destroy: 'Cerrar sesión'

@@ -3,6 +3,12 @@ en:
     account: 'Account'
     registrations:
       show: 'Profile'
+      edit: 'Edit Profile'
+    profile:
+      information: 'Information'
+      post_count: Has written %{count} posts
+      website: Website
+      registered_since: Registered since %{date}
     sessions:
       sign_in: 'Sign in with GitHub'
       destroy: 'Sign out'

@@ -1,0 +1,30 @@
+= content_for :additional_content do
+  %figure.thumbnail.user_avatar
+    %img{src: @user.gravatar_url(200)}
+
+%h2
+  = @user.name
+  %small #{@user}
+  - if @user == current_user
+    .pull-right
+      = link_to_if @user == current_user,  t('user.registrations.edit'), edit_user_path(current_user), :class => 'btn'
+.row
+  .span8
+    %h3 
+      = t 'user.profile.post_count', :count => @user.posts.count
+    %ul.list-style
+      - @user.posts.each do |post|
+        %li 
+          = link_to post, user_post_path( @user, post )
+  .span8
+    %h3 
+      = t 'user.profile.information'
+    %ul.unstyled
+      %li
+        %a{href: @user.site_url,target: "_blank"}
+          %i.icon-home
+          = t 'user.profile.website'
+      %li
+        %a{ :href => @user.github_url} Github
+      %li
+        = t 'user.profile.registered_since', :date => l( @user.created_at, :format => :short )

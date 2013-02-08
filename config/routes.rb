@@ -1,4 +1,5 @@
 UserGroup::Application.routes.draw do
+
   match "auth/:provider/callback" => "user/sessions#create"
 
   namespace :user do
@@ -14,7 +15,7 @@ UserGroup::Application.routes.draw do
     resources :posts, :only => [ :create, :update, :new, :edit, :destroy ]
   end
 
-  resources :user, :only => [] do
+  resources :user, :controller => 'users', :only => [:show, :edit, :update] do
     resources :posts, :only => [ :index, :show ]
   end
 

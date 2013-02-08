@@ -28,5 +28,6 @@
               = t 'user.account'
               %b.caret
             %ul.dropdown-menu
-              %li= link_to t('user.registrations.show'), '#'
+              %li= link_to t('user.registrations.show'), current_user
+              %li= link_to t('user.registrations.edit'), edit_user_path(current_user)
               %li= link_to t('user.sessions.destroy'), user_session_path, :method => :delete

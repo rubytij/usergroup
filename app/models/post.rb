@@ -29,4 +29,8 @@ class Post < ActiveRecord::Base
   def excerpt
     self[:excerpt].present? ? self[:excerpt] : content.gsub( REMOVE_CODE_EXPR, '' ).split( /\n/ ).first
   end
+
+  def to_s
+    self.title
+  end
 end

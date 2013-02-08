@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   extend FriendlyId
 
+  include ActiveModel::ForbiddenAttributesProtection
+
   acts_as_authorization_subject :association_name => :roles, :join_table_name => :enrollments
   validates :github_uid, :username, :uniqueness => true, :presence => true
   validates :email, :format => { :with => /\A[^@]+@[^@]+\z/ }, :uniqueness => true, :allow_blank => true
@@ -8,7 +10,7 @@ class User < ActiveRecord::Base
   after_create :update_roles
 
   attr_accessor :oauth_token
-  attr_accessible :gravatar_token, :email, :name, :site_url, :username, :github_uid
+  attr_accessible :gravatar_token, :email, :name, :site_url, :username, :github_uid, :github_url
 
   has_many :posts
   has_many :enrollments
@@ -41,6 +43,10 @@ class User < ActiveRecord::Base
 
     return "http://gravatar.com/avatar/#{ gravatar_token }.png?s=#{ size }&d=#{ CGI.escape default_image }" if gravatar_token.present?
     default_image
+  end
+
+  def to_s
+    self.username
   end
 
   private

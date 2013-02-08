@@ -22,6 +22,8 @@ gem 'fakeweb'
 gem 'mail_form'
 gem 'pg'
 gem 'pg_power'
+gem 'strong_parameters'
+
 
 group :development do
   gem 'quiet_assets'
@@ -40,8 +42,8 @@ end
 
 gem 'rspec-rails', :group => [ :test, :development ]
 gem 'single_test', :group => [ :test, :development ]
+gem 'guard-rspec', :group => [ :test, :development ]
 gem 'jquery-rails'
-
 group :test do
   gem 'factory_girl_rails'
   gem 'capybara'
