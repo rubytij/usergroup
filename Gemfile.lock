@@ -141,6 +141,7 @@ GEM
     net-ssh-gateway (1.1.0)
       net-ssh (>= 1.99.1)
     nokogiri (1.5.5)
+    nyan-cat-formatter (0.4.0)
     oauth2 (0.8.0)
       faraday (~> 0.8)
       httpauth (~> 0.1)
@@ -291,6 +292,7 @@ DEPENDENCIES
   json
   mail_form
   mocha
+  nyan-cat-formatter
   octokit
   omniauth
   omniauth-github

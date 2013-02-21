@@ -1,0 +1,8 @@
+= simple_form_for user do |f|
+  = f.input :email
+  = f.input :name
+  = f.input :site_url
+  = f.input :username
+  = f.input :github_username
+  %p.actions
+    = f.submit t('user.registrations.edit'), :class => 'btn'

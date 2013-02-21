@@ -1,16 +1,4 @@
 %h2
   = t('user.registrations.edit')
   %small= @user.username
-= form_for @user do |user|
-  = user.label :email
-  = user.text_field :email
-  = user.label :name
-  = user.text_field :name
-  = user.label :site_url
-  = user.text_field :site_url
-  = user.label :username
-  = user.text_field :username
-  = user.label :github_url
-  = user.text_field :github_url
-  %p.actions
-    = user.submit t('user.registrations.edit'), class: 'btn'
+= render 'form', :user => @user

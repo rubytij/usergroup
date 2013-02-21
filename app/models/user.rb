@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   after_create :update_roles
 
   attr_accessor :oauth_token
-  attr_accessible :gravatar_token, :email, :name, :site_url, :username, :github_uid, :github_url
+  attr_accessible :gravatar_token, :email, :name, :site_url, :username, :github_uid, :github_username
 
   has_many :posts
   has_many :enrollments
@@ -23,10 +23,11 @@ class User < ActiveRecord::Base
     extras    = omniauth['extra']['raw_info']
 
     User.new.tap do |user|
-      user.github_uid     = omniauth['uid']
-      user.username       = user_info['nickname']
-      user.email          = user_info['email']
-      user.name           = user_info['name']
+      user.github_uid      = omniauth['uid']
+      user.username        = user_info['nickname']
+      user.github_username = user_info['nickname']
+      user.email           = user_info['email']
+      user.name            = user_info['name']
 
       if extras
         user.site_url       = extras['blog']
@@ -43,6 +44,10 @@ class User < ActiveRecord::Base
 
     return "http://gravatar.com/avatar/#{ gravatar_token }.png?s=#{ size }&d=#{ CGI.escape default_image }" if gravatar_token.present?
     default_image
+  end
+
+  def github_url
+    "http://github.com/#{github_username}"
   end
 
   def to_s

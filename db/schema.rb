@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130131202757) do
+ActiveRecord::Schema.define(:version => 20130221195406) do
 
 
   create_table "enrollments", :force => true do |t|
@@ -85,17 +85,17 @@ ActiveRecord::Schema.define(:version => 20130131202757) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "github_uid",     :null => false
+    t.string   "github_uid",      :null => false
     t.string   "name"
-    t.string   "username",       :null => false
+    t.string   "username",        :null => false
     t.string   "email"
     t.string   "site_url"
     t.string   "gravatar_token"
     t.datetime "banned_at"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.string   "slug"
-    t.string   "github_url"
+    t.string   "github_username"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"

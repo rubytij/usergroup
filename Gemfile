@@ -40,9 +40,13 @@ group :assets do
   gem 'bootstrap-sass'
 end
 
-gem 'rspec-rails', :group => [ :test, :development ]
-gem 'single_test', :group => [ :test, :development ]
-gem 'guard-rspec', :group => [ :test, :development ]
+group :test, :development do
+  gem 'rspec-rails'
+  gem 'single_test'
+  gem 'guard-rspec'
+  gem 'nyan-cat-formatter'
+end
+
 gem 'jquery-rails'
 group :test do
   gem 'factory_girl_rails'

@@ -28,10 +28,11 @@ FactoryGirl.define do
   end
 
   factory :user do
-    email       { Factory.next :email }
-    username    { Factory.next :username }
-    github_uid  { Factory.next :uid }
-    name        'Super developer'
+    email            { Factory.next :email }
+    username         { Factory.next :username }
+    github_uid       { Factory.next :uid }
+    github_username  { Factory.next :username }
+    name             'Super developer'
   end
 
   factory :page do

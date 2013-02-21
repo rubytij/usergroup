@@ -17,6 +17,6 @@ class UsersController < ApplicationController
 
 private
   def user_params
-    params.require( :user ).permit :email,:name,:site_url,:username,:github_url
+    params.require( :user ).permit :email,:name,:site_url,:username,:github_username
   end
 end
