@@ -323,4 +323,6 @@ footer {
   }
 }
 
-
+ul.user_info{
+  @extend .unstyled;
+}

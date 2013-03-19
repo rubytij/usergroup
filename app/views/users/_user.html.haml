@@ -8,12 +8,12 @@
 .row
   .span8
     %h3= t 'user.profile.post_count', :count => @user.posts_count
-    %ul.list-style
+    %ul
       - @user.posts.each do |post|
         %li= link_to post, user_post_path( @user, post )
   .span8
     %h3= t 'user.profile.information'
-    %ul.unstyled
+    %ul.user_info
       %li
         %a{ :href => @user.site_url,:target => "_blank"}
           %i.icon-home
