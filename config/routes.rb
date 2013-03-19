@@ -15,7 +15,7 @@ UserGroup::Application.routes.draw do
     resources :posts, :only => [ :create, :update, :new, :edit, :destroy ]
   end
 
-  resources :user, :controller => 'users', :only => [:show, :edit, :update] do
+  resources :users, :only => [:show, :edit, :update] do
     resources :posts, :only => [ :index, :show ]
   end
 
