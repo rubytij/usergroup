@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130221195406) do
+ActiveRecord::Schema.define(:version => 20130221224736) do
 
 
   create_table "enrollments", :force => true do |t|
@@ -96,10 +96,12 @@ ActiveRecord::Schema.define(:version => 20130221195406) do
     t.datetime "updated_at",      :null => false
     t.string   "slug"
     t.string   "github_username"
+    t.integer  "posts_count"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"
   add_index "users", ["github_uid"], :name => "index_users_on_github_uid", :unique => true
+  add_index "users", ["github_username"], :name => "index_users_on_github_username", :unique => true
   add_index "users", ["slug"], :name => "index_users_on_slug", :unique => true
   add_index "users", ["username"], :name => "index_users_on_username", :unique => true
 

@@ -51,7 +51,7 @@ class User < ActiveRecord::Base
   end
 
   def to_s
-    self.username
+    username
   end
 
   private
