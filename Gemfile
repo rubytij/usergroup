@@ -22,6 +22,7 @@ gem 'fakeweb'
 gem 'mail_form'
 gem 'pg'
 gem 'pg_power'
+gem 'strong_parameters'
 
 group :development do
   gem 'quiet_assets'
@@ -38,10 +39,14 @@ group :assets do
   gem 'bootstrap-sass'
 end
 
-gem 'rspec-rails', :group => [ :test, :development ]
-gem 'single_test', :group => [ :test, :development ]
-gem 'jquery-rails'
+group :test, :development do
+  gem 'rspec-rails'
+  gem 'single_test'
+  gem 'guard-rspec'
+  gem 'nyan-cat-formatter'
+end
 
+gem 'jquery-rails'
 group :test do
   gem 'factory_girl_rails'
   gem 'capybara'

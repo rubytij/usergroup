@@ -1,0 +1,23 @@
+= content_for :additional_content do
+  = image_tag @user.gravatar_url(200), :class => 'thumbnail user_avatar'
+%h2
+  = @user.name
+  %small=@user
+  - if is_current_user? @user
+    .pull-right= link_to t('user.registrations.edit'), edit_user_path(@user), :class => 'btn'
+.row
+  .span8
+    %h3= t 'user.profile.post_count', :count => @user.posts_count
+    %ul
+      - @user.posts.each do |post|
+        %li= link_to post, user_post_path( @user, post )
+  .span8
+    %h3= t 'user.profile.information'
+    %ul.user_info
+      %li
+        %a{ :href => @user.site_url,:target => "_blank"}
+          %i.icon-home
+          = t 'user.profile.website'
+      %li 
+        %a{ :href => @user.github_url} Github
+      %li= t 'user.profile.registered_since', :date => l( @user.created_at, :format => :short )

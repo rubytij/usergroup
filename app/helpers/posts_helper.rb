@@ -11,7 +11,7 @@ module PostsHelper
 
   def authored_by author, time
     t( 'posts.authored_by',
-      :author => link_to( author, '#' ),
+      :author => link_to( author, user_path(author) ) ,
       :time   => time_ago_in_words( time )
     ).html_safe
   end

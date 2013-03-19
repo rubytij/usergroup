@@ -3,7 +3,7 @@ class Post < ActiveRecord::Base
 
   REMOVE_CODE_EXPR = /^``` ?(.*?)\r?\n(.+?)\r?\n```\r?$/m
 
-  belongs_to :user
+  belongs_to :user, :counter_cache => true
 
   validates :title, :content, :user, :presence => true
   validates :title, :uniqueness => true
@@ -28,5 +28,9 @@ class Post < ActiveRecord::Base
 
   def excerpt
     self[:excerpt].present? ? self[:excerpt] : content.gsub( REMOVE_CODE_EXPR, '' ).split( /\n/ ).first
+  end
+
+  def to_s
+    title
   end
 end

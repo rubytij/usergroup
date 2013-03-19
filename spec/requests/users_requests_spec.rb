@@ -29,6 +29,22 @@ describe "Users requests" do
       page.should have_content( I18n.t 'user.sessions.destroy' )
     end
 
+    it "Displays user profile" do
+      visit user_path( user )
+      page.should have_content user.name
+    end
+
+    it "Can edit his profile" do
+      visit user_path( user )
+      page.click_link I18n.t('user.registrations.edit')
+      current_path.should eql( edit_user_path( user ) )
+      page.fill_in I18n.t( 'activerecord.attributes.user.username' ), :with => 'pacoelchato'
+      page.click_button I18n.t( 'user.registrations.edit' )
+      user.reload
+      current_path.should eql( user_path( user ) )
+      user.username.should eql( 'pacoelchato' )
+    end
+
     it "Can destroy existing sessions" do
       page.should have_content( I18n.t 'user.sessions.destroy' )
 
