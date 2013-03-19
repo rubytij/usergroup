@@ -12,9 +12,7 @@ describe UsersController do
 
   context 'logged in' do
 
-    before :each do
-      session[:user_id] = user.id
-    end
+    before { session[:user_id] = user.id }
 
     describe "GET 'edit'" do
 

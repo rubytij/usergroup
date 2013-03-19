@@ -24,7 +24,6 @@ gem 'pg'
 gem 'pg_power'
 gem 'strong_parameters'
 
-
 group :development do
   gem 'quiet_assets'
   gem 'bullet'
