@@ -43,7 +43,7 @@ describe Dashboard::PostsController do
 
       it 'should destroy existing post' do
         delete :destroy, :id => user_post
-        response.should redirect_to( posts_path )
+        response.should redirect_to( dashboard_posts_path )
         Post.count.should eql( 0 )
       end
     end
