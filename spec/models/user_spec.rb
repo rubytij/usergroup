@@ -1,60 +1,60 @@
 require 'spec_helper'
 
 describe User do
-  let(:existing_user) { Factory.create :user }
+  let(:existing_user) { create :user }
 
   describe 'email' do
     it 'can be blank' do
-      user = Factory.build :user, :email => ''
+      user = build :user, :email => ''
       user.should be_valid
     end
 
     it 'can be nil' do
-      user = Factory.build :user, :email => nil
+      user = build :user, :email => nil
       user.should be_valid
     end
 
     it 'must be properly formatted' do
-      user = Factory.build :user, :email => 'asdas'
+      user = build :user, :email => 'asdas'
       user.should be_invalid
     end
 
     it 'must be unique' do
-      user = Factory.build :user, :email => existing_user.email
+      user = build :user, :email => existing_user.email
       user.should be_invalid
     end
   end
 
   describe 'username' do
     it 'must be present' do
-      user = Factory.build :user, :username => nil
+      user = build :user, :username => nil
       user.should be_invalid
     end
 
     it 'must be unique' do
-      user = Factory.build :user, :username => existing_user.username
+      user = build :user, :username => existing_user.username
       user.should be_invalid
     end
   end
 
   describe 'github_uid' do
     it 'must be present' do
-      user = Factory.build :user, :github_uid => nil
+      user = build :user, :github_uid => nil
       user.should be_invalid
     end
 
     it 'must be unique' do
-      user = Factory.build :user, :github_uid => existing_user.github_uid
+      user = build :user, :github_uid => existing_user.github_uid
       user.should be_invalid
     end
   end
 
   describe 'create_from_github' do
     before :each do
-      @omniauth = { 'uid' => Factory.next(:uid),
+      @omniauth = { 'uid' => generate( :uid ),
         'info' => {
           'nickname'  => 'github_user',
-          'email'     => Factory.next(:email),
+          'email'     => generate( :email ),
           'name'      => 'John Doe'
         },
 
@@ -81,7 +81,7 @@ describe User do
     end
 
     it "can have posts" do
-      post = Factory.create( :post, :user => existing_user )
+      post = create( :post, :user => existing_user )
       existing_user.posts.include?( post ).should be_true
       existing_user.posts.count.should be(1)
     end
@@ -95,8 +95,8 @@ describe User do
 
   describe "roles association" do
     it "includes roles assigned" do
-      user = Factory.create( :user )
-      3.times { user.has_role! Factory.create( :role ) }
+      user = create( :user )
+      3.times { user.has_role! create( :role ) }
       user.roles.count.should eq(3)
     end
 

@@ -3,7 +3,7 @@ class Page < ActiveRecord::Base
 
   Sections = [ :home, :about, :meetings ]
 
-  symbolize :section, :in => Sections, :scopes => true, :methods => true
+  symbolize :section, :in => Sections, :scopes => :shallow, :methods => true
 
   validates :name, :presence => true, :uniqueness => true
   validates :title, :content, :section, :presence => true

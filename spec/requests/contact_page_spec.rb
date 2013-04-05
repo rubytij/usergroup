@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "Contact Page" do
   before :each do
-    Factory.create :page
+    create :page
     visit root_path
     click_link ContactForm.model_name.human
   end
