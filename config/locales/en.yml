@@ -25,6 +25,7 @@ en:
     edit: Edit %{item}
     read_more: Read More
     sent: '%{item} sent'
+    list: List %{item}
 
   licenses:
     statement: This work is under a %{item}
@@ -62,6 +63,9 @@ en:
 
   head:
     title: RubyTij - Usergroup
+
+  attributes:
+    created_at: Created at
 
   activerecord:
     models:

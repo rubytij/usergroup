@@ -4,6 +4,10 @@ class Dashboard::PostsController < ApplicationController
 
   layout 'dashboard'
 
+  def index
+    @posts = current_user.posts.paginate page: params[:page]
+  end
+
   def new
     @post = current_user.posts.new
   end
@@ -29,7 +33,7 @@ class Dashboard::PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to posts_path
+    redirect_to dashboard_posts_path
   end
 
   private
