@@ -24,32 +24,32 @@ FactoryGirl.define do
   end
 
   factory :role do
-    name { Factory.next :role_name }
+    name { generate :role_name }
   end
 
   factory :user do
-    email       { Factory.next :email }
-    username    { Factory.next :username }
-    github_uid  { Factory.next :uid }
+    email       { generate :email }
+    username    { generate :username }
+    github_uid  { generate :uid }
     name        'Super developer'
   end
 
   factory :page do
-    name    { Factory.next :name }
+    name    { generate :name }
     section :home
-    title   { Factory.next :title }
+    title   { generate :title }
     content 'hello'
     main_page true
   end
 
   factory :post do
-    title   { Factory.next :title }
+    title   { generate :title }
     content "Lorem ipsum"
     user
   end
 
   factory :event do
-    name { Factory.next :name }
+    name { generate :name }
     starts_at { Date.today }
     ends_at { 1.day.from_now }
     description 'Discuss Time and Space'
@@ -57,8 +57,8 @@ FactoryGirl.define do
   end
 
   factory :contact_form do
-    name  { Factory.next :name }
-    email { Factory.next :email }
+    name  { generate :name }
+    email { generate :email }
     message 'Who let the dogs out?'
   end
 end

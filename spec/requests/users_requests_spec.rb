@@ -1,13 +1,13 @@
 require 'spec_helper'
 
 describe "Users requests" do
-  let(:user) { Factory.create :user }
+  let(:user) { create :user }
   let(:omniauth) do
     {
-      'uid' => Factory.next(:uid),
+      'uid' => generate( :uid ),
         'info' => {
-          'nickname'  => Factory.next(:username),
-          'email'     => Factory.next(:email),
+          'nickname'  => generate( :username ),
+          'email'     => generate( :email ),
           'name'      => 'John Doe'
         },
       'extra' => {}
@@ -15,7 +15,7 @@ describe "Users requests" do
   end
 
   before :each do
-    Factory.create :page
+    create :page
     visit root_path
   end
 

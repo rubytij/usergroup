@@ -4,7 +4,6 @@ gem 'rails'
 gem 'json'
 gem 'capistrano'
 gem 'haml-rails'
-gem 'system_timer', :platform => :ruby_18
 gem 'acl9'
 gem 'omniauth'
 gem 'omniauth-github'
@@ -14,7 +13,7 @@ gem 'redcarpet'
 gem 'pygments.rb'
 gem 'bootstrap-will_paginate'
 gem 'acts-as-taggable-on', '~> 2.2.2'
-gem 'symbolize', :require => 'symbolize/active_record'
+gem 'symbolize'
 gem 'pry-rails'
 gem "disqus", "~> 1.0.4"
 gem 'octokit'
@@ -44,8 +43,7 @@ gem 'jquery-rails'
 
 group :test do
   gem 'factory_girl_rails'
-  gem 'capybara'
   gem 'database_cleaner'
+  gem 'capybara'
   gem 'capybara-webkit'
-  gem 'mocha'
 end

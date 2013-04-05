@@ -1,13 +1,13 @@
 require 'spec_helper'
 
 describe PagesController do
-  let(:page) { Factory.create :page }
+  let(:new_page) { create :page }
 
   describe 'not logged in' do
     describe 'show' do
       it do
-        get :show, :page_name => page.slug, :section_name => page.section
-        response.status.should eql( 200 )
+        get :show, :page_name => new_page.slug, :section_name => new_page.section
+        response.should be_success
         response.should render_template( 'show' )
       end
     end
