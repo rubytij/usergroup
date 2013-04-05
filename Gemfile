@@ -22,6 +22,7 @@ gem 'fakeweb'
 gem 'mail_form'
 gem 'pg'
 gem 'pg_power'
+gem 'google-analytics-rails'
 
 group :development do
   gem 'quiet_assets'

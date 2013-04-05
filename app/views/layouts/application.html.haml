@@ -1,6 +1,7 @@
 !!!
 %html
   %head
+    = analytics_init if Rails.env.production?
     %title= t( 'head.title' )
     %link{ :rel => :icon, :type => 'image/png', :href => '/favicon.ico' }
     / [if lt IE 9]
