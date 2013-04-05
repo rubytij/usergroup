@@ -3,7 +3,7 @@ require 'spec_helper'
 describe PostsHelper do
   describe "authored_by" do
     before :each do
-      @post = Factory.create :post
+      @post = create :post
       @expected_string = I18n.t( 'posts.authored_by', :author => ( helper.link_to @post.user, '#' ), :time => ( helper.time_ago_in_words @post.created_at ) )
     end
 

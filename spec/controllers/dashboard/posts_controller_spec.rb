@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe Dashboard::PostsController do
-  let(:user) { Factory.create :user }
-  let(:user_post) { Factory.create :post, :user => user }
+  let(:user) { create :user }
+  let(:user_post) { create :post, :user => user }
 
   describe 'logged in' do
     before { session[:user_id] = user.id }
@@ -17,12 +17,12 @@ describe Dashboard::PostsController do
 
     describe 'create a new post' do
       it 'should redirect after creating post' do
-        post :create, :post => Factory.attributes_for( :post )
+        post :create, :post => attributes_for( :post )
         response.should redirect_to( user_post_path( user, assigns(:post) ) )
       end
 
       it 'should render new if it fails' do
-        post :create, :post => Factory.attributes_for( :post, :title => nil )
+        post :create, :post => attributes_for( :post, :title => nil )
         response.should render_template( :new )
       end
     end
@@ -60,7 +60,7 @@ describe Dashboard::PostsController do
 
     describe 'create' do
       it do
-        post :create, :post => Factory.attributes_for( :post )
+        post :create, :post => attributes_for( :post )
         response.status.should eql( 404 )
         response.should render_template( :file => 'public/404' )
       end

@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'PostsController#index layout' do
-  before { @post = Factory.create :post }
+  before { @post = create :post }
 
   describe 'layout' do
     it 'should show could tag' do

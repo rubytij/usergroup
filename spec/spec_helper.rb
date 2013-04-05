@@ -1,6 +1,8 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
-ENV["RAILS_ENV"] ||= 'test'
+ENV["RAILS_ENV"] = 'test'
+
 require File.expand_path("../../config/environment", __FILE__)
+
 require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/rspec'
@@ -27,18 +29,19 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 
-  # ## Mock Framework
-  config.mock_with :mocha
   config.color_enabled = true
 
   # If true, the base class of anonymous controllers will be inferred
   # automatically. This will be the default behavior in future versions of
   # rspec-rails.
   config.infer_base_class_for_anonymous_controllers = false
+  config.order = "random"
+
+  config.include FactoryGirl::Syntax::Methods
 
   ## Will prevent requests to github on test env when creating user factories
   config.before :each do
-    FakeWeb.register_uri(:get, "https://api.github.com/orgs/rubytij/teams", :body => [ { :name   => 'Owners', :id => 1 } ].to_json )
-    FakeWeb.register_uri(:get, 'https://api.github.com/teams/1/members', :body => [ { :login  => 'github_user' } ].to_json )
+    FakeWeb.register_uri :get, "https://api.github.com/orgs/rubytij/teams", body: [ { name:   'Owners', id: 1 } ].to_json,  content_type: 'application/json'
+    FakeWeb.register_uri :get, 'https://api.github.com/teams/1/members',    body: [ { login:  'github_user' } ].to_json,    content_type: 'application/json'
   end
 end

@@ -51,7 +51,7 @@ class User < ActiveRecord::Base
       teams = client.org_teams 'rubytij'
 
       teams.each do |team|
-        members = client.team_members( team.id ).map( &:login )
+        members = client.team_members( team.id ).map &:login
         self.has_role! team.name.parameterize if members.include? self.username
       end
     rescue
