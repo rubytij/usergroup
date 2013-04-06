@@ -7,6 +7,15 @@ describe Dashboard::PostsController do
   describe 'logged in' do
     before { session[:user_id] = user.id }
 
+    describe :index do
+      it 'should be successful' do
+        get :index
+
+        response.should be_success
+        response.should render_template( :index )
+      end
+    end
+
     describe 'new' do
       it 'should respond successfully if logged in' do
         get :new

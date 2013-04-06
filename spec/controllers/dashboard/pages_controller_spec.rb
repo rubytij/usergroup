@@ -10,6 +10,15 @@ describe Dashboard::PagesController do
       session[:user_id] = user.id
     end
 
+    describe :index do
+      it 'should be successful' do
+        get :index
+
+        response.should be_success
+        response.should render_template(:index)
+      end
+    end
+
     describe 'create new new_page' do
       it 'should redirect after creating new_page' do
         post :create, :page => attributes_for( :page )
@@ -39,6 +48,13 @@ describe Dashboard::PagesController do
         new_page = assigns :page
         response.should redirect_to( section_page_path new_page.section, new_page )
         new_page.name.should eql('updatednew_page')
+      end
+
+      it 'should delete existing pages' do
+        new_page.should be_persisted
+        expect { delete :destroy, :id => new_page }.to change { Page.count }.by -1
+
+        response.should redirect_to( dashboard_pages_path )
       end
     end
   end
