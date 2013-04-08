@@ -1,0 +1,16 @@
+%h1= Page.model_name.human.pluralize
+
+%table.table.table-bordered.table-striped
+  %thead
+    %tr
+      %th ID
+      %th Slug
+      %th= t 'attributes.name'
+      %th= t 'activerecord.attributes.page.section'
+      %th= t 'activerecord.attributes.page.main_page'
+      %th= t 'attributes.created_at'
+      %th
+  %tbody
+    = render @pages
+
+= will_paginate @pages
