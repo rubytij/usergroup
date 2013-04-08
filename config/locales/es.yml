@@ -18,12 +18,15 @@ es:
   posts:
     authored_by: Escrito por %{author} hace %{time}
     tag_cloud: Etiquetas relacionadas
+    editor: Editor
+    preview: Vista Previa
 
   messages:
     confirmation: ¿Estás seguro?
 
   hints:
     tags: Separa las etiquetas por comas.
+    published: Marca la caja para hacer este post publico
 
   will_paginate:
     next_label: ! '&raquo;'
@@ -78,6 +81,7 @@ es:
         user: Autor
         tag_list: Etiquetas
         excerpt: Resumen
+        published: ¿Publicado?
       page:
         section: Sección
         main_page: Página principal

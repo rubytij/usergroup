@@ -18,6 +18,8 @@ en:
   posts:
     authored_by: Authored by %{author} about %{time}
     tag_cloud: Tag cloud
+    editor: Editor
+    preview: Preview
 
   actions:
     new: New %{item}
@@ -36,6 +38,7 @@ en:
 
   hints:
     tags: Separate tags by commas.
+    published: Check the box to make this post public
 
   will_paginate:
     next_label: ! '&raquo;'
@@ -80,6 +83,8 @@ en:
         site_url: Blog
       page:
         section: Section
+      post:
+        published: Published?
     symbolizes:
       page:
         section:
