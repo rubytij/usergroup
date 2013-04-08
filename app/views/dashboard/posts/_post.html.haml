@@ -1,0 +1,15 @@
+%tr
+  %td= post.id
+  %td= post.slug
+  %td= post.title
+  %td= current_user.username
+  %td= time_ago_in_words post.created_at
+  %td
+    = link_to user_post_path( current_user, post ), data: { show_tooltip: true }, class: 'btn btn-mini btn-success', title: t('actions.show', item: nil) do
+      %i.icon-white.icon-eye-open
+
+    = link_to edit_dashboard_post_path( post ), data: { show_tooltip: true }, class: 'btn btn-mini btn-warning', title: t('actions.edit', item: nil) do
+      %i.icon-white.icon-pencil
+
+    = link_to dashboard_post_path( post ), data: { show_tooltip: true, method: :delete, confirm: t('messages.confirmation') }, class: 'btn btn-mini btn-danger', title: t('actions.delete', item: nil) do
+      %i.icon-white.icon-trash

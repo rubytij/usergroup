@@ -1,0 +1,15 @@
+%h1= Post.model_name.human.pluralize
+
+%table.table.table-bordered.table-striped
+  %thead
+    %tr
+      %th ID
+      %th Slug
+      %th= t 'attributes.title'
+      %th= t 'activerecord.attributes.post.user'
+      %th= t 'attributes.created_at'
+      %th
+  %tbody
+    = render @posts
+
+= will_paginate @posts

@@ -1,12 +1,16 @@
 class Dashboard::PagesController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :find_page, :only => [ :edit, :update ]
+  before_filter :find_page, :only => [ :edit, :update, :destroy ]
 
   access_control do
     allow :admin, :editor
   end
 
   layout 'dashboard'
+
+  def index
+    @pages = Page.paginate page: params[:page]
+  end
 
   def new
     @page = Page.new
@@ -28,6 +32,11 @@ class Dashboard::PagesController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @page.destroy
+    redirect_to dashboard_pages_path
   end
 
   private

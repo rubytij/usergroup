@@ -7,6 +7,15 @@ describe Dashboard::PostsController do
   describe 'logged in' do
     before { session[:user_id] = user.id }
 
+    describe :index do
+      it 'should be successful' do
+        get :index
+
+        response.should be_success
+        response.should render_template( :index )
+      end
+    end
+
     describe 'new' do
       it 'should respond successfully if logged in' do
         get :new
@@ -43,7 +52,7 @@ describe Dashboard::PostsController do
 
       it 'should destroy existing post' do
         delete :destroy, :id => user_post
-        response.should redirect_to( posts_path )
+        response.should redirect_to( dashboard_posts_path )
         Post.count.should eql( 0 )
       end
     end
