@@ -1,9 +1,9 @@
 class User < ActiveRecord::Base
   extend FriendlyId
 
-  acts_as_authorization_subject :association_name => :roles, :join_table_name => :enrollments
-  validates :github_uid, :username, :uniqueness => true, :presence => true
-  validates :email, :format => { :with => /\A[^@]+@[^@]+\z/ }, :uniqueness => true, :allow_blank => true
+  acts_as_authorization_subject association_name: :roles, join_table_name: :enrollments
+  validates :github_uid, :username, uniqueness: true, presence: true
+  validates :email, format: { with: /\A[^@]+@[^@]+\z/ }, uniqueness: true, allow_blank: true
 
   after_create :update_roles
 
@@ -12,9 +12,9 @@ class User < ActiveRecord::Base
 
   has_many :posts
   has_many :enrollments
-  has_many :roles, :through => :enrollments
+  has_many :roles, through: :enrollments
 
-  friendly_id :username, :use => :slugged
+  friendly_id :username, use: :slugged
 
   def self.create_from_github( omniauth )
     user_info = omniauth['info']
@@ -45,7 +45,7 @@ class User < ActiveRecord::Base
 
   private
   def update_roles
-    client  = Octokit::Client.new :login => self.username, :oauth_token => self.oauth_token
+    client  = Octokit::Client.new login: self.username, oauth_token: self.oauth_token
 
     begin
       teams = client.org_teams 'rubytij'

@@ -1,6 +1,6 @@
 class Dashboard::PostsController < ApplicationController
-  before_filter :authenticate_user!,    :only => [ :new, :create, :edit, :update, :destroy ]
-  before_filter :find_post,             :only => [ :edit, :update, :destroy ]
+  before_filter :authenticate_user!,    only: [ :new, :create, :edit, :update, :destroy ]
+  before_filter :find_post,             only: [ :edit, :update, :destroy ]
 
   layout 'dashboard'
 

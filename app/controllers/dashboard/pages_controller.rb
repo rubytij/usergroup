@@ -1,6 +1,6 @@
 class Dashboard::PagesController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :find_page, :only => [ :edit, :update, :destroy ]
+  before_filter :find_page, only: [ :edit, :update, :destroy ]
 
   access_control do
     allow :admin, :editor

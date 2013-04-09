@@ -1,5 +1,5 @@
 class User::SessionsController < ApplicationController
-  after_filter :clear_return_to, :only => :create
+  after_filter :clear_return_to, only: :create
 
   def login
     session[:return_to] = params[:return_to]

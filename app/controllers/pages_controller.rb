@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def show
-    @related  = Page.where( :section => params[:section_name] )
+    @related  = Page.where( section: params[:section_name] )
     @page     = @related.find params[:page_name]
   end
 
@@ -12,7 +12,7 @@ class PagesController < ApplicationController
     @contact_form = ContactForm.new params[:contact_form]
 
     if @contact_form.deliver
-      redirect_to contact_page_path, :flash => { :success => t('actions.sent', :item => t('activerecord.models.contact_form')) }
+      redirect_to contact_page_path, flash: { success: t('actions.sent', item: t('activerecord.models.contact_form')) }
     else
       render :contact
     end
@@ -20,7 +20,7 @@ class PagesController < ApplicationController
 
   def main
     @page     = Page.main
-    @related  = Page.where( :section => @page.section )
+    @related  = Page.where( section: @page.section )
     render :show
   end
 end
