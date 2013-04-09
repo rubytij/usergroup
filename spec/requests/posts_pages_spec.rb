@@ -11,7 +11,7 @@ describe 'PostsController#index layout' do
   end
 
   describe 'comments' do
-    it 'should show disqus elements', :js => true do
+    it 'should show disqus elements', js: true do
       visit user_post_path( @post.user, @post )
 
       find('#disqus_thread')

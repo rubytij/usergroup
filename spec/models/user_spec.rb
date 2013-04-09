@@ -5,46 +5,46 @@ describe User do
 
   describe 'email' do
     it 'can be blank' do
-      user = build :user, :email => ''
+      user = build :user, email: ''
       user.should be_valid
     end
 
     it 'can be nil' do
-      user = build :user, :email => nil
+      user = build :user, email: nil
       user.should be_valid
     end
 
     it 'must be properly formatted' do
-      user = build :user, :email => 'asdas'
+      user = build :user, email: 'asdas'
       user.should be_invalid
     end
 
     it 'must be unique' do
-      user = build :user, :email => existing_user.email
+      user = build :user, email: existing_user.email
       user.should be_invalid
     end
   end
 
   describe 'username' do
     it 'must be present' do
-      user = build :user, :username => nil
+      user = build :user, username: nil
       user.should be_invalid
     end
 
     it 'must be unique' do
-      user = build :user, :username => existing_user.username
+      user = build :user, username: existing_user.username
       user.should be_invalid
     end
   end
 
   describe 'github_uid' do
     it 'must be present' do
-      user = build :user, :github_uid => nil
+      user = build :user, github_uid: nil
       user.should be_invalid
     end
 
     it 'must be unique' do
-      user = build :user, :github_uid => existing_user.github_uid
+      user = build :user, github_uid: existing_user.github_uid
       user.should be_invalid
     end
   end
@@ -59,7 +59,7 @@ describe User do
         },
 
         'extra'       => {},
-        'credentials' => { :token => 'abc123' }
+        'credentials' => { token: 'abc123' }
       }
     end
 
@@ -81,14 +81,14 @@ describe User do
     end
 
     it "can have posts" do
-      post = create( :post, :user => existing_user )
+      post = create( :post, user: existing_user )
       existing_user.posts.include?( post ).should be_true
       existing_user.posts.count.should be(1)
     end
 
     it "can create posts" do
       existing_user.posts.should be_empty
-      existing_user.posts.create( :title => "foo", :content => 'Lorem ipsum' )
+      existing_user.posts.create( title: "foo", content: 'Lorem ipsum' )
       existing_user.posts.should_not be_empty
     end
   end
@@ -110,7 +110,7 @@ describe User do
   end
 
   describe 'gravatar_url' do
-    before { existing_user.update_attributes! :gravatar_token => '30f39a09e233e8369dddf6feb4be0308' }
+    before { existing_user.update_attributes! gravatar_token: '30f39a09e233e8369dddf6feb4be0308' }
 
     it 'should return gravatar url' do
       existing_user.gravatar_url.should =~ /30f39a09e233e8369dddf6feb4be0308/

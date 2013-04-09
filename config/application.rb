@@ -4,7 +4,7 @@ require 'rails/all'
 
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
-  Bundler.require(*Rails.groups(:assets => %w(development test)))
+  Bundler.require(*Rails.groups(assets: %w(development test)))
   # If you want your assets lazily compiled in production, use this line
   # Bundler.require(:default, :assets, Rails.env)
 end
@@ -57,17 +57,17 @@ module UserGroup
     config.assets.version = '1.0'
 
     $markdown_extensions = {
-        :autolink             => true,
-        :no_intra_emphasis    => true,
-        :fenced_code_blocks   => true,
-        :space_after_headers  => true,
-        :superscript          => true,
+        autolink: true,
+        no_intra_emphasis: true,
+        fenced_code_blocks: true,
+        space_after_headers: true,
+        superscript: true,
       }
 
     $render_options = {
-      :filter_html    => true,
-      :hard_wrap      => true,
-      :with_toc_data  => true,
+      filter_html: true,
+      hard_wrap: true,
+      with_toc_data: true,
     }
   end
 end

@@ -5,17 +5,17 @@ class Post < ActiveRecord::Base
 
   belongs_to :user
 
-  validates :title, :content, :user, :presence => true
-  validates :title, :uniqueness => true
+  validates :title, :content, :user, presence: true
+  validates :title, uniqueness: true
 
-  delegate :username,     :to => :user, :prefix => :author
-  delegate :gravatar_url, :to => :user, :prefix => :author
+  delegate :username,     to: :user, prefix: :author
+  delegate :gravatar_url, to: :user, prefix: :author
 
   scope :latest, lambda { order( 'created_at DESC' ) }
 
   attr_accessible :title, :content, :excerpt, :tag_list
 
-  friendly_id :title, :use => :slugged
+  friendly_id :title, use: :slugged
 
   acts_as_taggable
 

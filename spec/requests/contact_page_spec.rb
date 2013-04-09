@@ -8,9 +8,9 @@ describe "Contact Page" do
   end
 
   it "emails if all fields are filled in" do
-    fill_in I18n.t('attributes.name'),    :with => 'Batman'
-    fill_in I18n.t('attributes.email'),   :with => 'batman@batcave.com'
-    fill_in I18n.t('attributes.message'), :with => 'To the batmobile'
+    fill_in I18n.t('attributes.name'),    with: 'Batman'
+    fill_in I18n.t('attributes.email'),   with: 'batman@batcave.com'
+    fill_in I18n.t('attributes.message'), with: 'To the batmobile'
     click_button I18n.t('labels.send_email')
 
     ActionMailer::Base.deliveries.should_not be_empty
