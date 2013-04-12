@@ -41,6 +41,7 @@ end
 gem 'rspec-rails', :group => [ :test, :development ]
 gem 'single_test', :group => [ :test, :development ]
 gem 'jquery-rails'
+gem 'flat-ui-rails'
 
 group :test do
   gem 'factory_girl_rails'

@@ -12,8 +12,15 @@ es:
     send_email: Enviar correo electrónico
 
   pages:
+    home:
+      heading: Somos RubyTij
+      description: Comunidad de Ruby de Tijuana
+
     form:
       select_section: Elige una sección
+
+  additional_content:
+    title: Más links
 
   posts:
     authored_by: Escrito por %{author} hace %{time}

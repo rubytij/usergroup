@@ -1,315 +1,76 @@
 @import 'bootstrap';
-@import "compass/css3/border-radius";
-@import 'compass/css3/images';
-@import "compass/css3/box-shadow";
-@import "compass/css3/font-face";
+@import "flat-ui";
 
-$ruby_color: #7c202b;
-$ruby_gradient: #bc0100;
-$ruby_gradient_other: #95040b;
-$tag_cloud: $ruby_color;
-$dark_gray: #2C3230;
-$light_gray: #ccc;
+$turquoise: #1abc9c;
+$green_sea: 16A085;
 
-.btn-primary {
-  @include background( linear-gradient( $ruby_gradient, $ruby_gradient_other  ) );
-  border: 1px solid $ruby_gradient;
-  &:active {
-    background-color: $ruby_color;
-  }
-}
-h1 {
-  border-bottom: 1px solid $light_gray;
-  margin-bottom: 4px;
-}
-body .main .tag_cloud p {
-  margin:0 0 20px 0;
-}
-.tag_cloud {
-  a.frozen {
-    font-size: 5em;
-    color: $tag_cloud;
-  }
+$emerland: #2ecc71;
+$nephritis: #27ae60;
 
-  a.cold {
-    font-size: .8em;
-    color: $tag_cloud + 25 ;
-  }
+$peter_river: #3498db;
+$belize_hole: #2980b9;
 
-  a.warm {
-    font-size: 1em;
-    color: $tag_cloud + 50 ;
-  }
+$amethyst: #9b59b6;
+$wisteria: #8e44ad;
 
-  a.hot-tamale {
-    font-size: 1.2em;
-    color: $tag_cloud + 75;
-  }
-}
-img.avatar {
-  @include border-radius( 50% );
-  @include box-shadow( 1px 2px 5px #888 );
-  background-color: #333;
-  display: block;
-}
-#new_post, .edit_post {
-  .excerpt {
-    height: 120px;
-    width: 100%;
-  }
-}
-.excerpt {
-  height: auto;
-}
-body .main .post_info {
-  font-size: 12px;
-  font-style: italic;
-  color: $light_gray - 60;
-  margin: 10px 0 0 0;
-}
-.actions, .form-actions {
-  padding:10px;
-  outline: 1px solid $light_gray;
-  background-color: $light_gray + 30;
-  margin-top: 10px;
-  text-align: right;
-  .btn {
-    margin-bottom: 4px;
-  }
-}
-.actions-alt {
-  text-align: right;
-  display: block;
-  float: right;
-}
-.post-item {
-  h1 {
-    color: $ruby_color;
-    border-bottom: 1px solid #ccc;
-    margin-bottom: 4px;
-    a {
-      color: $ruby_color;
-    }
-  }
-  .excerpt {
-    height: auto;
-  }
-}
-html {
-  background-image: url('subtlenet2.png');
-}
+$wet_asphalt: #34495e;
+$midnight_blue: #2c3e50;
+
+$sun_flower: #f1c40f;
+$orange: #f39c12;
+
+$carrot: #e67e22;
+$pumpkin: #d35400;
+
+$alizarin: #e74c3c;
+$pomegranate: #c0392b;
+
+$clouds: #ecf0f1;
+$silver: #bdc3c7;
+
+$concrete: #95a5a6;
+$asbestos: #7f8c8d;
+
 body {
-  padding-top: 50px;
-  background-color: transparent;
-}
-.wrapper {
-  width: 960px;
-  background-color: white;
-  overflow: hidden;
-  margin:0 auto;
-  @include single-box-shadow(#888,0px,0px,5px,0px);
-}
-.navbar {
-  margin-bottom: 0px;
+  @extend .palette-clouds;
 }
 header {
-  height: 130px;
-  overflow: hidden;
-  @include background( linear-gradient( #fff, #ddd ) );
+  padding: 20px 0;
+}
+.wrapper {
+  margin-top: 51px;
+}
+.site_sections {
+  margin-top: 25px;
+  float:right;
 }
 .logo {
   background-image: url('ruby_logo.png');
-  width: 150px;
+  display: block;
   height: 77px;
-  margin: 20px 0 0 20px;
-  display:block;
-  float:left;
-}
-#site_sections {
-  float: right;
-  min-width: 326px;
-  margin: 50px 20px 0 20px;
-  overflow: hidden;
-  @include border-radius( 5px );
-  ul {
-    margin: 0;
-    background-color: $dark_gray;
-    overflow: hidden;
-  }
-  a {
-    color: white;
-    display:block;
-    padding:10px 20px;
-    text-transform: capitalize;
-    &:hover {
-      text-decoration: none;
-      background-color: $ruby_color;
-    }
-  }
-  li {
-    list-style: none;
-    display:block;
-    float: left;
-  }
-}
-
-.banner, .photos, .banner_info, .latest_articles {
-  min-height: 240px;
-}
-.banner_info {
-  min-height:201px;
-  h1 {
-    border: 0px;
-  }
+  width: 145px;
+  float: left;
 }
 .banner {
-  border-width:1px 0 1px 0;
+  background-image: url('logo-mask-2x.png');
+  background-repeat: no-repeat;
+  background-position: 50% 0px;
+  padding: 100px 0;
+  @extend .palette-pomegranate;
+  color: #ecf0f5;
 }
-.photos {
-  border-top:1px solid $dark_gray;
-  background-image: url('pendertuga.png');
-}
-.main, .banner {
-  overflow: hidden;
-}
-.main_content {
-  width: 560px;
+.main-content {
+  width: 620px;
+  padding: 40px 0;
+  color: $midnight_blue;
   float: left;
-  margin: 20px;
-}
-.main_dashboard {
-  margin: 20px;
-}
-body .main{
-  font-size: 15px;
-  line-height: 1.6;
-  p {
-    margin: 0 0 20px 0;
-  }
-}
-.main {
-  background-color: #f7f7f7;
-  font-size: 14px;
-  a {
-    color: $ruby_color;
-  }
-  a.btn {
-    color: #333;
-  }
-  a.btn-primary, a.btn-danger, a.btn-warning {
-    color: white;
-  }
-}
-body .additional_content h1 {
-  font-size: 1.2em;
-}
-.additional_content {
-  width: 320px;
-  float:right;
-  padding: 20px;
-}
-.photos {
-  width: 600px;
-  float: left;
-  margin: 0px;
-}
-.banner_info, .latest_articles {
-  width: 360px;
-  float: left;
-}
-.banner_info {
-  width: 320px;
-  padding:20px;
-  background-color: $dark_gray;
-  h1 {
-    color:#efefef;
-    font-size:40px;
-    margin-bottom:10px;
-  }
-  p {
-    color:#ccc;
-    font-size:16px;
-    line-height:1.2;
-  }
-}
-.quick_news {
-  @include background( linear-gradient( #bc0100, #95040b ) );
-  min-height: 50px;
-  border-bottom: 1px solid #aaa;
-  clear: both;
-}
-.ruby_tij_network_sites {
-  border-top: 1px solid #aaa;
-  overflow: hidden;
-  min-height: 80px;
-  @include background( linear-gradient( #fff, #ddd ) );
-  .widget {
-    margin: 20px;
-    float: left;
-    width: 278px;
-    text-align: center;
-  }
-}
-footer {
-  color: #999;
-  background-color: #2C2C2C;
-  padding: 20px;
-  p {
-    margin:0px;
-  }
-  a {
-    color: #999;
-  }
-  a:hover {
-    color: #e9e9e9;
-    text-decoration: underline;
-  }
 }
 
-.nav-pills {
-  .active a {
-    background-color: $ruby_color;
-    &:hover {
-      background-color: lighten($ruby_color, 10);
-    }
-  }
-  a {
-    color: $ruby_color;
-  }
+.additional-content {
+  padding: 40px 0;
+  width: 300px;
+  float: left;
 }
-#new_contact_form {
-  #contact_form_nickname {
-    display: none;
-  }
-  input, textarea {
-   @extend .span5
-  }
-  .actions {
-    width: 360px;
-    text-align: right;
-
-    input {
-      width: auto;
-    }
-  }
-}
-.read-more {
-  @extend .btn;
-  @extend .btn-primary;
-}
-.post-delete, .post-edit {
-  @extend .btn;
-  @extend .btn-mini;
-}
-.post-delete {
-  @extend .btn-danger;
-}
-.post-edit {
-  @extend .btn-warning;
-}
-.edit {
-  @extend .btn;
-}
-.dropdown-menu li > a:hover, .dropdown-menu .active > a, .dropdown-menu .active > a:hover {
-  background-color: $ruby_gradient;
+.content-title {
+  @extend .todo-search;
 }

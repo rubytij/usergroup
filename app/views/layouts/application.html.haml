@@ -16,27 +16,33 @@
     = render 'layouts/navigation'
     .wrapper
       %header
-        = link_to '', '/', :class => 'logo'
-        %nav#site_sections
-          %ul= render 'layouts/page_links'
+        .container
+          = link_to '', '/', :class => 'logo'
+          %nav.site_sections
+            .btn-toolbar
+              .btn-group= render 'layouts/page_links'
 
       - if @page.try(:main_page?)
         %section.banner
-          .photos
-          .banner_info
-            %h1 Somos rubytij
-            %p Sitio de informacion sobre el lenguaje de programacion Ruby.
+          .container
+            .photos
+            .banner_inf
+              %h1= t('pages.home.heading')
+              %p= t('pages.home.description')
       %section.quick_news
       %section.main
-        .main_content= yield
-        .additional_content= yield :additional_content
+        .container
+          .main-content= yield
+          .additional-content= yield :additional_content
       %section.ruby_tij_network_sites
-        .github.widget=   link_to image_tag('github_logo.png'), '//github.com/rubytij'
-        .reddit.widget=   link_to image_tag('reddit_logo.png'), '//reddit.com/r/rubytij'
-        .twitter.widget=  link_to image_tag('twitter_logo.png'), '//twitter.com/rubytij'
+        .container
+          .github.widget=   link_to image_tag('github_logo.png'), '//github.com/rubytij'
+          .reddit.widget=   link_to image_tag('reddit_logo.png'), '//reddit.com/r/rubytij'
+          .twitter.widget=  link_to image_tag('twitter_logo.png'), '//twitter.com/rubytij'
       %footer
-        %p
-          - deed = "http://creativecommons.org/licenses/by-sa/3.0/deed.#{ I18n.locale }"
-          = link_to deed, :rel => "license" do
-            = image_tag 'http://i.creativecommons.org/l/by-sa/3.0/88x31.png', :alt => "Creative Commons License"
-          = t( 'licenses.statement', :item => link_to( t('licenses.version'), deed, :rel => :license  ) ).html_safe
+        .container
+          %p
+            - deed = "http://creativecommons.org/licenses/by-sa/3.0/deed.#{ I18n.locale }"
+            = link_to deed, :rel => "license" do
+              = image_tag 'http://i.creativecommons.org/l/by-sa/3.0/88x31.png', :alt => "Creative Commons License"
+            = t( 'licenses.statement', :item => link_to( t('licenses.version'), deed, :rel => :license  ) ).html_safe
