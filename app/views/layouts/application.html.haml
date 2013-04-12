@@ -34,15 +34,15 @@
         .container
           .main-content= yield
           .additional-content= yield :additional_content
-      %section.ruby_tij_network_sites
+      %section.network-sites
         .container
-          .github.widget=   link_to image_tag('github_logo.png'), '//github.com/rubytij'
-          .reddit.widget=   link_to image_tag('reddit_logo.png'), '//reddit.com/r/rubytij'
-          .twitter.widget=  link_to image_tag('twitter_logo.png'), '//twitter.com/rubytij'
+          .github.network-logo=   link_to image_tag('github_logo.png'), '//github.com/rubytij'
+          .reddit.network-logo=   link_to image_tag('reddit_logo.png'), '//reddit.com/r/rubytij'
+          .twitter.network-logo=  link_to image_tag('twitter_logo.png'), '//twitter.com/rubytij'
       %footer
         .container
           %p
             - deed = "http://creativecommons.org/licenses/by-sa/3.0/deed.#{ I18n.locale }"
             = link_to deed, :rel => "license" do
-              = image_tag 'http://i.creativecommons.org/l/by-sa/3.0/88x31.png', :alt => "Creative Commons License"
+              = image_tag 'http://i.creativecommons.org/l/by-sa/3.0/88x31.png', :alt => "Creative Commons License", :class => 'cc-logo'
             = t( 'licenses.statement', :item => link_to( t('licenses.version'), deed, :rel => :license  ) ).html_safe

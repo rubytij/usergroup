@@ -30,18 +30,17 @@ $silver: #bdc3c7;
 
 $concrete: #95a5a6;
 $asbestos: #7f8c8d;
-
-body {
-  @extend .palette-clouds;
+html {
+  background-color: $clouds;
 }
 header {
-  padding: 20px 0;
+  padding: 20px 0 35px 0;
 }
 .wrapper {
   margin-top: 51px;
 }
 .site_sections {
-  margin-top: 25px;
+  margin-top: 20px;
   float:right;
 }
 .logo {
@@ -57,20 +56,41 @@ header {
   background-position: 50% 0px;
   padding: 100px 0;
   @extend .palette-pomegranate;
-  color: #ecf0f5;
+  color: $clouds;
+  h1 {
+    font-size: 50px;
+  }
+}
+.main {
 }
 .main-content {
-  width: 620px;
+  width: 700px;
   padding: 40px 0;
   color: $midnight_blue;
   float: left;
 }
-
 .additional-content {
   padding: 40px 0;
-  width: 300px;
+  width: 240px;
   float: left;
 }
 .content-title {
   @extend .todo-search;
+}
+.network-sites {
+  padding: 40px 0;
+  background-color: $clouds;
+  color: $silver;
+}
+.network-logo {
+  width: 312px;
+  text-align: center;
+  float:left;
+}
+footer {
+  padding: 40px 0;
+  text-align: center;
+}
+.cc-logo {
+  margin-right: 10px;
 }
