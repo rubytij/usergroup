@@ -14,6 +14,9 @@ en:
   pages:
     form:
       select_section: Select a section for this page
+    home:
+      heading: We are RubyTij
+      description: A Ruby comunity based on Tijuana
 
   posts:
     authored_by: Authored by %{author} about %{time}
