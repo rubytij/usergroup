@@ -2,7 +2,7 @@
 @import "flat-ui";
 
 $turquoise: #1abc9c;
-$green_sea: 16A085;
+$green_sea: #16a085;
 
 $emerland: #2ecc71;
 $nephritis: #27ae60;
@@ -30,6 +30,37 @@ $silver: #bdc3c7;
 
 $concrete: #95a5a6;
 $asbestos: #7f8c8d;
+
+// font sizes from http://websymphony.net/almost-flat-ui/
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.4;
+}
+
+h1{
+  font-size: 2.75em;
+}
+h2 {
+  font-size: 2.3125em;
+}
+h3 {
+  font-size: 1.6875em;
+}
+h4 {
+  font-size: 1.4375em;
+}
+h5 {
+  font-size: 1.125em;
+}
+h6 {
+  font-size: 1em;
+}
+
+body, p {
+  font-size: 1em;
+  line-height: 1.6;
+  margin-bottom: 1.25em;
+  text-rendering: optimizeLegibility;
+}
 .navbar .nav > li > ul {
   //something fails :(
   top: -90%;
@@ -57,7 +88,7 @@ header {
 .banner {
   background-image: url('logo-mask-2x.png');
   background-repeat: no-repeat;
-  background-position: 50% 0px;
+  background-position: 50% 40px;
   padding: 100px 0;
   @extend .palette-pomegranate;
   color: $clouds;
