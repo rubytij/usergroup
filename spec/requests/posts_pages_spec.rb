@@ -6,7 +6,7 @@ describe 'PostsController#index layout' do
   describe 'layout' do
     it 'should show could tag' do
       visit posts_path
-      page.should have_css( '.tag_cloud' )
+      page.should have_css( '.tag-cloud' )
     end
   end
 
