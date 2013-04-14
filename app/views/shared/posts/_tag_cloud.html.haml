@@ -1,5 +1,6 @@
-%h1= t( 'posts.tag_cloud' )
-
-%p
-  - tag_cloud( post_cloud, %w/frozen cold warm hot-tamale/ ) do |tag, css_class|
-    = link_to tag.name, posts_path( :tag => tag.name ), :class => css_class
+.content-title
+  %h4= t( 'posts.tag_cloud' )
+.tag-content
+  %p
+    - tag_cloud( post_cloud, %w/frozen cold warm hot-tamale/ ) do |tag, css_class|
+      = link_to tag.name, posts_path( :tag => tag.name ), :class => "tag #{css_class}"

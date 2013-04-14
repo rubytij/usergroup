@@ -17,6 +17,11 @@ en:
     home:
       heading: We are RubyTij
       description: A Ruby comunity based on Tijuana
+    contact_us:
+      title: Contact Us
+
+  additional_content:
+    title: Additional content
 
   posts:
     authored_by: Authored by %{author} about %{time}

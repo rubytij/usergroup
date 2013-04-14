@@ -1,5 +1,5 @@
 !!!
-%html
+%html{ :class => "#{controller_name} #{controller_name}-#{action_name}" }
   %head
     %title= t( 'head.title' )
     %link{ :rel => :icon, :type => 'image/png', :href => '/favicon.ico' }
