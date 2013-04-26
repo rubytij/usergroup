@@ -13,14 +13,7 @@ describe 'PostsController#index layout' do
   describe 'comments' do
     it 'should show disqus elements', js: true do
       visit user_post_path( @post.user, @post )
-
-      find('#disqus_thread')
-      page.should have_css( '#dsq-content-stub' )
-      page.should have_css( '#dsq-content' )
-
-      find( '#dsq-comments' )
-      page.should have_css( '#dsq-comments' )
-      page.should have_css( '#dsq-new-post' )
+      page.should have_css('#dsq1')
     end
   end
 end
