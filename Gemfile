@@ -36,6 +36,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   gem 'compass-rails'
   gem 'bootstrap-sass'
+  gem 'flat-ui-rails'
 end
 
 gem 'rspec-rails', :group => [ :test, :development ]
