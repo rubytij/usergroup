@@ -2,6 +2,6 @@
 - Page::Sections.each do |section|
   - page = Page.try( section ).try( :first )
   - next unless page
-  %li= link_to t("#{ symbolize }.#{ section }"), section_page_path(section, page)
-%li= link_to Post.model_name.human(:count => 0), posts_path
-%li= link_to ContactForm.model_name.human, contact_page_path
+  = link_to t("#{ symbolize }.#{ section }"), section_page_path(section, page), :class => 'btn btn-group'
+= link_to Post.model_name.human(:count => 0), posts_path, :class => 'btn btn-group'
+= link_to ContactForm.model_name.human, contact_page_path, :class => 'btn btn-group'

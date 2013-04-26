@@ -1,8 +1,9 @@
+%h1= t('pages.contact_us.title')
 = simple_form_for @contact_form, :url => send_email_path do |f|
-  = f.input :nickname, :label => false
+  = f.input :nickname
   = f.input :name
   = f.input :email
 
   = f.input :message, :as => :text, :input_html => { :rows => 5 }
   .actions
-    = f.submit t('labels.send_email'), :class => 'btn btn-primary'
+    = f.submit t('labels.send_email'), :class => 'btn btn-large btn-primary'

@@ -14,6 +14,14 @@ es:
   pages:
     form:
       select_section: Elige una sección
+    home:
+      heading: Somos RubyTij
+      description: Comunidad de Ruby de Tijuana
+    contact_us:
+      title: Contactanos
+
+  additional_content:
+    title: Contenido adicional
 
   posts:
     authored_by: Escrito por %{author} hace %{time}
